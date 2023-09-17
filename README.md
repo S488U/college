@@ -1,9 +1,10 @@
-# college
-This is the college projects section repo.
+#College
 
-In this page all web pages are made up. So if you wish to see it, You can visit these links:
+<p>This repo have all the study materials, records and lab program.</p><br>
+<p>If you wish to contribute in the project, contact me <a href="mailto:shahabassabbu12@gmail.com">shahabassabbu12@gmail.com</a></p>
 
-<h1>SEMESTER - 3</h1>
+<h1>SEMESTER - 3: -</h1>
+<a href="https://github.com/S488U/college/tree/main/SEMESTER_3">Semester 3 link</a>
 <ul>
     <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_3/HTML_LAB">HTML lab</a></li>
     <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_3/DATA_STRUCTURE">Data Structure</a></li>
@@ -13,7 +14,7 @@ In this page all web pages are made up. So if you wish to see it, You can visit 
     <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_3/OPERATIVE_SYSTEM">Operating System</a></li>
 </ul>
 
-<h2>HTML: -</h2>
+<h4>HTML: -</h4>
 <ul>
     <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Program-3/Admission_form.html">Program-3</a></li>
     <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Program-4/index.html">Program-4</a></li>
@@ -25,27 +26,27 @@ In this page all web pages are made up. So if you wish to see it, You can visit 
 
 
 <hr>
-<h2>login Page: -</h2>
+<h4>login Page: -</h4>
 <a href="https://s488u.github.io/college/SEMESTER_3/login/index.html">Login Page</a>
 
-<h1>SEMESTER - 2</h1>
+<h1>SEMESTER - 2: -</h1>
 <a href="https://github.com/S488U/college/tree/main/SEMESTER_2">Semester 2 link</a>
 
 <ul>
-    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_1/DBMS">Database Managment System</a></li>
-    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_1/DBMS/Lab">DBMS lab</a></li>
-    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_1/ENGLSIH">English</a></li>
-    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_1/OE">Open Elective</a></li>
-    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_1/OOPS">Object Oriented Programming</a></li>
+    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_2/DBMS">Database Managment System</a></li>
+    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_2/DBMS/Lab">DBMS lab</a></li>
+    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_2/ENGLSIH">English</a></li>
+    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_2/OE">Open Elective</a></li>
+    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_2/OOPS">Object Oriented Programming</a></li>
 </ul>
 <ul>
-    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_1/DBMS/DBMS_Record.pdf">DBMS Record</a></li>
-    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_1/OOPS/OOPS_RECORD.pdf">OOPS Record</a></li>
+    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_2/DBMS/DBMS_Record.pdf">DBMS Record</a></li>
+    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_2/OOPS/OOPS_RECORD.pdf">OOPS Record</a></li>
 </ul>
 
 <hr>
 
-<h1>SEMESTER - 1</h1>
+<h1>SEMESTER - 1: -</h1>
 <a href="https://github.com/S488U/college/tree/main/SEMESTER_1">semester 1 link</a>
 <br>
 
