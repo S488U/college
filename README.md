@@ -6,12 +6,8 @@ In this page all web pages are made up. So if you wish to see it, You can visit 
 <h1>SEMESTER - 3</h1>
 
 <h2>HTML: -</h2>
-<p>Program-3</p>
-<a href="https://s488u.github.io/college/HTML/Program-4/index.html">Program-3/Admission_form.html</a>
-<br>
-<p>Program-4</p>
+<a href="https://s488u.github.io/college/HTML/Program-3/Admission_form.html">Program-3</a>
 <a href="https://s488u.github.io/college/HTML/Program-4/index.html">Program-4</a>
-<br>
 <hr>
 <p>food_items</p>
 <a href="https://s488u.github.io/college/HTML/food_items/food-items.html">food_items</a>
