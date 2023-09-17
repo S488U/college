@@ -22,5 +22,7 @@ In this page all web pages are made up. So if you wish to see it, You can visit 
 <h1>SEMESTER - 2</h1>
 <a href="https://github.com/S488U/college/tree/main/SEMESTER_2">Semester 2 link</a>
 
-<h1>SEMESTER - 1</h1>
-<a href="https://github.com/S488U/college/tree/main/SEMESTER_1">semester 1 link</a>
+
+<a href="https://github.com/S488U/college/tree/main/SEMESTER_1"><h1>SEMESTER - 1</h1></a>
+<br>
+<a href="https://github.com/S488U/college/tree/main/SEMESTER_1/C"> C langauge</a>
