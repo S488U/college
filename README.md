@@ -32,13 +32,11 @@ In this page all web pages are made up. So if you wish to see it, You can visit 
 <a href="https://github.com/S488U/college/tree/main/SEMESTER_2">Semester 2 link</a>
 
 <ul>
-    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_1/DBMS"></a></li>
-    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_1/DBMS/Lab"></a></li>
-    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_1/ENGLSIH"></a></li>
-    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_1/OE"></a></li>
-    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_1/OOPS"></a></li>
-    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_1/"></a></li>
-    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_1/"></a></li>
+    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_1/DBMS">Database Managment System</a></li>
+    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_1/DBMS/Lab">DBMS lab</a></li>
+    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_1/ENGLSIH">English</a></li>
+    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_1/OE">Open Elective</a></li>
+    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_1/OOPS">Object Oriented Programming</a></li>
 </ul>
 <ul>
     <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_1/DBMS/DBMS_Record.pdf">DBMS Record</a></li>
