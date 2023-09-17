@@ -22,7 +22,12 @@ In this page all web pages are made up. So if you wish to see it, You can visit 
 <h1>SEMESTER - 2</h1>
 <a href="https://github.com/S488U/college/tree/main/SEMESTER_2">Semester 2 link</a>
 
-
-<a href="https://github.com/S488U/college/tree/main/SEMESTER_1"><h1>SEMESTER - 1</h1></a>
+<h1>SEMESTER - 1</h1>
+<a href="https://github.com/S488U/college/tree/main/SEMESTER_1">semester 1 link</a>
 <br>
-<a href="https://github.com/S488U/college/tree/main/SEMESTER_1/C"> C langauge</a>
+<a href="https://github.com/S488U/college/tree/main/SEMESTER_1/C">C langauge</a>
+<a href="https://github.com/S488U/college/tree/main/SEMESTER_1/English">English</a>
+<a href="https://github.com/S488U/college/tree/main/SEMESTER_1/FIT">Foundation of Information & Technology</a>
+<a href="https://github.com/S488U/college/tree/main/SEMESTER_1/FIT_lab">FIT Lab</a>
+<a href="https://github.com/S488U/college/tree/main/SEMESTER_1/IW">Internet and Web Designing</a>
+<a href="https://github.com/S488U/college/tree/main/SEMESTER_1/OE_Human Health_&_Diseases">OE (Human Health & Diseases)</a>
