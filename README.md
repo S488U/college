@@ -30,4 +30,4 @@ In this page all web pages are made up. So if you wish to see it, You can visit 
 <a href="https://github.com/S488U/college/tree/main/SEMESTER_1/FIT">Foundation of Information & Technology</a>
 <a href="https://github.com/S488U/college/tree/main/SEMESTER_1/FIT_lab">FIT Lab</a>
 <a href="https://github.com/S488U/college/tree/main/SEMESTER_1/IW">Internet and Web Designing</a>
-<a href="https://github.com/S488U/college/tree/main/SEMESTER_1/OE_Human Health_&_Diseases">OE (Human Health & Diseases)</a>
+<a href="https://github.com/S488U/college/tree/main/SEMESTER_1/OE_Human_Health_and_Diseases">OE (Human Health & Diseases)</a>
