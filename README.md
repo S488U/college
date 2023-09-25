@@ -71,10 +71,10 @@
 <br>
 
 <ul>
-    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_1/2nd_day">2nd day</a></li>
-    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_1/3rd_day">3rd day</a></li>
-    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_1/4th_day">4th day</a></li>
-    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_1/5th_day">5th day</a></li>
+    <li><a href="https://github.com/S488U/college/tree/main/IBM/SEMESTER_1/2nd_day">2nd day</a></li>
+    <li><a href="https://github.com/S488U/college/tree/main/IBM/SEMESTER_1/3rd_day">3rd day</a></li>
+    <li><a href="https://github.com/S488U/college/tree/main/IBM/SEMESTER_1/4th_day">4th day</a></li>
+    <li><a href="https://github.com/S488U/college/tree/main/IBM/SEMESTER_1/5th_day">5th day</a></li>
 </ul>
 
 <h2>Note: some of the files were missing.</h2>
