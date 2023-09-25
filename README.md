@@ -66,7 +66,7 @@
 
 <hr>
 
-<h1>SEMESTER - 1: -</h1>
+<h1>Global Certification: -</h1>
 <a href="https://github.com/S488U/college/tree/main/IBM">Global Certification</a>
 <br>
 
