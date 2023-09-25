@@ -63,3 +63,18 @@
     <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_1/IW">Internet and Web Designing</a></li>
     <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_1/OE_Human_Health_and_Diseases">OE (Human Health & Diseases)</a></li>
 </ul>
+
+<hr>
+
+<h1>SEMESTER - 1: -</h1>
+<a href="https://github.com/S488U/college/tree/main/IBM">Global Certification</a>
+<br>
+
+<ul>
+    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_1/2nd_day">2nd day</a></li>
+    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_1/3rd_day">3rd day</a></li>
+    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_1/4th_day">4th day</a></li>
+    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_1/5th_day">5th day</a></li>
+</ul>
+
+<h2>Note: some of the files were missing.</h2>
