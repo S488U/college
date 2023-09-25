@@ -39,7 +39,7 @@
 <ul>
     <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_2/DBMS/Study_Material">Database Managment System</a></li>
     <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_2/DBMS/Lab">DBMS lab</a></li>
-    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_2/Computer%Organisation">Computer Organisation</a></li>
+    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_2/CO">Computer Organisation</a></li>
     <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_2/ENGLISH">English</a></li>
     <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_2/OE">Open Elective</a></li>
     <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_2/OOPS/Study_Material">Object Oriented Programming</a></li>
