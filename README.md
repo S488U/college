@@ -16,8 +16,12 @@
 
 <h4>HTML: -</h4>
 <ul>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Program-1/index.html">Program-1</a></li>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Program-2/frameset.html">Program-2</a></li>
     <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Program-3/Admission_form.html">Program-3</a></li>
     <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Program-4/index.html">Program-4</a></li>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Program-6/index.html">Program-6</a></li>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Program-7/index.html">Program-7</a></li>
 </ul>
 
 <hr>
@@ -35,6 +39,7 @@
 <ul>
     <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_2/DBMS/Study_Material">Database Managment System</a></li>
     <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_2/DBMS/Lab">DBMS lab</a></li>
+    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_2/Computer%Organisation">Computer Organisation</a></li>
     <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_2/ENGLISH">English</a></li>
     <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_2/OE">Open Elective</a></li>
     <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_2/OOPS/Study_Material">Object Oriented Programming</a></li>
