@@ -22,6 +22,7 @@
     <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Program-4/index.html">Program-4</a></li>
     <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Program-6/index.html">Program-6</a></li>
     <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Program-7/index.html">Program-7</a></li>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Program-8/index.html">Program-8</a></li>
 </ul>
 
 <hr>
