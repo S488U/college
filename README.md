@@ -1,4 +1,4 @@
-#College
+<h1>S488U College</h1>
 
 <p>This repo have all the study materials, records and lab program.</p><br>
 <p>If you wish to contribute in the project, contact me <a href="mailto:shahabassabbu12@gmail.com">shahabassabbu12@gmail.com</a></p>
@@ -20,6 +20,7 @@
     <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Program-2/frameset.html">Program-2</a></li>
     <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Program-3/Admission_form.html">Program-3</a></li>
     <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Program-4/index.html">Program-4</a></li>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Program-5/index.html">Program-5</a></li>
     <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Program-6/index.html">Program-6</a></li>
     <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Program-7/index.html">Program-7</a></li>
     <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Program-8/index.html">Program-8</a></li>
@@ -28,6 +29,13 @@
 <hr>
 <a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/food_items/food-items.html">food_items</a>
 <br>
+
+<hr>
+<h4>Data Structure Lab: -</h4>
+<p>Get the Data structure lab programs code from here:-</p>
+<ul>
+    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_3/DATA_STRUCTURE_LAB/Finished_pograms/">Code</a></li>
+</ul>
 
 
 <hr>
