@@ -28,7 +28,7 @@
     <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Part_A/Program-6/index.html">Program-6</a></li>
     <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Part_A/Program-7/index.html">Program-7</a></li>
     <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Part_A/Program-8/index.html">Program-8</a></li>
-</ul
+</ul>
 <ul>
     <li><p>Part - B</p></li>
     <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Part_B/Program-1/fibonacci.html">Program-1</a></li>
