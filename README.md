@@ -2,7 +2,7 @@
 
 <p>This repo have all the study materials, records and lab program.</p>
 <br>
-<p>Directly Visit the page: <a href="https://s488u.github.io/college/">Study Materials</a></p>
+<p>Directly Visit the page: <a target="_blank" href="https://s488u.github.io/college/">Study Materials</a></p>
 <br>
 <p>If you wish to contribute in the project, contact me <a href="mailto:shahabassabbu12@gmail.com">shahabassabbu12@gmail.com</a></p>
 
