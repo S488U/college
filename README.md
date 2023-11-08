@@ -1,6 +1,9 @@
 <h1>S488U College</h1>
 
-<p>This repo have all the study materials, records and lab program.</p><br>
+<p>This repo have all the study materials, records and lab program.</p>
+<br>
+<p>Directly Visit the page: <a href="https://s488u.github.io/college/">Study Materials</a></p>
+<br>
 <p>If you wish to contribute in the project, contact me <a href="mailto:shahabassabbu12@gmail.com">shahabassabbu12@gmail.com</a></p>
 
 <h1>SEMESTER - 3: -</h1>
@@ -16,14 +19,25 @@
 
 <h4>HTML: -</h4>
 <ul>
-    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Program-1/index.html">Program-1</a></li>
-    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Program-2/frameset.html">Program-2</a></li>
-    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Program-3/Admission_form.html">Program-3</a></li>
-    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Program-4/index.html">Program-4</a></li>
-    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Program-5/index.html">Program-5</a></li>
-    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Program-6/index.html">Program-6</a></li>
-    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Program-7/index.html">Program-7</a></li>
-    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Program-8/index.html">Program-8</a></li>
+    <li><p>Part - A</p></li>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/part_A/Program-1/index.html">Program-1</a></li>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/part_A/Program-2/frameset.html">Program-2</a></li>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/part_A/Program-3/Admission_form.html">Program-3</a></li>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/part_A/Program-4/index.html">Program-4</a></li>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/part_A/Program-5/index.html">Program-5</a></li>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/part_A/Program-6/index.html">Program-6</a></li>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/part_A/Program-7/index.html">Program-7</a></li>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/part_A/Program-8/index.html">Program-8</a></li>
+</ul>
+<ul>
+    <li><p>Part - B</p></li>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/part_B/Program-1/fibonacci.html">Program-1</a></li>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/part_B/Program-2/square_of_the_number.html">Program-2</a></li>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/part_B/Program-3/Reverse.html">Program-3</a></li>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/part_B/Program-4/calculator.html">Program-4</a></li>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/part_B/Program-5/Mouse_pointer.html">Program-5</a></li>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/part_B/Program-6/Animate_box.html">Program-6</a></li>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/part_B/Program-7/Hotel_menu.html">Program-7</a></li>
 </ul>
 
 <hr>
@@ -34,12 +48,13 @@
 <h4>Data Structure Lab: -</h4>
 <p>Get the Data structure lab programs code from here:-</p>
 <ul>
+    <li><p>Part A & B: -</p></li>
     <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_3/DATA_STRUCTURE_LAB/Finished_pograms/">Code</a></li>
 </ul>
 
 
 <hr>
-<h4>login Page: -</h4>
+<h4>Projects: <br> login Page: -</h4>
 <a href="https://s488u.github.io/college/SEMESTER_3/login/index.html">Login Page</a>
 
 <h1>SEMESTER - 2: -</h1>
