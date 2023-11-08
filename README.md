@@ -20,24 +20,24 @@
 <h4>HTML: -</h4>
 <ul>
     <li><p>Part - A</p></li>
-    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/part_A/Program-1/index.html">Program-1</a></li>
-    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/part_A/Program-2/frameset.html">Program-2</a></li>
-    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/part_A/Program-3/Admission_form.html">Program-3</a></li>
-    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/part_A/Program-4/index.html">Program-4</a></li>
-    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/part_A/Program-5/index.html">Program-5</a></li>
-    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/part_A/Program-6/index.html">Program-6</a></li>
-    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/part_A/Program-7/index.html">Program-7</a></li>
-    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/part_A/Program-8/index.html">Program-8</a></li>
-</ul>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Part_A/Program-1/index.html">Program-1</a></li>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Part_A/Program-2/frameset.html">Program-2</a></li>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Part_A/Program-3/Admission_form.html">Program-3</a></li>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Part_A/Program-4/index.html">Program-4</a></li>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Part_A/Program-5/index.html">Program-5</a></li>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Part_A/Program-6/index.html">Program-6</a></li>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Part_A/Program-7/index.html">Program-7</a></li>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Part_A/Program-8/index.html">Program-8</a></li>
+</ul
 <ul>
     <li><p>Part - B</p></li>
-    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/part_B/Program-1/fibonacci.html">Program-1</a></li>
-    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/part_B/Program-2/square_of_the_number.html">Program-2</a></li>
-    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/part_B/Program-3/Reverse.html">Program-3</a></li>
-    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/part_B/Program-4/calculator.html">Program-4</a></li>
-    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/part_B/Program-5/Mouse_pointer.html">Program-5</a></li>
-    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/part_B/Program-6/Animate_box.html">Program-6</a></li>
-    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/part_B/Program-7/Hotel_menu.html">Program-7</a></li>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Part_B/Program-1/fibonacci.html">Program-1</a></li>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Part_B/Program-2/square_of_the_number.html">Program-2</a></li>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Part_B/Program-3/Reverse.html">Program-3</a></li>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Part_B/Program-4/calculator.html">Program-4</a></li>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Part_B/Program-5/Mouse_pointer.html">Program-5</a></li>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Part_B/Program-6/Animate_box.html">Program-6</a></li>
+    <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Part_B/Program-7/Hotel_menu.html">Program-7</a></li>
 </ul>
 
 <hr>
