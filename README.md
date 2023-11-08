@@ -4,7 +4,7 @@
 <br>
 <p>Directly Visit the page: <a target="_blank" href="https://s488u.github.io/college/">Study Materials</a></p>
 <br>
-<p>If you wish to contribute in the project, contact me <a href="mailto:shahabassabbu12@gmail.com">shahabassabbu12@gmail.com</a></p>
+<p>If you wish to contribute in the project, contact me <a href="mailto:shahabassabbu12@gmail.com">shahabassabbu12@gmail.com</a> or <a href="https://duploader.tech/contact/">Contact</a></p>
 
 <h1>SEMESTER - 3: -</h1>
 <a href="https://github.com/S488U/college/tree/main/SEMESTER_3">Semester 3 link</a>
