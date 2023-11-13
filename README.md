@@ -49,7 +49,10 @@
 <p>Get the Data structure lab programs code from here:-</p>
 <ul>
     <li><p>Part A & B: -</p></li>
-    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_3/DATA_STRUCTURE_LAB/Finished_pograms/">Code</a></li>
+    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_3/DATA_STRUCTURE_LAB/DS%20Progarms%20Part%20A%20%26%20B.pdf">PDF</a></li>
+    <li><p>Code: -</p></li>
+    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_3/DATA_STRUCTURE_LAB/Part-A">Part - A</a></li>
+    <li><a href="https://github.com/S488U/college/tree/main/SEMESTER_3/DATA_STRUCTURE_LAB/Part-B">Part - B</a></li>
 </ul>
 
 
