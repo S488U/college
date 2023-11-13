@@ -41,7 +41,7 @@
 </ul>
 
 <hr>
-<a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/food_items/food-items.html">food_items</a>
+<a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/food_items/food_items.html">food_items</a>
 <br>
 
 <hr>
