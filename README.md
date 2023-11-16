@@ -117,12 +117,12 @@ BCA/
 <h1>MCA: - </h1>
 
 <h1>SEMESTER - 2</h1>
-<ul_
+<ul>
     <li><span>Syllabus: </span><a target="_blank"  href="https://github.com/S488U/college/tree/main/MCA/SEMESTER_2/II_Sem_MCA_Syllabus.pdf">II Sem MCA Syllabus</a></li>
     <li><a target="_blank"  href="https://github.com/S488U/college/tree/main/MCA/SEMESTER_2/Advanced%20Java">Advanced Java</a></li>
     <li><a target="_blank"  href="https://github.com/S488U/college/tree/main/MCA/SEMESTER_2/Network_Management">Network_Management</a></li>
     <li><a target="_blank"  href="https://github.com/S488U/college/tree/main/MCA/SEMESTER_2/Python">Python</a></li>
-</ul_
+</ul>
 
 <br>
 
