@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOTEL MENU</title>
+    <script type="text/javascript">
+        function computecost() {
+            var salad = document.getElementById("salad").value;
+            var biryani = document.getElementById("biryani").value;
+            var paneer = document.getElementById("paneer").value;
+            document.getElementById("cost").value = totalcost = salad * 55 + biryani * 100 + paneer * 80;
+        }
+    </script>
+    <style>
+        * {
+            font-family: 'Times New Roman', 'Arial';
+            color: #555;
+        }
+
+        body {
+            background-color: #3fb399;
+        }
+
+        h2 {
+            color: red;
+            text-align: center;
+        }
+
+        .container {
+            width: 320px;
+            background-color: lightblue;
+            margin: 120px auto;
+            padding: 20px;
+        }
+
+        table {
+            text-align: center;
+            border-color: #f4f4f4;
+            background-color: white;
+        }
+
+        td {
+            width: 25%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form action="">
+            <h2>ORDER FORM</h2>
+            <table boder="1" cellspacing="0">
+                <tr>
+                    <th>ITEM</th>
+                    <th>PRICE</th>
+                    <th>QUANTITY</th>
+                </tr>
+                <tr>
+                    <th>salad</th>
+                    <td>55</td>
+                    <td><input type="text" id="salad" size="2"></td>
+                </tr>
+                <tr>
+                    <th>biryani</th>
+                    <td>100</td>
+                    <td><input type="text" id="biryani" size="2"></td>
+                </tr>
+                <tr>
+                    <th>paneer</th>
+                    <td>80</td>
+                    <td><input type="text" id="paneer" size="2"></td>
+                </tr>
+            </table>
+            <p>
+                <input type="button" value="totalcost" onclick="computecost();" />
+                <input type="text" id="cost" size="5" onfocus="this.blur();" />
+            </p>
+            <p>
+                <input type="submit" value="order" />
+                <input type="reset" value="clear" />
+            </p>
+        </form>
+    </div>
+</body>
+
+</html>
