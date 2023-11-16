@@ -6,7 +6,7 @@ Warning:
 <pre>
 Dear Users,
 
-Copying programs from our website for exams or any other form of assessment will lead to malpractice. We are not responsible for any issues that may arise from such actions. Please use our resources responsibly and solely for educational purposes.
+Copying programs from our website for exams or any other form of assessment will lead to<br> malpractice. We are not responsible for any issues that<br> may arise from such actions. Please use our resources responsibly<br> and solely for educational purposes.
 
 Thank you for your understanding.
 -Duploader
