@@ -13,12 +13,12 @@
             dom.style.visibility = "visible";
         }
         function hidePtr() {
-            document.getElementById("message").style.visibility = "hidden";
+            document.getElementById("message").style.visibility = "hidden;
         }
     </script>
 </head>
 
-<body onmousedown="displayPtr(event);" onmouseup="hidePtr();">
+<body onmousedown="displayPtr(event);" onmouseup="hidePtr();" style="height:100vh;">
     <p>
         <span id="message" style="color:red;position:relative;
 font-size:26pt; font-weight:bold;">You just clicked here</span>
