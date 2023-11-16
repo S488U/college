@@ -42,7 +42,7 @@ int partition(int a[], int low, int high)
     if (i < j)
     {
         temp = a[i];
-	a[i] = a[j];
+        Lab on Data Structure Using C++ III Sem BCA Page | 18 a[i] = a[j];
         a[j] = temp;
     }
     else

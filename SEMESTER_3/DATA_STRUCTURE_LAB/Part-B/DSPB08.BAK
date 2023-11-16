@@ -89,7 +89,7 @@ void deleteFront()
     else
     {
         temp = front;
-	cout << "The deleted element is: " << front->data;
+        cout << "The delete element is: " << front->data;
         if (front == rear)
         {
             front = rear = NULL;

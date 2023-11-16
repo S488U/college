@@ -68,8 +68,10 @@ NODE insert_front(NODE first, int num)
 {
     NODE temp;
     temp = getnode();
-    temp ->data = num;
-    temp ->link = first;
+    temp
+        ->data = num;
+    temp
+        ->link = first;
     return temp;
 }
 NODE delete_front(NODE first)
@@ -81,7 +83,8 @@ NODE delete_front(NODE first)
         return (first);
     }
     temp = first;
-    temp = temp ->link;
+    temp = temp
+               ->link;
     cout << "The deleted element is: " << first->data << endl;
     free(first);
     return (temp);
@@ -91,16 +94,16 @@ void display(NODE first)
     NODE temp;
     if (first == NULL)
     {
-	cout << "List is empty";
-	return;
+        cout << "List is empty";
+        return;
     }
     cout << "Element in the list are " << endl;
     temp = first;
     cout << "The element in the list are: ";
     while (temp != NULL)
     {
-	cout << temp->data << "-->";
-	temp = temp->link;
+        cout << temp->data << "-->";
+        temp = temp->link;
     }
     cout << "NULL" << endl;
 }
