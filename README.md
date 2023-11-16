@@ -118,17 +118,17 @@ BCA/
 
 <h1>SEMESTER - 2</h1>
 <ul_
-    <li><span>Syllabus: </span><a target="_blank"  href="https://github.com/S488U/college/tree/main/MCA/SEMESTER_2/II%Sem%MCA%Syllabus.pdf">II Sem MCA Syllabus</a></li>
-    <li><a target="_blank"  href="https://github.com/S488U/college/tree/main/MCA/SEMESTER_2/Advanced%Java/">Advanced Java</a></li>
-    <li><a target="_blank"  href="https://github.com/S488U/college/tree/main/MCA/SEMESTER_2/Network_Management/">Network_Management</a></li>
-    <li><a target="_blank"  href="https://github.com/S488U/college/tree/main/MCA/SEMESTER_2/Python/">Python</a></li>
+    <li><span>Syllabus: </span><a target="_blank"  href="https://github.com/S488U/college/tree/main/MCA/SEMESTER_2/II_Sem_MCA_Syllabus.pdf">II Sem MCA Syllabus</a></li>
+    <li><a target="_blank"  href="https://github.com/S488U/college/tree/main/MCA/SEMESTER_2/Advanced%20Java">Advanced Java</a></li>
+    <li><a target="_blank"  href="https://github.com/S488U/college/tree/main/MCA/SEMESTER_2/Network_Management">Network_Management</a></li>
+    <li><a target="_blank"  href="https://github.com/S488U/college/tree/main/MCA/SEMESTER_2/Python">Python</a></li>
 </ul_
 
 <br>
 
 <h1>SEMESTER - 1</h1>
 <ul>
-    <li><a target="_blank"  href="https://github.com/S488U/college/tree/main/MCA/SEMESTER_1/Dot_Net/">.Net Study Material</a></li>
+    <li><a target="_blank"  href="https://github.com/S488U/college/tree/main/MCA/SEMESTER_1/Dot_Net">.Net Study Material</a></li>
 </ul>
 
 <h2>Note: some of the files were missing.</h2>
