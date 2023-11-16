@@ -1,7 +1,7 @@
 <h1>S488U College</h1>
 
 <p>This repo have all the study materials, records and lab program.</p>
-<h2>
+<h3>
 <pre>
 Dear Users,
 
@@ -10,7 +10,7 @@ Copying programs from our website for exams or any other form of assessment will
 Thank you for your understanding.
 -Duploader
 </pre>
-<h2>
+<h3>
 <br>
 <p>Directly Visit the page: <a target="_blank" href="https://s488u.github.io/college/">Study Materials</a></p>
 <br>
