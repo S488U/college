@@ -3,6 +3,7 @@
 <p>This repo have all the study materials, records and lab program.</p>
 <h3>
 <pre>
+<mark>Warning: </mark>
 Dear Users,
 
 Copying programs from our website for exams or any other form of assessment will lead to malpractice. We are not responsible for any issues that may arise from such actions. Please use our resources responsibly and solely for educational purposes.
