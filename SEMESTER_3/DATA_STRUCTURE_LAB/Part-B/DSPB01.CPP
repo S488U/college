@@ -42,7 +42,7 @@ void mergearray(int a[], int low, int mid, int high)
         if (a[i] < a[j])
             c[k++] = a[i++];
         else
-            Lab on Data Structure Using C++ III Sem BCA Page | 16 c[k++] = a[j++];
+            c[k++] = a[j++];
     while (i <= mid)
         c[k++] = a[i++];
     while (j <= high)

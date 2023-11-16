@@ -40,9 +40,6 @@
     <li><a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/Part_B/Program-7/Hotel_menu.html">Program-7</a></li>
 </ul>
 
-<hr>
-<a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/food_items/food_items.html">food_items</a>
-<br>
 
 <hr>
 <h4>Data Structure Lab: -</h4>
@@ -59,6 +56,9 @@
 <hr>
 <h4>Projects: <br> login Page: -</h4>
 <a href="https://s488u.github.io/college/SEMESTER_3/login/index.html">Login Page</a>
+<br>
+<a href="https://s488u.github.io/college/SEMESTER_3/HTML_LAB/food_items/food_items.html">food_items</a>
+<br>
 
 <h1>SEMESTER - 2: -</h1>
 <a href="https://github.com/S488U/college/tree/main/SEMESTER_2">Semester 2 link</a>

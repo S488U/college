@@ -72,8 +72,9 @@ void cqueue::cqdisplay()
         cout << "the elements in circular queue are:" << endl;
         while (i <= rear)
         {
-	    cout << cq[i] << "\t"<<endl;
-	    i = i + 1 % max;
+            cout << cq[i] << "
+\t "<<endl;
+                i = i + 1 % max;
         }
     }
 }
