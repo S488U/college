@@ -1,6 +1,7 @@
 <h1>S488U College</h1>
 
-<p>This repo have all the study materials, records and lab program.</p>
+<p>This repository contains all study materials, records, and lab programs for BCA & MCA.</p>
+
 <h3>
 Warning: 
 <pre>
@@ -113,6 +114,8 @@ BCA/
     <li><a target="_blank"  href="https://github.com/S488U/college/tree/main/IBM/SEMESTER_1/4th_day">4th day</a></li>
     <li><a target="_blank"  href="https://github.com/S488U/college/tree/main/IBM/SEMESTER_1/5th_day">5th day</a></li>
 </ul>
+
+<hr>
 
 <h1>MCA: - </h1>
 
