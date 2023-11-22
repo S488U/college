@@ -1,6 +1,7 @@
 <h1>S488U College</h1>
 
-<p>This repo have all the study materials, records and lab program.</p>
+<p>This repository contains all study materials, records, and lab programs for BCA & MCA.</p>
+
 <h3>
 Warning: 
 <pre>
@@ -41,7 +42,7 @@ Thank you for your understanding.
     <li><a target="_blank"  href="https://s488u.github.io/college/BCA/SEMESTER_3/HTML_LAB/Part_A/Program-7/index.html">Program-7</a></li>
     <li><a target="_blank"  href="https://s488u.github.io/college/BCA/SEMESTER_3/HTML_LAB/Part_A/Program-8/index.html">Program-8</a></li>
 </ul>
-<ul>BCA/
+<ul>
     <li><p>Part - B</p></li>
     <li><a target="_blank"  href="https://s488u.github.io/college/BCA/SEMESTER_3/HTML_LAB/Part_B/Program-1/fibonacci.html">Program-1</a></li>
     <li><a target="_blank"  href="https://s488u.github.io/college/BCA/SEMESTER_3/HTML_LAB/Part_B/Program-2/square_of_the_number.html">Program-2</a></li>
@@ -82,8 +83,8 @@ Thank you for your understanding.
     <li><a target="_blank"  href="https://github.com/S488U/college/tree/main/BCA/SEMESTER_2/OOPS/Study_Material">Object Oriented Programming</a></li>
 </ul>
 <ul>
-    <li><a target="_blank"  href="https://github.com/S488U/college/tree/main/SEMESTER_2/DBMS/DBMS_Record.pdf">DBMS Record</a></li>
-    <li><a target="_blank"  href="https://github.com/S488U/college/tree/main/SEMESTER_2/OOPS/OOPS_RECORD.pdf">OOPS Record</a></li>
+    <li><a target="_blank"  href="https://github.com/S488U/college/tree/main/BCA/SEMESTER_2/DBMS/DBMS_Record.pdf">DBMS Record</a></li>
+    <li><a target="_blank"  href="https://github.com/S488U/college/tree/main/BCA/SEMESTER_2/OOPS/OOPS_RECORD.pdf">OOPS Record</a></li>
 </ul>
 BCA/
 <hr>
@@ -113,6 +114,8 @@ BCA/
     <li><a target="_blank"  href="https://github.com/S488U/college/tree/main/IBM/SEMESTER_1/4th_day">4th day</a></li>
     <li><a target="_blank"  href="https://github.com/S488U/college/tree/main/IBM/SEMESTER_1/5th_day">5th day</a></li>
 </ul>
+
+<hr>
 
 <h1>MCA: - </h1>
 
