@@ -3,23 +3,21 @@
 #include <iomanip.h>
 #include <stdlib.h>
 #define max 5
-class cqueue
-{
-private:
-    int cq[max], front, rear;
+class cqueue {
+    private:
+        int cq[max], front, rear;
 
-public:
-    void cqinsert();
-    void cqdelete();
-    void cqdisplay();
-    cqueue()
-    {
-        front = -1;
-        rear = -1;
+    public:
+        void cqinsert();
+        void cqdelete();
+        void cqdisplay();
+        cqueue()
+        {
+            front = -1;
+            rear = -1;
     }
 };
-void cqueue::cqinsert()
-{
+void cqueue::cqinsert() {
     int num;
     if ((rear + 1) % max == front || (front == 0 && rear == max - 1))
     {
@@ -36,8 +34,7 @@ void cqueue::cqinsert()
         cq[rear] = num;
     }
 }
-void cqueue::cqdelete()
-{
+void cqueue::cqdelete() {
     int num;
     if (front == -1)
     {
@@ -45,45 +42,34 @@ void cqueue::cqdelete()
         return;
     }
     num = cq[front];
-    if (front == rear)
-    {
+    if (front == rear) {
         front =
             -1;
         rear =
             -1;
-    }
-    else
-    {
+    } else {
         front = (front + 1) % max;
     }
     cout << "the deleted element is:" << num << endl;
 }
-void cqueue::cqdisplay()
-{
+void cqueue::cqdisplay() {
     int i = front;
-    if (front ==
-        -1)
-    {
+    if (front == -1) {
         cout << "circular queue is empty" << endl;
         return;
-    }
-    else
-    {
+    } else  {
         cout << "the elements in circular queue are:" << endl;
-        while (i <= rear)
-        {
-	    cout << cq[i] << "\t"<<endl;
-	    i = i + 1 % max;
+        while (i <= rear) {
+            cout << cq[i] << "\t" << endl;
+            i = i + 1 % max;
         }
     }
 }
-void main()
-{
+void main() {
     cqueue c;
     clrscr();
     int ch;
-    do
-    {
+    do {
         cout << "***MENU***" << endl;
         cout << "1.insert" << endl;
         cout << "2.delete" << endl;
@@ -91,32 +77,27 @@ void main()
         cout << "4.exit" << endl;
         cout << "enter your choice" << endl;
         cin >> ch;
-        switch (ch)
-        {
-        case 1:
-        {
-            c.cqinsert();
-            break;
-        }
-        case 2:
-        {
-            c.cqdelete();
-            break;
-        }
-        case 3:
-        {
-            c.cqdisplay();
-            break;
-        }
-        case 4:
-        {
-            exit(0);
-        }
-        default:
-        {
-            cout << "invalid choice" << endl;
-        }
-        }
-    } while (ch <= 4);
+        switch (ch) {
+            case 1: {
+                c.cqinsert();
+                break;
+            }
+            case 2: {
+                c.cqdelete();
+                break;
+            }
+            case 3: {
+                c.cqdisplay();
+                break;
+            }
+            case 4: {
+                exit(0);
+            }
+            default: {
+                cout << "invalid choice" << endl;
+            }
+            }
+    } 
+    while (ch <= 4);
     getch();
 }

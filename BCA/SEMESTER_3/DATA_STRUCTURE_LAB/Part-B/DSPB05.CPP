@@ -4,20 +4,16 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <iomanip.h>
-int s[10], top =
-               -1;
+int s[10], top = -1;
 void push(int);
 int pop();
-void push(int x)
-{
+void push(int x) {
     s[++top] = x;
 }
-int pop()
-{
+int pop() {
     return (s[top--]);
 }
-void main()
-{
+void main() {
     clrscr();
     char expr[20], ch;
     int op1, op2, n;
@@ -33,26 +29,23 @@ void main()
         {
             op1 = pop();
             op2 = pop();
-            switch (ch)
-            {
-            case '+':
-            {
-                push(op2 + op1);
-                break;
-            }
-            case ' -': {
-                push(op2 - op1);
-                break;
-            } case '*':
-            {
-                push(op2 * op1);
-                break;
-            }
-            case '/':
-            {
-                push(op2 / op1);
-                break;
-            }
+            switch (ch) {
+                case '+': {
+                    push(op2 + op1);
+                    break;
+                }
+                case ' -': {
+                    push(op2 - op1);
+                    break;
+                }
+                case '*': {
+                    push(op2 * op1);
+                    break;
+                }
+                case '/': {
+                    push(op2 / op1);
+                    break;
+                }
             }
         }
     }
