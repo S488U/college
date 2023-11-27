@@ -86,7 +86,6 @@ Thank you for your understanding.
     <li><a target="_blank"  href="https://github.com/S488U/college/tree/main/BCA/SEMESTER_2/DBMS/DBMS_Record.pdf">DBMS Record</a></li>
     <li><a target="_blank"  href="https://github.com/S488U/college/tree/main/BCA/SEMESTER_2/OOPS/OOPS_RECORD.pdf">OOPS Record</a></li>
 </ul>
-BCA/
 <hr>
 
 <h1>SEMESTER - 1: -</h1>
