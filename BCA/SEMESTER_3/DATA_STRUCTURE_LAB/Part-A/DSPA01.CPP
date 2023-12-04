@@ -34,14 +34,13 @@ void select::sort()
         a[pos] = temp;
     }
 }
-void select::display()
-{
-}
-void main()
-{
+void select::display(){
     cout << " Elements in sorted are:" << endl;
     for (i = 0; i < n; i++)
         cout << a[i] << endl;
+}
+void main()
+{
     select s;
     clrscr();
     s.getdata();
