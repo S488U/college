@@ -1,6 +1,6 @@
-<h1>S488U College</h1>
+# S488U College
 
-<p>This repository contains all study materials, records, and lab programs for BCA & MCA.</p>
+### This repository contains all study materials, records, and lab programs for BCA & MCA.
 
 <h3>
 Warning: 
@@ -13,13 +13,26 @@ Thank you for your understanding.
 <span><a target="_blank" href="https://duploader.tech">-Duploader</a></span>
 </pre>
 <h3>
-<br>
-<p>Directly Visit the page: <a target="_blank" href="https://s488u.github.io/college/">Study Materials</a></p>
-<br>
-<p>If you wish to contribute in the project, contact me <a href="mailto:shahabassabbu12@gmail.com">shahabassabbu12@gmail.com</a> or <a target="_blank" href="https://duploader.tech/contact/">Contact</a></p>
 
-<h1>BCA: -</h1>
-<h1>SEMESTER - 3: -</h1>
+<br>
+
+Directly Visit the page: [Study Materials](https://s488u.github.io/college/)
+
+If you wish to contribute in the project, contact me [shahabassabbu12@gmail.com](mailto:shahabassabbu12@gmail.com) or [Contact](https://duploader.tech/contact/)
+
+# BCA: -
+
+# SEMESTER - 4: -
+
+[Semester 4 link](https://github.com/S488U/college/tree/main/BCA/SEMESTER_4)
+- [Java]()
+- [Java Lab]()
+- [Python]()
+- [Python Lab]()
+- [E-Commerce]()
+- [Open Elective (Soft Skill pt-II)]()
+
+# SEMESTER - 3: -
 <a href="https://github.com/S488U/college/tree/main/BCA/SEMESTER_3">Semester 3 link</a>
 <ul>
     <li><a target="_blank"  href="https://github.com/S488U/college/tree/main/BCA/SEMESTER_3/HTML_LAB">HTML lab</a></li>
@@ -30,7 +43,7 @@ Thank you for your understanding.
     <li><a  target="_blank" href="https://github.com/S488U/college/tree/main/BCA/SEMESTER_3/OPERATIVE_SYSTEM">Operating System</a></li>
 </ul>
 
-<h4>HTML: -</h4>
+### HTML: -
 <ul>
     <li><p>Part - A</p></li>
     <li><a target="_blank"  href="https://s488u.github.io/college/BCA/SEMESTER_3/HTML_LAB/Part_A/Program-1/index.html">Program-1</a></li>
@@ -54,7 +67,8 @@ Thank you for your understanding.
 </ul>
 
 <hr>
-<h4>Data Structure Lab: -</h4>
+
+### Data Structure Lab: -
 <p>Get the Data structure lab programs code from here:-</p>
 <ul>
     <li><p>Part A & B: -</p></li>
@@ -117,6 +131,10 @@ Thank you for your understanding.
 <hr>
 
 <h1>MCA: - </h1>
+
+# SEMESTER - 3
+
+``` Soon we will update the Study Materials ```
 
 <h1>SEMESTER - 2</h1>
 <ul>
