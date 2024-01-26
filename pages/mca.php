@@ -13,7 +13,7 @@
     <?php include "../assets/components/navbar.php"; ?>
 
   
-    <div class="container d-flex flex-column justify-content-center align-items-center gap-5 mt-5 p-5 p-md-5" style="min-height: 60vh; height:auto;">
+    <div class="container d-flex flex-column justify-content-center align-items-center gap-5 mt-5 mb-5 p-md-5" style="min-height: 60vh; height:auto;">
         <h1>MCA Study Materials</h1>
         <div class="container d-flex flex-column justify-content-center align-items-center ">
             <?php include "../MCA/index.php"; ?>
