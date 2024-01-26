@@ -4,14 +4,14 @@
             <div class="container d-flex flex-row justify-content-center align-items-center">
                 <h5>&copy; SU Study Materials</h5>
             </div>
-            <div class="container d-flex flex-column justify-content-md-center  align-items-md-center justify-content-start m-md-auto mx-5">
+            <div class="container d-flex flex-column justify-content-md-center  align-items-md-center justify-content-start m-md-auto">
                 <a class="card-link" href="https://duploader.tech">Duploader</a>
                 <a class="card-link" href="https://survey.duploader.tech">Survey</a>
                 <a class="card-link" href="https://duploader.tech/contact/">Contact</a>
                 <a class="card-link" href="https://www.instagram.com/l_e_sims/">l_e_sims</a>
                 <a class="card-link" href="https://su.duploader.tech/upload/">Upload</a>
             </div>
-            <div class="container d-flex flex-column justify-content-md-center  align-items-md-center justify-content-start m-md-auto mx-5">
+            <div class="container d-flex flex-column justify-content-md-center  align-items-md-center justify-content-start m-md-auto">
                 <a class="card-link" href="../../pages/bca.php">BCA</a>
                 <a class="card-link" href="../../pages/mca.php">MCA</a>
                 <a class="card-link" href="../../pages/ibm.php">IBM</a>
