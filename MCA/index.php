@@ -72,6 +72,26 @@
         .custom-file-link:hover {
             text-decoration: underline;
         }
+        
+        @media screen and (max-width: 600px) {
+            .custom-container {
+                width: 110%;
+                padding: 10px;
+            }
+
+            .custom-collapsible, .custom-folder, strong {
+                font-size: 16px;
+            }
+
+            .custom-content {
+                margin-left: 5px;
+                padding-left: 0;
+            }
+
+            .custom-folder {
+                padding: 5px;
+            }
+        }
     </style>
 </head>
 
