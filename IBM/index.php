@@ -136,7 +136,7 @@ function displayFolderStructure($path, $rootDirectory)
 // Specify the root directory
 $rootDirectory = __DIR__;
 
-// Display the folder structure
+// Display the folder structures
 displayFolderStructure($rootDirectory, $rootDirectory);
 ?>
 
