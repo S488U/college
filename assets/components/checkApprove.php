@@ -1,3 +1,11 @@
+<div id="toast" class="container border border-warning bg-white z-3 p-3 rounded position-fixed" style="display:none; width: 300px; bottom: 20px; right: 20px;">
+    <p>By entering you are agreeing with our terms and conditions. Please read this <a href="../../pages/about.php">Warning</a>.</p>
+    <div class="fluid-container d-flex justify-content-center gap-1">
+        <button id="close" class="btn btn-dark flex-fill" type="button">Close</button>
+        <button id="agree" class="btn btn-dark flex-fill" type="button">Agree</button>
+    </div>
+</div>
+
 <?php
 if ($_SERVER['REQUEST_URI'] === '/agree') {
     // Get user's IP address

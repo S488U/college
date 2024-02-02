@@ -22,14 +22,6 @@
 <body>
     <?php include "./assets/components/navbar.php"; ?>
 
-    <div id="toast" class="container border border-warning bg-white z-3 p-3 rounded position-fixed" style="display:none; width: 300px; bottom: 20px; right: 20px;">
-        <p>By entering you are agreeing with our terms and conditions. Please read this <a href="">Warning</a>.</p>
-        <div class="fluid-container d-flex justify-content-center gap-1">
-            <button id="close" class="btn btn-dark flex-fill" type="button">Close</button>
-            <button id="agree" class="btn btn-dark flex-fill" type="button">Agree</button>
-        </div>
-    </div>
-
     <div class="container d-flex flex-column justify-content-center align-items-center gap-5 mt-5 p-5 p-md-5" style="min-height: 60vh; height:auto;">
         <h1 class="text-capitalize text-center">Find your desired Study Materials Here</h1>
         <div class="container d-flex flex-column flex-md-row justify-content-center align-items-center gap-5">
