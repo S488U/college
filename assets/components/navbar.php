@@ -21,6 +21,9 @@
                     <a class="nav-link user-login" href="../../pages/ibm.php">IBM</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link user-login" href="../../pages/upload.php">Upload</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link userShow" href="./assets/pages/user.html" aria-disabled="true"></a>
                 </li>
             </ul>
@@ -55,6 +58,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link user-login" href="../../pages/ibm.php">IBM</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link user-login" href="../../pages/upload.php">Upload</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link userShow" href="./assets/pages/user.html" aria-disabled="true"></a>

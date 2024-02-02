@@ -9,7 +9,7 @@
                 <a class="card-link" href="https://survey.duploader.tech">Survey</a>
                 <a class="card-link" href="https://duploader.tech/contact/">Contact</a>
                 <a class="card-link" href="https://www.instagram.com/l_e_sims/">l_e_sims</a>
-                <a class="card-link" href="https://su.duploader.tech/upload/">Upload</a>
+                <a class="card-link" href="https://su.duploader.tech/pages/upload.php">Upload</a>
             </div>
             <div class="container d-flex flex-column justify-content-md-center  align-items-md-center justify-content-start m-md-auto">
                 <a class="card-link" href="../../pages/bca.php">BCA</a>
