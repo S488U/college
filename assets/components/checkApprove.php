@@ -14,6 +14,11 @@ if ($_SERVER['REQUEST_URI'] === '/agree') {
     // Get current timestamp
     $timestamp = date("Y-m-d H:i:s");
 
+    // Get the page title using JavaScript
+    echo '<script>
+            var pageTitle = document.title;
+          </script>';
+    
     // Database connection details (replace with your actual database credentials)
     $db_host = 'localhost';
     $db_user = 'shahabas_sabbu';
@@ -28,8 +33,8 @@ if ($_SERVER['REQUEST_URI'] === '/agree') {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Insert IP address and timestamp into the database
-    $sql = "INSERT INTO ip_addresses (ip_address, timestamp) VALUES ('$userIP', '$timestamp')";
+    // Insert IP address, timestamp, and title into the database
+    $sql = "INSERT INTO ip_addresses (ip_address, timestamp, page_title) VALUES ('$userIP', '$timestamp', '$pageTitle')";
 
     if ($conn->query($sql) === TRUE) {
         echo '<script>window.history.back();</script>';
@@ -42,3 +47,4 @@ if ($_SERVER['REQUEST_URI'] === '/agree') {
 } else {
     echo '<script>console.log("Invalid Requests")</script>';
 }
+?>
