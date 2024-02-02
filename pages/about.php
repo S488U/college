@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../assets/style/scrollbar.css">
     <link rel="shortcut icon" type="image/png" sizes="16x16" href="https://duploader.tech/assets/favicon/android-chrome-192x192.png?v=1706301104">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="../assets/script/navbar.js"></script>
 </head>
 
 <body>
@@ -33,7 +34,7 @@
     <?php include "../assets/components/footer.php"; ?>
     <?php include "../assets/components/scripts.php"; ?>
 
-    <script src="../assets/script/navbar.js"></script>
+    <script src="../assets/script/checkAccepted.js"></script>
 </body>
 
 </html>
