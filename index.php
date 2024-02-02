@@ -66,10 +66,8 @@
 
         // Close the file
         fclose($file);
-
-        echo 'IP address recorded successfully.';
     } else {
-        echo 'Invalid request.';
+        echo '<script>console.log("Invalid Requests")</script>';
     }
     ?>
 
