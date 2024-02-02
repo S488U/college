@@ -82,6 +82,7 @@
 
             if ($conn->query($sql) === TRUE) {
                 echo '<script>console.log("Record added to the database successfully")</script>';
+                header("Location: ".$originalURL);
             } else {
                 echo '<script>console.log("Error: ' . $sql . '<br>' . $conn->error . '")</script>';
             }
