@@ -57,9 +57,11 @@
         }
     </style>
 
-    <?php include "./assets/components/footer.php" ?>
-    <?php include "./assets/components/checkApproved.php" ?>
-    <?php include "./assets/components/scripts.php" ?>
+    <?php
+        include "./assets/components/footer.php";
+        include "./assets/components/checkApprove.php";
+        include "./assets/components/scripts.php";
+    ?>
 
     <script src="./assets/script/checkAccepted.js"></script>
 

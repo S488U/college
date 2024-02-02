@@ -32,6 +32,7 @@
     </div>
 
     <?php include "../assets/components/footer.php"; ?>
+    <?php include "../assets/components/checkApprove.php"; ?>
     <?php include "../assets/components/scripts.php"; ?>
 
     <script src="../assets/script/checkAccepted.js"></script>
