@@ -13,60 +13,61 @@
 
 <body>
     <?php
-        include "../assets/components/navbar.php";
-        $msgError = "";
+    include "../assets/components/navbar.php";
+    $msgError = "";
 
-        // Check if the form is submitted
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            // Check if files were uploaded
-            if (!empty($_FILES['files']['name'][0])) {
-                // Set upload directory
-                $upload_dir = '../uploads/';
+    // Check if the form is submitted
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        // Check if files were uploaded
+        if (!empty($_FILES['files']['name'][0])) {
+            // Set upload directory
+            $upload_dir = '../uploads/';
 
-                // Validate and sanitize files
-                $valid_extensions = array('zip', 'rar');
-                $max_size = 64 * 1024 * 1024; // 64 MB
+            // Validate and sanitize files
+            $valid_extensions = array('zip', 'rar');
+            $max_size = 64 * 1024 * 1024; // 64 MB
 
-                foreach ($_FILES['files']['name'] as $key => $name) {
-                    $tmp_name = $_FILES['files']['tmp_name'][$key];
-                    $size = $_FILES['files']['size'][$key];
-                    $error = $_FILES['files']['error'][$key];
+            foreach ($_FILES['files']['name'] as $key => $name) {
+                $tmp_name = $_FILES['files']['tmp_name'][$key];
+                $size = $_FILES['files']['size'][$key];
+                $error = $_FILES['files']['error'][$key];
 
-                    // Validate file extension
-                    $file_extension = strtolower(pathinfo($name, PATHINFO_EXTENSION));
-                    if (!in_array($file_extension, $valid_extensions)) {
-                        $msgError = "Invalid file extension. Only zip and rar files are allowed.";
-                        exit;
-                    }
-
-                    // Validate file size
-                    if ($size > $max_size) {
-                        $msgError = "File size exceeds the maximum allowed limit.";
-                        exit;
-                    }
-
-                    // Sanitize file name
-                    $new_name = preg_replace('/[^A-Za-z0-9_.-]/', '_', $name);
-
-                    // Move the file to the upload directory
-                    $destination = $upload_dir . $new_name;
-                    move_uploaded_file($tmp_name, $destination);
+                // Validate file extension
+                $file_extension = strtolower(pathinfo($name, PATHINFO_EXTENSION));
+                if (!in_array($file_extension, $valid_extensions)) {
+                    $msgError = "Invalid file extension. Only zip and rar files are allowed.";
+                    exit;
                 }
 
-                $msgError = "Files uploaded successfully!";
-            } else {
-                $msgError = "No files were uploaded.";
+                // Validate file size
+                if ($size > $max_size) {
+                    $msgError = "File size exceeds the maximum allowed limit.";
+                    exit;
+                }
+
+                // Sanitize file name
+                $new_name = preg_replace('/[^A-Za-z0-9_.-]/', '_', $name);
+
+                // Move the file to the upload directory
+                $destination = $upload_dir . $new_name;
+                move_uploaded_file($tmp_name, $destination);
             }
+
+            $msgError = "Files uploaded successfully!";
+        } else {
+            $msgError = "No files were uploaded.";
         }
+    }
     ?>
 
     <div class="container d-flex flex-column justify-content-center align-items-center gap-5 mt-5 p-5 p-md-5" style="min-height: 60vh; height:auto;">
-        <h1 class="text-capitalize">Upload your study Materials here</h1>
+        <h1 class="text-capitalize text-center">Upload your study Materials here</h1>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
-            <div class="mb-3 d-flex gap-1">
-                <input class="form-control border border-dark" type="file" name="files[]" id="formFileMultiple" multiple accept=".zip, .rar">
-                <input class="btn btn-outline-dark" type="submit" value="Submit">
+            <div class="mb-3 d-flex flex-column flex-md-row gap-2">
+                <input class="form-control border border-dark flex-fill" type="file" name="files[]" id="formFileMultiple" multiple accept=".zip, .rar">
+                <input class="btn btn-outline-dark flex-fill" type="submit" value="Submit">
             </div>
+
         </form>
         <p><?php echo $msgError; ?></p>
         <div class="container bg-warning-subtle border border-warning rounded p-3">
