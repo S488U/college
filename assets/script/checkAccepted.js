@@ -14,6 +14,7 @@ function showElement(message) {
 
     document.getElementById("close").addEventListener("click", () => {
         toast.style.display = "none";
+        window.history.back();
     })
 
     document.getElementById("agree").addEventListener("click", () => {
