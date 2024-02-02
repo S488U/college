@@ -99,61 +99,61 @@
 
     <div class="custom-container">
     <?php
-function displayFolderStructure($path, $rootDirectory)
-{
-    $dir = opendir($path);
+        function displayFolderStructure($path, $rootDirectory)
+        {
+            $dir = opendir($path);
 
-    $entries = [];
+            $entries = [];
 
-    while ($file = readdir($dir)) {
-        if ($file == '.' || $file == '..' || pathinfo($file, PATHINFO_EXTENSION) == 'php') {
-            continue;
+            while ($file = readdir($dir)) {
+                if ($file == '.' || $file == '..' || pathinfo($file, PATHINFO_EXTENSION) == 'php') {
+                    continue;
+                }
+
+                $fullPath = $path . '/' . $file;
+                $relativePath = str_replace($rootDirectory, '', $fullPath);
+
+                if (is_dir($fullPath)) {
+                    $entries[] = $file;
+                } else {
+                    $entries[] = $file;
+                }
+            }
+
+            closedir($dir);
+
+            // Sort the entries alphabetically
+            sort($entries);
+
+            foreach ($entries as $entry) {
+                $fullPath = $path . '/' . $entry;
+                $relativePath = str_replace($rootDirectory, '', $fullPath);
+
+                if (is_dir($fullPath)) {
+                    // Display a collapsible folder
+                    echo '<div class="custom-folder">';
+                    echo '<div class="custom-collapsible" onclick="toggleFolder(this)"><strong>' . $entry . '</strong> ▶</div>';
+                    echo '<div class="custom-content">';
+
+                    // Recursively display the contents of the directory
+                    displayFolderStructure($fullPath, $rootDirectory);
+
+                    echo '</div>';
+                    echo '</div>';
+                } else {
+                    // Display the file with a link to view it
+                    $relativePathToComponents = str_replace("/assets", "", dirname($relativePath));
+                    echo "<div class='custom-file'><a class='custom-file-link' href='/MCA$relativePathToComponents/$entry' target='_blank'>$entry</a></div>";
+                }
+            }
         }
 
-        $fullPath = $path . '/' . $file;
-        $relativePath = str_replace($rootDirectory, '', $fullPath);
+        // Specify the root directory
+        $rootDirectory = __DIR__;
 
-        if (is_dir($fullPath)) {
-            $entries[] = $file;
-        } else {
-            $entries[] = $file;
-        }
-    }
-
-    closedir($dir);
-
-    // Sort the entries alphabetically
-    sort($entries);
-
-    foreach ($entries as $entry) {
-        $fullPath = $path . '/' . $entry;
-        $relativePath = str_replace($rootDirectory, '', $fullPath);
-
-        if (is_dir($fullPath)) {
-            // Display a collapsible folder
-            echo '<div class="custom-folder">';
-            echo '<div class="custom-collapsible" onclick="toggleFolder(this)"><strong>' . $entry . '</strong> ▶</div>';
-            echo '<div class="custom-content">';
-
-            // Recursively display the contents of the directory
-            displayFolderStructure($fullPath, $rootDirectory);
-
-            echo '</div>';
-            echo '</div>';
-        } else {
-            // Display the file with a link to view it
-            $relativePathToComponents = str_replace("/assets", "", dirname($relativePath));
-            echo "<div class='custom-file'><a class='custom-file-link' href='/MCA$relativePathToComponents/$entry' target='_blank'>$entry</a></div>";
-        }
-    }
-}
-
-// Specify the root directory
-$rootDirectory = __DIR__;
-
-// Display the folder structure
-displayFolderStructure($rootDirectory, $rootDirectory);
-?>
+        // Display the folder structure
+        displayFolderStructure($rootDirectory, $rootDirectory);
+        ?>
 
 
     </div>
