@@ -14,11 +14,9 @@ if ($_SERVER['REQUEST_URI'] === '/agree') {
     // Get current timestamp
     $timestamp = date("Y-m-d H:i:s");
 
-    // Get the page title using JavaScript
-    echo '<script>
-            var pageTitle = document.title;
-          </script>';
-    
+    // Get the page title from the HTTP headers
+    $pageTitle = isset($_SERVER['HTTP_REFERER']) ? htmlspecialchars($_SERVER['HTTP_REFERER']) : 'Unknown Page';
+
     // Database connection details (replace with your actual database credentials)
     $db_host = 'localhost';
     $db_user = 'shahabas_sabbu';
