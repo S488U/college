@@ -72,7 +72,7 @@
         <p><?php echo $msgError; ?></p>
         <div class="container bg-warning-subtle border border-warning rounded p-3">
             <p>Upload the file as a zip or rar and include a file called readme.txt.</p>
-            <p>This file should contain information about the department's study materials, semester, and any additional details regarding the provided study materials.</p>
+            <p>In Readme.txt file should contain information about the department's study materials, semester, and any additional details regarding the provided study materials.</p>
             <p>Max size for uploading is 64 MB.</p>
         </div>
     </div>
