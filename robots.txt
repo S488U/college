@@ -1,0 +1,15 @@
+User-agent: *
+Disallow: /MCA/
+Disallow: /BCA/
+Disallow: /IBM/
+Disallow: /uploads/
+Disallow: /assets/
+Disallow: /assets/*
+
+Allow: /pages/
+Allow: /pages/bca.php
+Allow: /pages/mca.php
+Allow: /pages/ibm.php
+Allow: /pages/about.php
+Allow: /pages/upload.php
+Allow: /$
