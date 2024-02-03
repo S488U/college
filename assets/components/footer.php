@@ -23,9 +23,9 @@
         <div class="container d-flex flex-column justify-content-center align-items-center py-2">
             <p class="text-capitalize">Follow us on social media:</p>
             <div class="container d-flex flex-row text-center gap-4 justify-content-center align-items-center">
-                <a class="card-link">Instagram</a>
-                <a class="card-link">Instagram</a>
-                <a class="card-link">Instagram</a>
+                <a class="card-link" href="https://www.youtube.com/@duploader_tech">Youtube</a>
+                <a class="card-link" href="https://www.linkedin.com/company/duploader/">Linkedin</a>
+                <a class="card-link" href="https://whatsapp.com/channel/0029VaLE3xEL2ATpQA9eef2v">Whatsapp</a>
             </div>
         </div>
     </div>
