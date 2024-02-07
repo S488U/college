@@ -16,7 +16,7 @@ Thank you for your understanding.
 
 <br>
 
-Directly Visit the page: [Study Materials](https://s488u.github.io/college/)
+Directly Visit the page: [SU Study Materials](https://su.duploader.tech/)
 
 If you wish to contribute in the project, contact me [shahabassabbu12@gmail.com](mailto:shahabassabbu12@gmail.com) or [Contact](https://duploader.tech/contact/)
 
