@@ -1,3 +1,7 @@
+"""
+4. Write a python program to find tuples which have all elements divisible by k from a list of tuples.
+"""
+
 def findTuple(tupleList, k):
 	resultTuple = []
 	for tpl in tupleList:
