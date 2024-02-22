@@ -25,7 +25,7 @@
     <div class="container d-flex flex-column justify-content-center align-items-center gap-5 mt-5 p-5 p-md-5" style="min-height: 70vh; height:auto;">
         <h1 class="text-capitalize text-center">Find your desired Study Materials Here</h1>
         <div class="container d-flex flex-column flex-md-row justify-content-center align-items-center gap-5">
-            <div class="card" onclick="bca();">
+            <div class="card" onclick="linkFunction('bca');">
                 <div class="card-body">
                     <h1 class="card-title">BCA</h1>
                     <p class="card-text text-break text-capitalize">
@@ -34,7 +34,7 @@
                     <a class="card-link text-capitalize" href="#">BCA Study materials</a>
                 </div>
             </div>
-            <div class="card" onclick="mca();">
+            <div class="card" onclick="linkFunction('mca');">
                 <div class="card-body">
                     <h1 class="card-title">MCA</h1>
                     <p class="card-text text-break text-capitalize">
@@ -56,6 +56,18 @@
             border: 2px solid black !important;
         }
     </style>
+    <script>
+        function linkFunction(e) {
+            var courses = ['mca', 'bca'];
+            for(let i=0; i<courses.length;i++) {
+                if(courses[i] === e) {
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                    window.location.href = "./pages/" + e + ".php";
+                }
+            }
+            
+        }
+    </script>
 
     <?php
         include "./assets/components/footer.php";
@@ -64,16 +76,6 @@
     ?>
 
     <script src="./assets/script/checkAccepted.js"></script>
-
-    <script>
-        function mca() {
-            window.location.href = "./pages/mca.php";
-        }
-
-        function bca() {
-            window.location.href = "./pages/bca.php";
-        }
-    </script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 
