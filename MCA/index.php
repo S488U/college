@@ -144,8 +144,11 @@
                     echo '</div>';
                 } else {
                     // Display the file with a link to view it
-                    $relativePathToComponents = str_replace("/assets", "", rawurlencode(dirname($relativePath)));
-                    echo "<div class='custom-file'><a class='custom-file-link' href='/MCA$relativePathToComponents/" . rawurlencode($entry) . "' target='_blank'>" . rawurldecode($entry) . "</a></div>";
+                    $relativePathToComponents = str_replace("/assets", "", dirname($relativePath)); // Remove "/assets" from the directory path
+                    $encodedRelativePath = implode("/", array_map('rawurlencode', explode("/", $relativePathToComponents))); // Encode each component of the path except "/"
+                    $encodedEntry = rawurlencode($entry); // Encode the filename
+                    echo "<div class='custom-file'><a class='custom-file-link' href='/MCA/$encodedRelativePath/$encodedEntry' target='_blank'>" . htmlspecialchars($entry) . "</a></div>"; // Generate the link
+
                 }
             }
         }
