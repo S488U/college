@@ -72,14 +72,16 @@
         .custom-file-link:hover {
             text-decoration: underline;
         }
-        
+
         @media screen and (max-width: 600px) {
             .custom-container {
                 width: 110%;
                 padding: 10px;
             }
 
-            .custom-collapsible, .custom-folder, strong {
+            .custom-collapsible,
+            .custom-folder,
+            strong {
                 font-size: 16px;
             }
 
@@ -98,7 +100,7 @@
 <body>
 
     <div class="custom-container">
-    <?php
+        <?php
         function displayFolderStructure($path, $rootDirectory)
         {
             $dir = opendir($path);
@@ -142,8 +144,8 @@
                     echo '</div>';
                 } else {
                     // Display the file with a link to view it
-                    $relativePathToComponents = str_replace("/assets", "", dirname($relativePath));
-                    echo "<div class='custom-file'><a class='custom-file-link' href='/MCA$relativePathToComponents/$entry' target='_blank'>$entry</a></div>";
+                    $relativePathToComponents = str_replace("/assets", "", rawurlencode(dirname($relativePath)));
+                    echo "<div class='custom-file'><a class='custom-file-link' href='/MCA$relativePathToComponents/" . rawurlencode($entry) . "' target='_blank'>" . rawurldecode($entry) . "</a></div>";
                 }
             }
         }
@@ -154,6 +156,7 @@
         // Display the folder structure
         displayFolderStructure($rootDirectory, $rootDirectory);
         ?>
+
 
 
     </div>

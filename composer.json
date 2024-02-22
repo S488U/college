@@ -1,0 +1,15 @@
+{
+    "name": "tecnickcom/tcpdf",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Tecnickcom\\Tcpdf\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Shahabas Abdul Hameed"
+        }
+    ],
+    "require": {}
+}

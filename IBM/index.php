@@ -144,8 +144,8 @@
                     echo '</div>';
                 } else {
                     // Display the file with a link to view it
-                    $relativePathToComponents = str_replace("/assets", "", dirname($relativePath));
-                    echo "<div class='custom-file'><a class='custom-file-link' href='/IBM$relativePathToComponents/$entry' target='_blank'>$entry</a></div>";
+                    $relativePathToComponents = str_replace("/assets", "", rawurlencode(dirname($relativePath)));
+                    echo "<div class='custom-file'><a class='custom-file-link' href='/IBM$relativePathToComponents/" . rawurlencode($entry) . "' target='_blank'>" . rawurldecode($entry) . "</a></div>";
                 }
             }
         }
