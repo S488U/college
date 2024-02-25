@@ -1,6 +1,6 @@
-# S488U College
+<h1>S488U College</h1>
 
-### This repository contains all study materials, records, and lab programs for BCA & MCA.
+<h3>This repository contains all study materials, records, and lab programs for BCA & MCA.</h3> 
 
 <h3>
 Warning: 
@@ -16,9 +16,9 @@ Thank you for your understanding.
 
 <br>
 
-Directly Visit the page: [SU Study Materials](https://su.duploader.tech/)
+<p>Directly Visit the page: <a target="_blank" title="Original website" href="https://su.duploader.tech/">SU Study Materials</a></p>
 
-If you wish to contribute in the project, contact me [shahabassabbu12@gmail.com](mailto:shahabassabbu12@gmail.com) or [Contact](https://duploader.tech/contact/)
+If you wish to contribute in the project, contact me <a target="_blank" title="Author Male" href="mailto:shahabassabbu12@gmail.com">shahabassabbu12@gmail.com</a> or <a href="https://duploader.tech/contact/">Contact</a>
 
 # BCA: -
 
