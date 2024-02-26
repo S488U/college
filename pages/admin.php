@@ -13,139 +13,12 @@
 
 <body>
     <?php include "../assets/components/navbar.php"; ?>
+    <?php include "../admin/admin_nav.php"; ?>
 
-    <?php
-    $upload_dir = "../uploads/";
+    <div  id="mainCon" class="container d-flex flex-column justify-content-center align-items-center gap-5 mt-1 p-5 p-md-5" style="min-height: 60vh; height:auto;">
 
-    // Function to list all files in a directory
-    function list_files($dir)
-    {
-        $files = array_diff(scandir($dir), array('..', '.'));
-        return $files;
-    }
-
-    // Delete file function
-    function delete_file($file)
-    {
-        if (file_exists($file)) {
-            unlink($file);
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    ?>
-    <div class="container d-flex flex-column justify-content-center align-items-center gap-5 mt-1 p-5 p-md-5" style="min-height: 60vh; height:auto;">
-        <div class="container flex flex-column  justify-content-center align-items-center">
-            <h2 class="text-center">Uploaded Contents</h2>
-            <div class="list-group mt-4">
-
-                <?php
-                // Listing files in uploads folder
-                $files = list_files($upload_dir);
-
-                // Displaying each file with delete and download options
-                foreach ($files as $file) {
-                    $file_path = $upload_dir . $file;
-                    echo '
-        <div class="list-group-item d-flex justify-content-between align-items-center">
-            <span  style="overflow:hidden;">' . $file . '</span>
-            <div class="btn-group flex flex-md-row flex-column gap-2" role="group" aria-label="File Actions">
-                <a href="' . $file_path . '" class="btn btn-primary btn-sm" download>Download</a>
-                <form class="flex" method="post">
-                    <input type="hidden" name="file_to_delete" value="' . $file_path . '">
-                    <button type="submit" class="btn btn-danger btn-sm" name="delete">Delete</button>
-                </form>
-            </div>
-        </div>
-    ';
-                }
-
-                // Delete file if delete button is clicked
-                if (isset($_POST['delete'])) {
-                    $file_to_delete = $_POST['file_to_delete'];
-                    if (delete_file($file_to_delete)) {
-                        echo '<script>alert("File deleted successfully.");</script>';
-                        echo '<script>window.location.href = window.location.href;</script>';
-                    } else {
-                        echo '<script>alert("Error deleting file.");</script>';
-                    }
-                }
-                ?>
-
-            </div>
-        </div>
-
-        <div class="container flex flex-column  justify-content-center align-items-center">
-            <?php
-            require_once __DIR__ . '/vendor/autoload.php'; // Include Composer's autoloader
-
-            use TCPDF; // Adjusted namespace usage
-
-            // Function to generate PDF
-            function generatePDF($data)
-            {
-                $pdf = new TCPDF('P', 'mm', 'A4', true, 'UTF-8', false);
-                $pdf->SetCreator(PDF_CREATOR);
-                $pdf->SetTitle('IP Addresses Data');
-                $pdf->SetHeaderData('', '', 'IP Addresses Data', '');
-                $pdf->setPrintHeader(false);
-                $pdf->SetFont('helvetica', '', 10);
-                $pdf->AddPage();
-
-                // Table header
-                $html = '<table border="1">';
-                $html .= '<tr><th>ID</th><th>IP Address</th><th>Page Title</th><th>Timestamp</th></tr>';
-
-                // Table data
-                foreach ($data as $row) {
-                    $html .= '<tr>';
-                    $html .= '<td>' . $row['id'] . '</td>';
-                    $html .= '<td>' . $row['ip_addresses'] . '</td>';
-                    $html .= '<td>' . $row['page_title'] . '</td>';
-                    $html .= '<td>' . $row['timestamp'] . '</td>';
-                    $html .= '</tr>';
-                }
-                $html .= '</table>';
-
-                $pdf->writeHTML($html, true, false, true, false, '');
-
-                // Close and output PDF
-                $pdf->Output('ip_addresses_data.pdf', 'D');
-            }
-
-            // Database connection
-            $db_host = 'localhost';
-            $db_user = 'root'; // Adjusted for local development
-            $db_password = 'root'; // Adjusted for local development
-            $db_name = 'db_uploader';
-
-            // Create a database connection
-            $conn = new mysqli($db_host, $db_user, $db_password, $db_name);
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
-
-            // Fetch data from the database
-            $sql = "SELECT * FROM ip_addresses";
-            $result = $conn->query($sql);
-            $data = array();
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    $data[] = $row;
-                }
-            }
-
-            // Generate PDF
-            generatePDF($data);
-
-            // Close connection
-            $conn->close();
-            ?>
-
-        </div>
-
+        <?php include "../admin/course-update.php"; ?>
+        <?php include "../admin/upload-shows.php"; ?>
 
     </div>
 
@@ -156,5 +29,28 @@
 
     <script src="../assets/script/checkAccepted.js"></script>
 </body>
+<script>
+    function LinkGenerate(e) {
+        let elementLink = e.innerText;
+        let mainCon = document.getElementById("mainCon");
+        
+        if (elementLink === "Upload") {
+            // Assuming you're using XMLHttpRequest (XHR) for AJAX
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        // Assuming the response contains HTML content
+                        mainCon.innerHTML = xhr.responseText;
+                    } else {
+                        console.error('Failed to load content');
+                    }
+                }
+            };
+            xhr.open('GET', './course-update.php', true);
+            xhr.send();
+        }
+    }
+</script>
 
 </html>
