@@ -24,7 +24,8 @@ if ($conn->connect_error) {
     <!-- <meta property="og:type" content="website"/>
     <meta name="description" content="This website hosts comprehensive BCA study materials from Srinivas University. Here, students can access a wide range of educational resources designed to support their academic journey, providing a valuable hub for learning and reference throughout their BCA studies at Srinivas University.">
     <meta property="og:description" content="This website hosts comprehensive BCA study materials from Srinivas University. Here, students can access a wide range of educational resources designed to support their academic journey, providing a valuable hub for learning and reference throughout their BCA studies at Srinivas University.">
-    <meta property="og:title" content="IBM Study Materials - Global Certification Course - Srinivas University"> -->
+    <meta property="og:title" content="Ethical Hacking Training - SU Study Materials"> -->
+<meta property="og:image" content=""> 
 
     <link rel="stylesheet" href="../assets/style/scrollbar.css">
     <link rel="shortcut icon" type="image/png" sizes="16x16" href="https://duploader.tech/assets/favicon/android-chrome-192x192.png?v=1706301104">
