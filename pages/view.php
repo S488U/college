@@ -61,10 +61,52 @@ if (isset($_GET['file'])) {
                 border-radius: 0 7px 0 0;
                 background-color: #212520;
                 color: #ddd;
+                overflow: hidden !important;
             }
 
             #copybtn:hover {
                 background-color: #6E7271;
+            }
+
+            @media screen and (max-width:600px) {
+                .filenName {
+                    max-width: 100%;
+
+                    overflow: hidden;
+                    position: relative;
+                    animation: moving 10s linear infinite;
+                    z-index: 0;
+                    inset: 0;
+                }
+
+                .filenName em {
+                    white-space: nowrap;
+                    word-wrap: normal;
+                    word-break: keep-all;
+                }
+
+
+                #copybtn {
+                    max-width: 100px;
+                    position: relative;
+                    z-index: 1;
+                }
+
+                @keyframes moving {
+                    0% {
+                        left: -100%;
+                    }
+
+                    100% {
+                        left: 100%;
+                    }
+                }
+
+                code span {
+                    font-size: 15px !important;
+                }
+
+
             }
         </style>
     </head>
@@ -124,7 +166,7 @@ if (isset($_GET['file'])) {
                     echo "
                     <div id='codeContainer'>
                         <div id='copy_container' class='container-fluid d-flex flex-row justify-content-between align-items-center p-0 m-0''>
-                            <span class='ms-3 text-light'><em>$fileUrl</em></span>
+                            <span class='filenName ms-3 text-light'><em>$fileUrl</em></span>
                             <button id='copybtn' title='Copy Code' class='btn btn-sm' onclick='copyCode()'>Copy Code</button>
                         </div>
                         <pre class='mt-0 mb-3 '><code class='language-$fileExtension'>$fileContent</code></pre>
@@ -146,7 +188,7 @@ if (isset($_GET['file'])) {
             function copyCode() {
                 var codeContainer = document.getElementById('codeContainer');
                 var code = codeContainer.innerText;
-                
+
 
                 // Create a temporary textarea element
                 var textarea = document.createElement('textarea');
@@ -164,7 +206,7 @@ if (isset($_GET['file'])) {
                 document.body.removeChild(textarea);
                 document.getElementById("copybtn").innerText = "Copied!!";
 
-                setTimeout(()=> {
+                setTimeout(() => {
                     document.getElementById("copybtn").innerText = "Copy Code";
                 }, 4000);
 
