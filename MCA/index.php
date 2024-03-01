@@ -143,12 +143,20 @@
                     echo '</div>';
                     echo '</div>';
                 } else {
-                    // Display the file with a link to view it
+                    // Handle file display/download based on extension
+                    $allowedExtensions = array("py", "html", "pdf", "txt", "java", "cpp", "c", "sh", "css");
+                    $extension = pathinfo($entry, PATHINFO_EXTENSION);
                     $relativePathToComponents = str_replace("/assets", "", dirname($relativePath)); // Remove "/assets" from the directory path
                     $encodedRelativePath = implode("/", array_map('rawurlencode', explode("/", $relativePathToComponents))); // Encode each component of the path except "/"
                     $encodedEntry = rawurlencode($entry); // Encode the filename
-                    echo "<div class='custom-file'><a class='custom-file-link' href='/MCA/$encodedRelativePath/$encodedEntry' target='_blank'>" . htmlspecialchars($entry) . "</a></div>"; // Generate the link
 
+                    if (in_array($extension, $allowedExtensions)) {
+                        // Redirect to view.php
+                        echo "<div class='custom-file'><a class='custom-file-link' href='view.php?file=/MCA$encodedRelativePath/$encodedEntry' target='_blank'>" . htmlspecialchars($entry) . "</a></div>"; // Generate the link
+                    } else {
+                        // Direct download link
+                        echo "<div class='custom-file'><a class='custom-file-link' href='/MCA/$encodedRelativePath/$encodedEntry' download>" . htmlspecialchars($entry) . "</a></div>"; // Generate the link
+                    }
                 }
             }
         }
@@ -159,8 +167,6 @@
         // Display the folder structure
         displayFolderStructure($rootDirectory, $rootDirectory);
         ?>
-
-
 
     </div>
 
