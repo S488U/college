@@ -125,51 +125,52 @@ if (isset($_GET['file'])) {
             if (file_exists($fileLocation) && is_readable($fileLocation)) {
                 // Display PDF files using PDF.js
                 if (pathinfo($fileLocation, PATHINFO_EXTENSION) === 'pdf') {
-                    echo "<div id='pdfContainer'></div>";
-                    echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js'></script>";
-                    echo "<script>
-                            const pdfUrl = '$fileUrl';
-                            const pdfContainer = document.getElementById('pdfContainer');
-                            pdfContainer.innerText = 'Loading.........';
+                    echo "<iframe src='https://su.duploader.tech/$fileLocation' width='100%' height='500'></iframe>";
+                    // echo "<div id='pdfContainer'></div>";
+                    // echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js'></script>";
+                    // echo "<script>
+                    //         const pdfUrl = '$fileUrl';
+                    //         const pdfContainer = document.getElementById('pdfContainer');
+                    //         pdfContainer.innerText = 'Loading.........';
 
-                            // PDF.js worker from cdnjs
-                            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.worker.min.js';
+                    //         // PDF.js worker from cdnjs
+                    //         pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.worker.min.js';
 
-                            // Asynchronous download of PDF
-                            const loadingTask = pdfjsLib.getDocument(pdfUrl);
-                            loadingTask.promise.then(pdf => {
-                                for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
-                                    pdf.getPage(pageNum).then(page => {
-                                        const viewport = page.getViewport({ scale: 1 });
-                                        const canvas = document.createElement('canvas');
-                                        const context = canvas.getContext('2d');
-                                        canvas.height = viewport.height;
-                                        canvas.width = viewport.width;
+                    //         // Asynchronous download of PDF
+                    //         const loadingTask = pdfjsLib.getDocument(pdfUrl);
+                    //         loadingTask.promise.then(pdf => {
+                    //             for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+                    //                 pdf.getPage(pageNum).then(page => {
+                    //                     const viewport = page.getViewport({ scale: 1 });
+                    //                     const canvas = document.createElement('canvas');
+                    //                     const context = canvas.getContext('2d');
+                    //                     canvas.height = viewport.height;
+                    //                     canvas.width = viewport.width;
 
-                                        // Render PDF page into canvas context
-                                        const renderContext = {
-                                            canvasContext: context,
-                                            viewport: viewport
-                                        };
-                                        pdfContainer.innerText = '';
-                                        page.render(renderContext).promise.then(() => {
-                                            pdfContainer.appendChild(canvas);
-                                        });
-                                    });
-                                }
-                            });
-                        </script>";
+                    //                     // Render PDF page into canvas context
+                    //                     const renderContext = {
+                    //                         canvasContext: context,
+                    //                         viewport: viewport
+                    //                     };
+                    //                     pdfContainer.innerText = '';
+                    //                     page.render(renderContext).promise.then(() => {
+                    //                         pdfContainer.appendChild(canvas);
+                    //                     });
+                    //                 });
+                    //             }
+                    //         });
+                    //     </script>";
                 } else {
                     // For other file types, display them in preformatted format with syntax highlighting
                     $fileContent = htmlspecialchars(file_get_contents($fileLocation));
                     $fileExtension = pathinfo($fileLocation, PATHINFO_EXTENSION);
                     echo "
-                    <div id='codeContainer'>
+                    <div >
                         <div id='copy_container' class='container-fluid d-flex flex-row justify-content-between align-items-center p-0 m-0''>
                             <span class='filenName ms-3 text-light'><em>$fileUrl</em></span>
                             <button id='copybtn' title='Copy Code' class='btn btn-sm' onclick='copyCode()'>Copy Code</button>
                         </div>
-                        <pre class='mt-0 mb-3 '><code class='language-$fileExtension'>$fileContent</code></pre>
+                        <pre id='codeContainer' class='mt-0 mb-3 '><code class='language-$fileExtension'>$fileContent</code></pre>
                     </div>";
                 }
             } else {
