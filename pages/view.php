@@ -125,8 +125,9 @@ if (isset($_GET['file'])) {
             if (file_exists($fileLocation) && is_readable($fileLocation)) {
                 // Display PDF files using PDF.js
                 if (pathinfo($fileLocation, PATHINFO_EXTENSION) === 'pdf') {
-                    $fileName = basename($fileLocation);
-                    echo "<iframe src='https://su.duploader.tech/$fileName' width='100%' height='500'></iframe>";
+                    $partToRemove = "/var/www/vhosts/duploader.tech/";
+                    $resultLink = str_replace($partToRemove, '', $fileLocation);
+                    echo "<iframe src='https://$resultLink' width='100%' height='500'></iframe>";
                     // echo "<div id='pdfContainer'></div>";
                     // echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js'></script>";
                     // echo "<script>
