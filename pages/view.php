@@ -127,8 +127,8 @@ if (isset($_GET['file'])) {
                 if (pathinfo($fileLocation, PATHINFO_EXTENSION) === 'pdf') {
                     $partToRemove = "/var/www/vhosts/duploader.tech/";
                     $resultLink = str_replace($partToRemove, '', $fileLocation);
-                    $encodedLink = rawurlencode("https://$resultLink");
-                    echo "<iframe src='$encodedLink' width='100%' height='500'></iframe>";
+                    $encodedLink = str_replace('\\', '/', $resultLink);
+                    echo "<iframe src='https://$encodedLink' width='100%' height='500'></iframe>";
                     // echo "<div id='pdfContainer'></div>";
                     // echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js'></script>";
                     // echo "<script>
