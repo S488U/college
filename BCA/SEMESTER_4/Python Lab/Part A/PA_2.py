@@ -3,18 +3,15 @@
     a) Swap elements of string list
     b) Combining two list
 """
-x="Srinivas" 
-y="University"
 
-print(x)
-a=list(x)
-print(a)
+x = input("Enter the first value: ")
+y = input("Enter the second value: ")
 
-print(y)
-b=list(y)
-print(b)
+firstList = list(x)
+secondList = list(y)
 
-print(a[::-1])
-print(b[::-1])
+combList = firstList + secondList
 
-print(a+b)
+print("Combined List is :", combList)
+print("Swapped elements List is :", combList[::-1])
+

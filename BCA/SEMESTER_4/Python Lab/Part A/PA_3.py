@@ -3,15 +3,17 @@
 """
 
 import numpy as np
-mat1 = np.array([[1,2,3],[4,5,6],[7,8,9]])
-mat2 = np.array([[1,2,3],[4,5,6],[7,8,9]])
+mat1 = np.array([[5,8],[2,9]])
+mat2 = np.array([[4,3],[6,1]])
 
-sumMatrix = np.add(mat1, mat2)
 
-print("The resultant of matrix after addition is:\n", sumMatrix)
+print("The resultant of matrix after addition is:\n", np.add(mat1, mat2))
 
-diffMatrix = np.subtract(mat1, mat2)
-print("The resultant of matrix after subtraction is:\n", diffMatrix)
+print("The resultant of matrix after subtraction is:\n", np.subtract(mat1, mat2))
 
-multMatrix = np.dot(mat1, mat2)
-print("The resultant of matrix after Multiplication is:\n", multMatrix)
+print("The resultant of matrix after division is:\n", np.divide(mat1, mat2))
+
+print("The resultant of matrix after Multiplication is:\n", np.dot(mat1, mat2))
+
+print("The product of matrices is:\n", np.dot(mat1, mat2))
+
