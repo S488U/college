@@ -11,7 +11,7 @@ def findTuple(tupleList, k):
 	return resultTuple
 	
 tupleList = [(2,4,8),(3,6,9),(6,10,15), (7,14,21)]
-k=int(input("Enter the input for k: "))
+k = 2
 
 result = findTuple(tupleList, k)
-print(f"Tuple with all elements divisble by {k} is {result}")
+print(f"Tuple with all elements divisible by {k} is {result}")
