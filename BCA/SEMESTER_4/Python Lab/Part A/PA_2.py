@@ -7,10 +7,7 @@
 x = input("Enter the first value: ")
 y = input("Enter the second value: ")
 
-firstList = list(x)
-secondList = list(y)
-
-combList = firstList + secondList
+combList = list(x) + list(y)
 
 print("Combined List is :", combList)
 print("Swapped elements List is :", combList[::-1])
