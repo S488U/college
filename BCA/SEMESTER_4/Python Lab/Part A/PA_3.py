@@ -13,7 +13,7 @@ print("The resultant of matrix after subtraction is:\n", np.subtract(mat1, mat2)
 
 print("The resultant of matrix after division is:\n", np.divide(mat1, mat2))
 
-print("The resultant of matrix after Multiplication is:\n", np.dot(mat1, mat2))
+print("The resultant of matrix after Multiplication is:\n", np.multiply(mat1, mat2))
 
 print("The product of matrices is:\n", np.dot(mat1, mat2))
 
