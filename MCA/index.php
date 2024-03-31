@@ -144,7 +144,7 @@
                     echo '</div>';
                 } else {
                     // Handle file display/download based on extension
-                    $allowedExtensions = array("py", "html", "pdf", "txt", "java", "cpp", "c", "sh", "css");
+                    $allowedExtensions = array("py", "html", "pdf", "txt", "java", "cpp", "c", "sh", "css", "png", "jpeg", "jpg", "webp");
                     $extension = pathinfo($entry, PATHINFO_EXTENSION);
                     $relativePathToComponents = str_replace("/assets", "", dirname($relativePath)); // Remove "/assets" from the directory path
                     $encodedRelativePath = implode("/", array_map('rawurlencode', explode("/", $relativePathToComponents))); // Encode each component of the path except "/"
