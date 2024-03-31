@@ -155,7 +155,7 @@
                         echo "<div class='custom-file'><a class='custom-file-link' href='view.php?file=/BCA$encodedRelativePath/$encodedEntry' target='_blank'>" . htmlspecialchars($entry) . "</a></div>"; // Generate the link
                     } else {
                         // Direct download link
-                        echo "<div class='custom-file'><a class='custom-file-link' href='/MCA/$encodedRelativePath/$encodedEntry' download>" . htmlspecialchars($entry) . "</a></div>"; // Generate the link
+                        echo "<div class='custom-file'><a class='custom-file-link' href='/BCA/$encodedRelativePath/$encodedEntry' download>" . htmlspecialchars($entry) . "</a></div>"; // Generate the link
                     }
                 }
             }
