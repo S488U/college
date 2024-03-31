@@ -176,6 +176,7 @@ if (isset($_GET['file'])) {
                             <img src='https://$resultLink' width='100%' height='500'> 
                             <img src='https://su.duploader.tech/BCA//SEMESTER_4/Python%20Lab/Part%20B/PB_4/Bars.png' width='100%' height='500'> 
                         </div>";
+                        break;
                     default:
                         $fileContent = htmlspecialchars(file_get_contents($fileLocation));
                         echo "
