@@ -169,14 +169,18 @@ if (isset($_GET['file'])) {
                         //         });
                         //     </script>";
                         break;
-                    case 'png':
-                        $partToRemove = "/var/www/vhosts/duploader.tech/";
-                        $resultLink = str_replace($partToRemove, '', $fileLocation);
-                        echo "<div class='container' width='100%' height='500'>
-                            <img src='https://$resultLink' width='100%' height='500'> 
-                            <img src='https://su.duploader.tech/BCA//SEMESTER_4/Python%20Lab/Part%20B/PB_4/Bars.png' width='100%' height='500'> 
-                        </div>";
-                        break;
+                        case 'jpeg':
+                        case 'jpg':
+                        case 'webp':
+                        case 'png':
+                            $partToRemove = "/var/www/vhosts/duploader.tech/";
+                            $resultLink = str_replace($partToRemove, '', $fileLocation);
+                            echo "<div class='container' style='width: 100%; max-width: 100%;'>
+                                <img src='https://$resultLink' style='width: 100%; max-width: 100%; height: auto;'> 
+                                <img src='https://su.duploader.tech/BCA//SEMESTER_4/Python%20Lab/Part%20B/PB_4/Bars.png' style='width: 100%; max-width: 100%; height: auto;'> 
+                            </div>";
+                            break;
+                        
                     default:
                         $fileContent = htmlspecialchars(file_get_contents($fileLocation));
                         echo "
