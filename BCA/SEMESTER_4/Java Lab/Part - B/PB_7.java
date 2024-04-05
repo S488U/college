@@ -65,3 +65,27 @@ public class PB_7 {
         }
     }
 }
+
+
+/*
+
+OUTPUT: -
+
+Enter any number: 4
+Start Thread t1
+Start Thread t2
+Start Thread t3
+Square of 1 is 1 
+Square of 2 is 4 
+Square of 3 is 9 
+Square of 4 is 16
+Cube of 1 is 1   
+Cube of 2 is 8   
+Cube of 3 is 27  
+Cube of 4 is 64  
+SquareRoot of 1 is 1.0
+SquareRoot of 2 is 1.4142135623730951
+SquareRoot of 3 is 1.7320508075688772
+SquareRoot of 4 is 2.0
+
+ */

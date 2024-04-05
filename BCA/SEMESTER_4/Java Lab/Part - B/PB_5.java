@@ -82,3 +82,44 @@ public class Bank {
         System.out.println("Balance: " + balance);
     }
 }
+
+/*
+
+OUTPUT: -
+
+Enter A/C No., Name and Initial Deposit:
+1234567890 John 5000
+Menu
+1. Deposit
+2. Withdraw
+3. Display
+4. Exit
+ Enter your choice: 1
+Enter the amount to be deposited: 2000
+Your balance is: 7000.0
+Menu
+1. Deposit
+2. Withdraw
+3. Display
+4. Exit
+ Enter your choice: 2
+Enter the amount to be withdrawn: 3000
+Your balance is: 4000.0
+Menu
+1. Deposit
+2. Withdraw
+3. Display
+4. Exit
+ Enter your choice: 3
+Account No: 1234567890
+Name of the customer: John
+Balance: 4000.0
+Menu
+1. Deposit
+2. Withdraw
+3. Display
+4. Exit
+ Enter your choice: 4
+
+
+*/

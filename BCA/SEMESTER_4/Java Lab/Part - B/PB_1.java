@@ -78,3 +78,56 @@ public class PB_1 {
         }
     }
 }
+
+/*
+
+OUTPUT: -
+
+Enter the first number: 5
+Enter the second number: 6
+Menu For Operation
+1. Add
+2. Subtract
+3. Multiply
+4. Divide
+5. Exit
+Enter your choice: 
+1
+The sum is: 11
+Menu For Operation
+1. Add
+2. Subtract
+3. Multiply
+4. Divide
+5. Exit
+Enter your choice: 
+2
+The difference is: -1
+Menu For Operation
+1. Add
+2. Subtract
+3. Multiply
+4. Divide
+5. Exit
+Enter your choice: 
+3
+The product is: 30
+Menu For Operation
+1. Add
+2. Subtract
+3. Multiply
+4. Divide
+5. Exit
+Enter your choice: 
+4
+The quotient is: 0
+Menu For Operation
+1. Add
+2. Subtract
+3. Multiply
+4. Divide
+5. Exit
+Enter your choice: 
+5
+
+ */

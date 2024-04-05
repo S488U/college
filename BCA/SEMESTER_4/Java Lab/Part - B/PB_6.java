@@ -85,3 +85,24 @@ public class SimpleInterest {
 		System.out.println("Simple Interest is: " + si);
 	}
 }
+
+/*
+
+OUTPUT: -
+
+Output for Temperature:
+Enter the temperature in Centigrade: 34
+The temperature in Fahrenheit is: 93.2
+Enter the temperature in Fahrenheit: 91
+The temperature in Centigrade is: 32.77777777777778
+
+Output for Simple Interest:
+Enter Principal: 10000
+Enter Time in Years: 2
+Enter the Rate of Interest: 8
+The Principal Amount: 10000.0
+The Number of Years is: 2.0  
+The Rate of Interest is: 8.0 
+Simple Interest is: 1600.0
+
+ */
