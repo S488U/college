@@ -56,3 +56,18 @@ public class PB_3 {
         ob.close();
     }
 }
+
+/*
+
+OUTPUT: -
+
+Enter the height: 170
+Enter the width: 45
+Enter the depth: 67
+Enter the weight of the shape: 56
+Enter the color of the shape: yellow
+Weight = 56.0        
+Color = yellow       
+The volume = 512550.0
+
+ */

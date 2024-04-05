@@ -112,3 +112,46 @@ public class PB_4 {
         t.salary();
     }
 }
+
+/*
+
+OUTPUT: -
+
+enter the employee name:
+Johnas
+enter the designation:
+Manager
+enter the employee code:
+0123
+enter the account number:
+985642
+enter the date of joining:
+28
+enter the basic pay:
+10000
+enter the da:
+3000
+enter the hra:
+1000
+enter the cca:
+5000
+
+Employee details
+employee name: Johnas
+designation: Manager
+code: 123
+account number: 985642
+date of joining: 28
+basic pay: 10000
+da is: 3000
+hra is: 1000
+cca is: 5000
+pf is: 500
+lic is: 700
+tax is: 250
+employee gross salary: 19000
+deduction is: 1450
+employee salary: 17550
+
+
+ */

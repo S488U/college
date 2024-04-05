@@ -59,3 +59,28 @@ public class PB_2 {
         ob.close();
     }
 }
+
+/*
+
+OUTPUT: -
+
+Enter no. of students: 2
+Enter details of student 1:
+Enter register number: 01234
+Enter name: Johnas
+Enter marks in 3 subjects:
+24 56 84
+Enter details of student 2:
+Enter register number: 09874
+Enter name: Alice
+Enter marks in 3 subjects:
+56 94 72
+
+Student Details:
+Student 1:
+Reg no: 1234	Name: Johnas	Total: 0
+
+Student 2:
+Reg no: 9874	Name: Alice	Total: 222
+
+ */
