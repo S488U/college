@@ -72,6 +72,7 @@ if (isset($_GET['file'])) {
             }
 
             @media screen and (max-width:600px) {
+body{overflow-x: hidden;}
                 .filenName {
                     max-width: 100%;
 
