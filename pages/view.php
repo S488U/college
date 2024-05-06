@@ -72,12 +72,14 @@ if (isset($_GET['file'])) {
             }
 
             @media screen and (max-width:600px) {
+body{overflow-x: hidden;}
                 .filenName {
+display: none !important;
                     max-width: 100%;
 
                     overflow: hidden;
                     position: relative;
-                    animation: moving 10s linear infinite;
+                    /*animation: moving 10s linear infinite;/*
                     z-index: 0;
                     inset: 0;
                 }
