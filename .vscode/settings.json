@@ -1,5 +1,10 @@
 {
     "cSpell.words": [
         "Srinivas"
-    ]
+    ],
+    "files.associations": {
+        "*.ejs": "html",
+        "*.html": "html",
+        "ostream": "cpp"
+    }
 }

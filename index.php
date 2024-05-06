@@ -52,8 +52,8 @@
             cursor: pointer !important;
         }
 
-        .card:active {
-            border: 2px solid black !important;
+        .card:hover {
+            border: 0.5px solid black !important;
         }
     </style>
     <script>
