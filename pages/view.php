@@ -29,8 +29,8 @@ if (isset($_GET['file'])) {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <script src="../assets/script/navbar.js"></script>
         <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/prism.min.js"></script>
-        <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-java.min.js"></script>
-        <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-python.min.js"></script>
+        <!-- <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-java.min.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-python.min.js"></script> -->
 
         <style>
             /* Custom CSS for PDF container */
@@ -190,6 +190,8 @@ if (isset($_GET['file'])) {
                             </div>
                             <pre id='codeContainer' class='mt-0 mb-3 '><code class='language-$fileExtension'>$fileContent</code></pre>
                         </div>";
+                        $check = $fileExtension == "py" ? "<script defer src='https://cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-python.min.js'></script>" :  "<script defer src='https://cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-$fileExtension.min.js'></script>"; 
+                        echo $check;
                         break;
                 }
             } else {
