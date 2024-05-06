@@ -72,9 +72,12 @@ if (isset($_GET['file'])) {
             }
 
             @media screen and (max-width:600px) {
-body{overflow-x: hidden;}
+                body {
+                    overflow-x: hidden;
+                }
+
                 .filenName {
-display: none !important;
+                    display: none !important;
                     max-width: 100%;
 
                     overflow: hidden;
@@ -171,17 +174,17 @@ display: none !important;
                         //         });
                         //     </script>";
                         break;
-                        case 'jpeg':
-                        case 'jpg':
-                        case 'webp':
-                        case 'png':
-                            $partToRemove = "/var/www/vhosts/duploader.tech/";
-                            $resultLink = str_replace($partToRemove, '', $fileLocation);
-                            echo "<div class='container' style='width: 100%; max-width: 100%;'>
+                    case 'jpeg':
+                    case 'jpg':
+                    case 'webp':
+                    case 'png':
+                        $partToRemove = "/var/www/vhosts/duploader.tech/";
+                        $resultLink = str_replace($partToRemove, '', $fileLocation);
+                        echo "<div class='container' style='width: 100%; max-width: 100%;'>
                                 <img src='https://$resultLink' style='width: 100%; max-width: 100%; height: auto;'>  
                             </div>";
-                            break;
-                        
+                        break;
+
                     default:
                         $fileContent = htmlspecialchars(file_get_contents($fileLocation));
                         echo "
@@ -192,7 +195,7 @@ display: none !important;
                             </div>
                             <pre id='codeContainer' class='mt-0 mb-3 '><code class='language-$fileExtension'>$fileContent</code></pre>
                         </div>";
-                        $check = $fileExtension == "py" ? "<script defer src='https://cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-python.min.js'></script>" :  "<script defer src='https://cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-$fileExtension.min.js'></script>"; 
+                        $check = $fileExtension == "py" ? "<script defer src='https://cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-python.min.js'></script>" :  "<script defer src='https://cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-$fileExtension.min.js'></script>";
                         echo $check;
                         break;
                 }
@@ -214,7 +217,7 @@ display: none !important;
                 var code = codeContainer.innerText;
 
 
-                // Create a temporary textarea element
+                //Create a temporary textarea element
                 var textarea = document.createElement('textarea');
                 textarea.value = code;
                 document.body.appendChild(textarea);
