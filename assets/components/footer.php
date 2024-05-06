@@ -5,13 +5,13 @@
                 <h5>&copy; <span id="getDate"></span> SU Study Materials</h5>
             </div>
             <div class="container d-flex flex-column justify-content-md-center  align-items-md-center justify-content-start m-md-auto">
-               <ul type="none">
-                <li><a class="link text-decoration-none hover-link" href="https://duploader.tech">Duploader</a></li>
-                <li><a class="link text-decoration-none hover-link" href="https://survey.duploader.tech">Survey</a></li>
-                <li><a class="link text-decoration-none hover-link" href="https://duploader.tech/contact/">Contact Us</a></li>
-                <li><a class="link text-decoration-none hover-link" href="https://www.instagram.com/l_e_sims/">l_e_sims</a></li>
-                <li><a class="link text-decoration-none hover-link" href="https://su.duploader.tech/pages/upload.php">Upload</a></li>
-               </ul>
+                <ul type="none">
+                    <li><a class="link text-decoration-none hover-link" href="https://duploader.tech">Duploader</a></li>
+                    <li><a class="link text-decoration-none hover-link" href="https://survey.duploader.tech">Survey</a></li>
+                    <li><a class="link text-decoration-none hover-link" href="https://duploader.tech/contact/">Contact Us</a></li>
+                    <li><a class="link text-decoration-none hover-link" href="https://www.instagram.com/l_e_sims/">l_e_sims</a></li>
+                    <li><a class="link text-decoration-none hover-link" href="https://su.duploader.tech/pages/upload.php">Upload</a></li>
+                </ul>
             </div>
             <div class="container d-flex flex-column justify-content-md-center  align-items-md-center justify-content-start m-md-auto text-left">
                 <ul type="none">
@@ -21,8 +21,12 @@
                     <li><a class="link text-decoration-none hover-link" href="../../pages/bba.php">BBA</a></li>
                     <li><a class="link text-decoration-none hover-link" href="../../pages/Mba.php">MBA</a></li>
                 </ul>
-                
+
             </div>
+        </div>
+        <hr>
+        <div class="container-fluid" style="height: 25px;">
+            <h5 style="transform: translateY(-5px);" class=" text-center ">Powered by <span><a  id="bx12" href="https://duploader.tech">duploader</a></span></h5>
         </div>
         <hr>
         <div class="container d-flex flex-column justify-content-center align-items-center py-2">
@@ -49,5 +53,17 @@
 
     .hover-link:hover {
         text-decoration: underline !important;
+    }
+
+    @font-face {
+        font-family: 'Tango';
+        src: url(/assets/fonts/TangoBT.ttf);
+        font-weight: 100;
+        font-style: normal;
+    }
+
+    #bx12 {
+        font-family: 'Tango', sans-serif;
+        font-size: 28px;
     }
 </style>

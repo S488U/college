@@ -82,7 +82,7 @@ if (isset($_GET['file'])) {
 
                     overflow: hidden;
                     position: relative;
-                    /*animation: moving 10s linear infinite;/*
+                    /*animation: moving 10s linear infinite;*/
                     z-index: 0;
                     inset: 0;
                 }
@@ -244,7 +244,6 @@ if (isset($_GET['file'])) {
     </html>
 <?php
 } else {
-    // Handle case where file information is not provided
-    echo "Error: File URL not provided.";
+   include "./error.php";
 }
 ?>

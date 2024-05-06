@@ -1,7 +1,7 @@
 <nav class="navbar bg-body-tertiary fs-5">
     <div class="container d-flex flex-row ">
         <a class="navbar-brand" href="/">
-            <img src="https://duploader.tech/assets/favicon/android-chrome-512x512.png?v=1704904973" alt="Bootstrap" width="30" height="24"> SU Study Materials
+            <img src="/assets/svg/logo.png" alt="Logo" width="40" height="40"> SU Study Materials
         </a>
         <ul class="nav justify-content-end">
             <li class="nav-item">
@@ -71,5 +71,18 @@
         </div>
     </div>
 </nav>
+
+<style>
+    .nav-link {
+        color: black !important;
+        transform: translateY(0px);
+        transition: color 250ms ease-in, transform 250ms ease-in;
+    }
+
+    .nav-link:hover {
+        color: #292920 !important;
+        transform: translateY(-3px);
+    }
+</style>
 
 <script src="https://kit.fontawesome.com/4145934b9b.js" crossorigin="anonymous"></script>
