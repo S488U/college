@@ -22,9 +22,10 @@
 <body>
     <?php include "./assets/components/navbar.php"; ?>
 
-<div class="container mt-5 p-5 p-md-5">
-    <h1 class="text-center text-capitalize">Find your desired Study Materials Here</h1>
-    <div class="row row-cols-1 row-cols-md-2 gap-5 justify-content-center align-items-center">
+    <div class="container d-flex flex-column justify-content-center align-items-center gap-5 mt-5 p-5 p-md-5" style="min-height: 70vh; height:auto;">
+        <h1 class="text-capitalize text-center">Find your desired Study Materials Here</h1>
+        <div class="container-fluid">
+    <div class="row row-cols-1 row-cols-md-2 g-5">
         <div class="col">
             <div class="card" onclick="linkFunction('bca');">
                 <div class="card-body">
@@ -41,7 +42,7 @@
                 <div class="card-body">
                     <h1 class="card-title">MCA</h1>
                     <p class="card-text text-break text-capitalize">
-                        Find all the study Materials of Masters of Computer Application.
+                        Find all the study Materials of Masters of computer application.
                     </p>
                     <a class="card-link text-capitalize" href="#">MCA Study materials</a>
                 </div>
@@ -54,7 +55,7 @@
                     <p class="card-text text-break text-capitalize">
                         Find all the study Materials of Bachelor of Business Administration.
                     </p>
-                    <a class="card-link text-capitalize" href="#">BBA Study materials</a>
+                    <a class="card-link text-capitalize" href="#">MCA Study materials</a>
                 </div>
             </div>
         </div>
@@ -65,13 +66,14 @@
                     <p class="card-text text-break text-capitalize">
                         Find all the study Materials of Masters of Business Administration.
                     </p>
-                    <a class="card-link text-capitalize" href="#">MBA Study materials</a>
+                    <a class="card-link text-capitalize" href="#">MCA Study materials</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+    </div>
 
 
     <style>
@@ -86,20 +88,20 @@
     <script>
         function linkFunction(e) {
             var courses = ['mca', 'bca', 'mba', 'bba'];
-            for(let i=0; i<courses.length;i++) {
-                if(courses[i] === e) {
+            for (let i = 0; i < courses.length; i++) {
+                if (courses[i] === e) {
                     window.history.replaceState({}, document.title, window.location.pathname);
                     window.location.href = "./pages/" + e + ".php";
                 }
             }
-            
+
         }
     </script>
 
     <?php
-        include "./assets/components/footer.php";
-        include "./assets/components/checkApprove.php";
-        include "./assets/components/scripts.php";
+    include "./assets/components/footer.php";
+    include "./assets/components/checkApprove.php";
+    include "./assets/components/scripts.php";
     ?>
 
     <script src="./assets/script/checkAccepted.js"></script>
