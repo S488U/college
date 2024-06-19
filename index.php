@@ -43,6 +43,24 @@
                     <a class="card-link text-capitalize" href="#">MCA Study materials</a>
                 </div>
             </div>
+            <div class="card" onclick="linkFunction('bba');">
+                <div class="card-body">
+                    <h1 class="card-title">BBA</h1>
+                    <p class="card-text text-break text-capitalize">
+                        Find all the study Materials of Bachelor of Business Administration.
+                    </p>
+                    <a class="card-link text-capitalize" href="#">MCA Study materials</a>
+                </div>
+            </div>
+            <div class="card" onclick="linkFunction('mba');">
+                <div class="card-body">
+                    <h1 class="card-title">MBA</h1>
+                    <p class="card-text text-break text-capitalize">
+                        Find all the study Materials of Masters of Business Administration.
+                    </p>
+                    <a class="card-link text-capitalize" href="#">MCA Study materials</a>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -58,7 +76,7 @@
     </style>
     <script>
         function linkFunction(e) {
-            var courses = ['mca', 'bca'];
+            var courses = ['mca', 'bca', 'mba', 'bba'];
             for(let i=0; i<courses.length;i++) {
                 if(courses[i] === e) {
                     window.history.replaceState({}, document.title, window.location.pathname);
