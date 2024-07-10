@@ -24,13 +24,17 @@
             margin-bottom: 10px;
             transition: background-color 0.3s ease, color 0.3s ease;
             background-color: #ffffff;
+            /* Set background color to white */
             color: #333333;
+            /* Set text color to dark gray */
         }
 
         .custom-folder:hover,
         .custom-file:hover {
             background-color: #ecf0f1;
+            /* Change hover background color */
             color: #555555;
+            /* Change hover text color */
         }
 
         .custom-folder {
@@ -104,16 +108,12 @@
             $entries = [];
 
             while ($file = readdir($dir)) {
+                if ($file == '.' || $file == '..' || pathinfo($file, PATHINFO_EXTENSION) == 'php') {
+                    continue;
+                }
+
                 $fullPath = $path . '/' . $file;
                 $relativePath = str_replace($rootDirectory, '', $fullPath);
-
-                // Check if the file is a PHP file and not in the "LAMP Labs" folder
-                if ($file == '.' || $file == '..') {
-                    continue;
-                }
-                if (pathinfo($file, PATHINFO_EXTENSION) == 'php' && !preg_match('#/LAMP Labs/#', $relativePath)) {
-                    continue;
-                }
 
                 if (is_dir($fullPath)) {
                     $entries[] = $file;
@@ -121,7 +121,7 @@
                     $entries[] = $file;
                 }
             }
-           
+
             closedir($dir);
 
             // Sort the entries alphabetically
@@ -134,7 +134,7 @@
                 if (is_dir($fullPath)) {
                     // Display a collapsible folder
                     echo '<div class="custom-folder">';
-                    echo '<div class="custom-collapsible" onclick="toggleFolder(this)"><strong>' . $entry . '</strong> ➤</div>';
+                    echo '<div class="custom-collapsible" onclick="toggleFolder(this)"><strong>' . $entry . '</strong> ▶</div>';
                     echo '<div class="custom-content">';
 
                     // Recursively display the contents of the directory
@@ -144,7 +144,7 @@
                     echo '</div>';
                 } else {
                     // Handle file display/download based on extension
-                    $allowedExtensions = array("py", "html", "pdf", "txt", "java", "cpp", "c", "sh", "css", "png", "jpeg", "jpg", "webp", "php");
+                    $allowedExtensions = array("py", "html", "pdf", "txt", "java", "cpp", "c", "sh", "css", "png", "jpeg", "jpg", "webp");
                     $extension = pathinfo($entry, PATHINFO_EXTENSION);
                     $relativePathToComponents = str_replace("/assets", "", dirname($relativePath)); // Remove "/assets" from the directory path
                     $encodedRelativePath = implode("/", array_map('rawurlencode', explode("/", $relativePathToComponents))); // Encode each component of the path except "/"
@@ -167,13 +167,15 @@
         // Display the folder structure
         displayFolderStructure($rootDirectory, $rootDirectory);
         ?>
+
+
     </div>
 
     <script>
         function toggleFolder(element) {
             var content = element.nextElementSibling;
             content.style.display = (content.style.display === 'block') ? 'none' : 'block';
-            element.innerHTML = (content.style.display === 'block') ? '<strong>' + element.textContent.trim().slice(0, -1) + '</strong> ➤' : '<strong>' + element.textContent.trim().slice(0, -1) + '</strong> ▼';
+            element.innerHTML = (content.style.display === 'block') ? '<strong>' + element.textContent.trim().slice(0, -1) + '</strong> ▶' : '<strong>' + element.textContent.trim().slice(0, -1) + '</strong> ▼';
         }
     </script>
 
