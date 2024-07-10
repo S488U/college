@@ -29,19 +29,13 @@ if (isset($_GET['file'])) {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <script src="../assets/script/navbar.js"></script>
         <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/prism.min.js"></script>
-        <!-- <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-java.min.js"></script>
-        <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-python.min.js"></script> -->
-
         <style>
-            /* Custom CSS for PDF container */
             #pdfContainer {
                 display: flex;
                 flex-wrap: wrap;
                 gap: 20px;
                 justify-content: center;
             }
-
-            /* Custom CSS for responsive canvas */
             canvas {
                 max-width: 100%;
                 height: auto;
@@ -77,12 +71,11 @@ if (isset($_GET['file'])) {
                 }
 
                 .filenName {
-                    display: none !important;
-                    max-width: 100%;
-
+                    display: block !important;
+                    min-width: 40% !important;
                     overflow: hidden;
                     position: relative;
-                    /*animation: moving 10s linear infinite;*/
+                    /* animation: moving 10s linear infinite; */
                     z-index: 0;
                     inset: 0;
                 }
@@ -93,11 +86,13 @@ if (isset($_GET['file'])) {
                     word-break: keep-all;
                 }
 
+                #copy_container {
+                    display: flex !important;
+                    justify-content: flex-end !important;
+                }
 
                 #copybtn {
                     max-width: 100px;
-                    position: relative;
-                    z-index: 1;
                 }
 
                 @keyframes moving {
@@ -110,6 +105,10 @@ if (isset($_GET['file'])) {
                     }
                 }
 
+                code {
+                    font-size: 15px !important;
+                }
+
                 code span {
                     font-size: 15px !important;
                 }
@@ -117,6 +116,7 @@ if (isset($_GET['file'])) {
 
             }
         </style>
+
     </head>
 
     <body>
@@ -139,40 +139,6 @@ if (isset($_GET['file'])) {
                         $partToRemove = "/var/www/vhosts/duploader.tech/";
                         $resultLink = str_replace($partToRemove, '', $fileLocation);
                         echo "<iframe src='https://$resultLink' width='100%' height='500'></iframe>";
-                        // echo "<div id='pdfContainer'></div>";
-                        // echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js'></script>";
-                        // echo "<script>
-                        //         const pdfUrl = '$fileUrl';
-                        //         const pdfContainer = document.getElementById('pdfContainer');
-                        //         pdfContainer.innerText = 'Loading.........';
-
-                        //         // PDF.js worker from cdnjs
-                        //         pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.worker.min.js';
-
-                        //         // Asynchronous download of PDF
-                        //         const loadingTask = pdfjsLib.getDocument(pdfUrl);
-                        //         loadingTask.promise.then(pdf => {
-                        //             for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
-                        //                 pdf.getPage(pageNum).then(page => {
-                        //                     const viewport = page.getViewport({ scale: 1 });
-                        //                     const canvas = document.createElement('canvas');
-                        //                     const context = canvas.getContext('2d');
-                        //                     canvas.height = viewport.height;
-                        //                     canvas.width = viewport.width;
-
-                        //                     // Render PDF page into canvas context
-                        //                     const renderContext = {
-                        //                         canvasContext: context,
-                        //                         viewport: viewport
-                        //                     };
-                        //                     pdfContainer.innerText = '';
-                        //                     page.render(renderContext).promise.then(() => {
-                        //                         pdfContainer.appendChild(canvas);
-                        //                     });
-                        //                 });
-                        //             }
-                        //         });
-                        //     </script>";
                         break;
                     case 'jpeg':
                     case 'jpg':
@@ -190,7 +156,7 @@ if (isset($_GET['file'])) {
                         echo "
                         <div >
                             <div id='copy_container' class='container-fluid d-flex flex-row justify-content-between align-items-center p-0 m-0''>
-                                <span class='filenName ms-3 text-light'><em>$fileUrl</em></span>
+                                <span class='filenName ms-3 text-light'><em id='contentSec'>$fileUrl</em></span>
                                 <button id='copybtn' title='Copy Code' class='btn btn-sm' onclick='copyCode()'>Copy Code</button>
                             </div>
                             <pre id='codeContainer' class='mt-0 mb-3 '><code class='language-$fileExtension'>$fileContent</code></pre>
@@ -212,24 +178,36 @@ if (isset($_GET['file'])) {
 
         <script src="../assets/script/checkAccepted.js"></script>
         <script>
+            var tempContent = document.getElementById("contentSec").innerText;
+
+            function handleSize() {
+                var winSize = window.innerWidth;
+                var contentSec = document.getElementById("contentSec");
+
+                if (winSize <= 700) {
+                    tempContent = contentSec.innerHTML;
+                    contentSec.innerHTML = "Duploader";
+                    contentSec.style.display = "block";
+                } else {
+                    contentSec.innerHTML = tempContent;
+                    contentSec.style.display = "block";
+                }
+            }
+
+            document.addEventListener("DOMContentLoaded", function() {
+                handleSize();
+                window.addEventListener("resize", handleSize);
+            });
+
             function copyCode() {
                 var codeContainer = document.getElementById('codeContainer');
                 var code = codeContainer.innerText;
-
-
-                //Create a temporary textarea element
                 var textarea = document.createElement('textarea');
                 textarea.value = code;
                 document.body.appendChild(textarea);
-
-                // Select the text
                 textarea.select();
-                textarea.setSelectionRange(0, 99999); /* For mobile devices */
-
-                // Copy the text
+                textarea.setSelectionRange(0, 99999);
                 document.execCommand('copy');
-
-                // Remove the textarea
                 document.body.removeChild(textarea);
                 document.getElementById("copybtn").innerText = "Copied!!";
 
@@ -244,6 +222,6 @@ if (isset($_GET['file'])) {
     </html>
 <?php
 } else {
-   include "./error.php";
+    include "./error.php";
 }
 ?>
