@@ -1,29 +1,52 @@
 <!-- Write a Php program to demonstrate date function. -->
  
 <?php
-    date_default_timezone_set("Asia/Kolkata");
-    $morning = "Good Morning";
-    $afternoon = "Good Afternoon";
-    $evening = "Good Evening";
-    $late = "Working Late!!!";
-    $friday = "Get Ready For The Weekend";
+date_default_timezone_set("Asia/Kolkata"); // Replace with your timezone
 
-    $time = date("G");
-    $day = date("l");
+$late = "It's late night";
+$mor = "Good morning";
+$aft = "Good afternoon";
+$eve = "Good evening";
 
-    echo " $time $day ";
+$a = date("G"); // Current hour in 24-hour format without leading zeros
 
-    if($time >= 12 && $time <= 16){
-        echo $afternoon;
-    } else if ($time >= 17 && $time <= 23){
-        echo $evening;
-    } else if ($time >= 1 && $time <= 5){
-        echo $late;
-    } else if ($time >= 6 && $time <= 11){
-        echo $morning;
-    }
+echo "Current hour is: $a<br>"; // Print the current hour for debugging
 
-    if($day == "Friday"){
-        echo " $friday";
-    }
+if ($a >= 0 && $a <= 5) {
+    echo $late;
+} elseif ($a >= 6 && $a <= 11) {
+    echo $mor;
+} elseif ($a >= 12 && $a <= 16) {
+    echo $aft;
+} elseif ($a >= 17 && $a <= 23) {
+    echo $eve;
+}
+
+echo "<br>"; // Add a line break for readability
+
+$b = date("l");
+$monday = "Today is Monday";
+$tuesday = "Today is Tuesday";
+$wednesday = "Today is Wednesday";
+$thursday = "Today is Thursday";
+$friday = "Today is Friday";
+$saturday = "Today is Saturday";
+$sunday = "Today is Sunday"; // Add Sunday
+
+if ($b == "Monday") {
+    echo $monday;
+} elseif ($b == "Tuesday") {
+    echo $tuesday;
+} elseif ($b == "Wednesday") {
+    echo $wednesday;
+} elseif ($b == "Thursday") {
+    echo $thursday;
+} elseif ($b == "Friday") {
+    echo $friday;
+} elseif ($b == "Saturday") {
+    echo $saturday;
+} else {
+    echo $sunday;
+}
 ?>
+
