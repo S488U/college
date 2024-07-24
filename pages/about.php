@@ -19,7 +19,7 @@
         <h1>About SU Study Materials</h1>
         <p>This website hosts comprehensive BCA study materials from Srinivas University. Here, students can access a wide range of educational resources designed to support their academic journey, providing a valuable hub for learning and reference throughout their BCA studies at Srinivas University.</p>
 
-        <div class="container text-break border border-danger bg-danger-subtle p-5" >
+        <div class="container text-break border border-danger bg-danger-subtle p-md-5 p-2" >
             <p class="text-danger text-center fs-2"><strong> Warning:</strong></p>
             <br>
             <p>Dear Users,</p>
@@ -29,7 +29,7 @@
             <p>Thank you for your understanding.</p>
             <a target="_blank" href="https://duploader.tech">-Duploader</a>
         </div>
-
+        <p class="text-align-left">For any queries, please contact us at: <a href="mailto:manager@duploader.tech" style="color: black; text-decoration: underline;">manager@duploader.tech</a></p>
     </div>
 
     <?php include "../assets/components/footer.php"; ?>
