@@ -43,6 +43,14 @@ if (isset($_GET['file'])) {
 
             pre {
                 border-radius: 0px 0px 7px 7px !important;
+                background-color: #f5f2f0 !important;
+                text-shadow: none;
+            }
+
+            pre * {
+                background-color: #f5f2f0 !important;
+                text-shadow: none;
+                 
             }
 
             #copy_container {
@@ -161,8 +169,23 @@ if (isset($_GET['file'])) {
                             </div>
                             <pre id='codeContainer' class='mt-0 mb-3 '><code class='language-$fileExtension'>$fileContent</code></pre>
                         </div>";
-                        $check = $fileExtension == "py" ? "<script defer src='https://cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-python.min.js'></script>" :  "<script defer src='https://cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-$fileExtension.min.js'></script>";
-                        echo $check;
+                        // $check = $fileExtension == "py" ? "<script defer src='https://cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-python.min.js'></script>" :  "<script defer src='https://cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-$fileExtension.min.js'></script>";
+
+                        switch($fileExtension) {
+                            case "py" :
+                                echo "<script defer src='https://cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-python.min.js'></script>";
+                                break;
+                            case "php" :
+                                echo '<script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-php-extras.min.js" integrity="sha512-slk6u22Z59/OgxTpC6/+BRJXb8f97I04A2KbD2nmvdrkBzequmHsf3Tm6n4iWW+Scf1j1f3qe+xj3DWtAgCXfg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>';
+                                echo '<script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-php.min.js" integrity="sha512-6UGCfZS8v5U+CkSBhDy+0cA3hHrcEIlIy2++BAjetYt+pnKGWGzcn+Pynk41SIiyV2Oj0IBOLqWCKS3Oa+v/Aw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>';
+                                break;
+                            default : 
+                                echo "<script defer src='https://cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-$fileExtension.min.js'></script>";
+                                break;
+                        }
+                        
+
+                        // echo $check;
                         break;
                 }
             } else {
