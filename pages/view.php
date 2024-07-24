@@ -44,12 +44,12 @@ if (isset($_GET['file'])) {
             pre {
                 border-radius: 0px 0px 7px 7px !important;
                 background-color: #f5f2f0 !important;
-                text-shadow: none;
+                text-shadow: none !important;
             }
 
             pre * {
                 background-color: #f5f2f0 !important;
-                text-shadow: none;
+                text-shadow: none !important;
                  
             }
 
