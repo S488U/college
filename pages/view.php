@@ -1,7 +1,6 @@
 <?php
 // Check if the 'fileUrl' GET parameter is set
 if (isset($_GET['file'])) {
-
     function retrieveAfterLastSlash($fileUrl)
     {
         $lastSlashPos = strrpos($fileUrl, '/');
@@ -29,6 +28,7 @@ if (isset($_GET['file'])) {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <script src="../assets/script/navbar.js"></script>
         <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/prism.min.js"></script>
+        <?php include "./g-tag.php"; ?>
         <style>
             #pdfContainer {
                 display: flex;
