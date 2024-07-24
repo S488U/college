@@ -175,7 +175,7 @@
         function toggleFolder(element) {
             var content = element.nextElementSibling;
             content.style.display = (content.style.display === 'block') ? 'none' : 'block';
-            element.innerHTML = (content.style.display === 'block') ? '<strong>' + element.textContent.trim().slice(0, -1) + '</strong> ▶' : '<strong>' + element.textContent.trim().slice(0, -1) + '</strong> ▼';
+            element.innerHTML = (content.style.display === 'block') ? '<strong>' + element.textContent.trim().slice(0, -1) + '</strong> ▶x' : '<strong>' + element.textContent.trim().slice(0, -1) + '</strong> ▼';
         }
     </script>
 
