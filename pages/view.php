@@ -119,11 +119,11 @@ if (isset($_GET['file'])) {
                 }
 
                 code {
-                    font-size: 15px !important;
+                    font-size: 14px !important;
                 }
 
                 code span {
-                    font-size: 15px !important;
+                    font-size: 14px !important;
                 }
 
 
