@@ -5,9 +5,6 @@
         </a>
         <ul class="nav justify-content-end">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="../../pages/about.php">About</a>
             </li>
             <li class="nav-item">
@@ -24,6 +21,9 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link user-login" href="../../pages/upload.php">Upload</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active p-2 py-1 mt-1" aria-current="page" href="../../pages/compiler.php" style="border: 1px solid black; border-radius: 7px;">Compiler</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link userShow" href="./assets/pages/user.html" aria-disabled="true"></a>
@@ -66,6 +66,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link userShow" href="./assets/pages/user.html" aria-disabled="true"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active p-2 py-1 mt-1" aria-current="page" href="../../pages/compiler.php" style="border: 1px solid black; border-radius: 7px;">Compiler</a>
                 </li>
             </ul>
         </div>
