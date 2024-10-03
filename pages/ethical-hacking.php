@@ -1,8 +1,8 @@
 <?php
-$server = "161.97.134.182";
-$username = "shahabas_sabbu";
-$database = "db_duploader";
-$password = "Sabbu00@duploader.tech";
+$server = "localhost:3306";
+$username = "AdShahabas";
+$database = "db_dunite";
+$password = "Shahabas@12";
 
 // Create connection
 $conn = new mysqli($server, $username, $password, $database);
