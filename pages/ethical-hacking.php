@@ -1,17 +1,5 @@
 <?php
-$server = "localhost:3306";
-$username = "AdShahabas";
-$database = "db_dunite";
-$password = "Shahabas@12";
-
-// Create connection
-$conn = new mysqli($server, $username, $password, $database);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
+include("../dbconnection/connection.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,10 +13,10 @@ if ($conn->connect_error) {
     <meta name="description" content="This website hosts comprehensive BCA study materials from Srinivas University. Here, students can access a wide range of educational resources designed to support their academic journey, providing a valuable hub for learning and reference throughout their BCA studies at Srinivas University.">
     <meta property="og:description" content="This website hosts comprehensive BCA study materials from Srinivas University. Here, students can access a wide range of educational resources designed to support their academic journey, providing a valuable hub for learning and reference throughout their BCA studies at Srinivas University.">
     <meta property="og:title" content="Ethical Hacking Training - SU Study Materials"> -->
-<meta property="og:image" content=""> 
+    <meta property="og:image" content=""> 
 
     <link rel="stylesheet" href="../assets/style/scrollbar.css">
-    <link rel="shortcut icon" type="image/png" sizes="16x16" href="https://duploader.tech/assets/favicon/android-chrome-192x192.png?v=1706301104">
+    <link rel="shortcut icon" type="image/png" sizes="16x16" href="https://dunite.tech/assets/favicon/android-chrome-192x192.png?v=1706301104">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="../assets/script/navbar.js"></script>
     <?php include "./g-tag.php"; ?>
