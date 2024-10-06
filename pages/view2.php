@@ -24,7 +24,7 @@ if (isset($_GET['file'])) {
         <title><?php echo retrieveAfterLastSlash($fileUrl) . " | SU Study Material; " ?></title>
         <link rel="stylesheet" href="../assets/style/scrollbar.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <link rel="shortcut icon" type="image/png" sizes="16x16" href="https://duploader.tech/assets/favicon/android-chrome-192x192.png">
+        <link rel="shortcut icon" type="image/png" sizes="16x16" href="https://dunite.tech/assets/favicon/android-chrome-192x192.png">
         <link href="../assets/theme/prism.css?v=<?php echo time(); ?>" rel="stylesheet">
         <script src="../assets/script/navbar.js"></script>
         <script defer src="../assets/theme/prism.js"></script>
@@ -179,7 +179,7 @@ if (isset($_GET['file'])) {
 
                 switch ($fileExtension) {
                     case 'pdf':
-                        $partToRemove = "/var/www/vhosts/duploader.tech/";
+                        $partToRemove = "/var/www/vhosts/dunite.tech/";
                         $resultLink = str_replace($partToRemove, '', $fileLocation);
                         echo "<iframe src='https://$resultLink' width='100%' height='500'></iframe>";
                         break;
@@ -187,7 +187,7 @@ if (isset($_GET['file'])) {
                     case 'jpg':
                     case 'webp':
                     case 'png':
-                        $partToRemove = "/var/www/vhosts/duploader.tech/";
+                        $partToRemove = "/var/www/vhosts/dunite.tech/";
                         $resultLink = str_replace($partToRemove, '', $fileLocation);
                         echo "<div class='container' style='width: 100%; max-width: 100%;'>
                                 <img src='https://$resultLink' style='width: 100%; max-width: 100%; height: auto;'>  
@@ -248,7 +248,7 @@ if (isset($_GET['file'])) {
 
                 if (winSize <= 700) {
                     tempContent = contentSec.innerHTML;
-                    contentSec.innerHTML = "Duploader";
+                    contentSec.innerHTML = "dunite";
                     contentSec.style.display = "block";
                 } else {
                     contentSec.innerHTML = tempContent;

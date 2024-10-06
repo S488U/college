@@ -17,19 +17,7 @@ if ($_SERVER['REQUEST_URI'] === '/agree') {
     // Get the page title from the HTTP headers
     $pageTitle = isset($_SERVER['HTTP_REFERER']) ? htmlspecialchars($_SERVER['HTTP_REFERER']) : 'Unknown Page';
 
-    // Database connection details (replace with your actual database credentials)
-    $db_host = 'localhost';
-    $db_user = 'shahabas_sabbu';
-    $db_password = 'Sabbu00@duploader.tech';
-    $db_name = 'db_duploader';
-
-    // Create a database connection
-    $conn = new mysqli($db_host, $db_user, $db_password, $db_name);
-
-    // Check the connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+    include("../../dbconnection/connection.php");
 
     // Insert IP address, timestamp, and title into the database
     $sql = "INSERT INTO ip_addresses (ip_address, timestamp, page_title) VALUES ('$userIP', '$timestamp', '$pageTitle')";

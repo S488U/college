@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - SU Study Materials</title>
     <link rel="stylesheet" href="../assets/style/scrollbar.css">
-    <link rel="shortcut icon" type="image/png" sizes="16x16" href="https://duploader.tech/assets/favicon/android-chrome-192x192.png?v=1706301104">
+    <link rel="shortcut icon" type="image/png" sizes="16x16" href="https://dunite.tech/assets/favicon/android-chrome-192x192.png?v=1706301104">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="../assets/script/navbar.js"></script>
     <?php include "./g-tag.php"; ?>
@@ -27,9 +27,9 @@
                 Copying programs from our website for exams or any other form of assessment will lead to malpractice. We are not responsible for any issues that may arise from such actions. Please use our resources responsibly and solely for educational purposes.
             </p>
             <p>Thank you for your understanding.</p>
-            <a target="_blank" href="https://duploader.tech">-Duploader</a>
+            <a style="text-transform: capitalize;" target="_blank" href="https://dunite.tech">-dunite</a>
         </div>
-        <p class="text-align-left">For any queries, please contact us at: <a href="mailto:manager@duploader.tech" style="color: black; text-decoration: underline;">manager@duploader.tech</a></p>
+        <p class="text-align-left">For any queries, please contact us at: <a href="mailto:manager@dunite.tech" style="color: black; text-decoration: underline;">manager@dunite.tech</a></p>
     </div>
 
     <?php include "../assets/components/footer.php"; ?>

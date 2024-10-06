@@ -37,7 +37,7 @@
     <div class="offcanvas offcanvas-start " tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasExampleLabel"><a class="navbar-brand" href="/">
-                    <img src="https://duploader.tech/assets/favicon/android-chrome-512x512.png?v=1704904973" alt="Bootstrap" width="30" height="24"> SU Study Materials
+                    <img src="https://dunite.tech/assets/favicon/android-chrome-512x512.png?v=1704904973" alt="Bootstrap" width="30" height="24"> SU Study Materials
                 </a></h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>

@@ -1,16 +1,5 @@
 <?php
-$server = "localhost:3306";
-$username = "AdShahabas";
-$database = "db_dunite";
-$password = "Shahabas@12";
-
-// Create connection
-$conn = new mysqli($server, $username, $password, $database);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include("../dbconnection/connection.php");
 
 if (isset($_POST["submit"])) {
     $title = $_POST["title"];
