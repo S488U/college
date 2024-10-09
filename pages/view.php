@@ -1,19 +1,17 @@
 <?php
-// Check if the 'fileUrl' GET parameter is set
 if (isset($_GET['file'])) {
     function retrieveAfterLastSlash($fileUrl)
     {
         $lastSlashPos = strrpos($fileUrl, '/');
-        if ($lastSlashPos !== false) {
-            return substr($fileUrl, $lastSlashPos + 1);
-        } else {
-            $fileUrl = "unknown file name";
-        }
-
-        return $fileUrl;
+        return $lastSlashPos !== false ? substr($fileUrl, $lastSlashPos + 1) : "unknown file name";
     }
 
     $fileUrl = $_GET['file'];
+    $pattern = "/^\/(BCA|MCA|IBM)\/.*/";
+
+    if (!preg_match($pattern, $fileUrl)) {
+        header("Location: ./error.php");
+    }
 ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -21,130 +19,27 @@ if (isset($_GET['file'])) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title><?php echo retrieveAfterLastSlash($fileUrl) . " | SU Study Material; " ?></title>
-        <link href="../assets/theme/prism.css" rel="stylesheet" />
-        <link rel="stylesheet" href="../assets/style/scrollbar.css">
-        <link rel="shortcut icon" type="image/png" sizes="16x16" href="https://dunite.tech/assets/favicon/android-chrome-192x192.png?v=1706301104">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <title><?php echo retrieveAfterLastSlash($fileUrl) . " | SU Study Material; "; ?></title>
+        <link href="../assets/theme/prism.css" rel="stylesheet">
+        <link rel="stylesheet" href="../assets/style/scrollbar.css?v=<?php echo time() ?>">
+        <link rel="stylesheet" href="../assets/style/view.css?v=<?php echo time() ?>">
+        <link rel="shortcut icon" href="https://dunite.tech/assets/favicon/android-chrome-192x192.png?v=1706301104">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
         <script src="../assets/script/navbar.js"></script>
         <script defer src="../assets/theme/prism.js"></script>
         <?php include "./g-tag.php"; ?>
-        <style>
-            #pdfContainer {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 20px;
-                justify-content: center;
-            }
-            canvas {
-                max-width: 100%;
-                height: auto;
-            }
-
-            pre {
-                border-radius: 0px 0px 7px 7px !important;
-                /* background-color: #f5f2f0 !important; */
-                background-color: #212529 !important;
-                text-shadow: none;
-            }
-
-            pre * {
-                background-color: #212529 !important;
-                text-shadow: none;
-                 
-            }
-
-            #copy_container {
-                border-radius: 7px 7px 0px 0px !important;
-                background: #212529 !important;
-                border:  1px solid white;
-                border-left: none;
-                border-right: none;
-                border-top: none;
-            }
-
-            #copybtn {
-                border: 1px solid #ddd;
-                border-top: none;
-                border-bottom: none;
-                border-right: none;
-                border-radius: 0 7px 0 0;
-                background-color: #212520;
-                color: #ddd;
-                overflow: hidden !important;
-            }
-
-            #copybtn:hover {
-                background-color: #6E7271;
-            }
-
-            @media screen and (max-width:600px) {
-                body {
-                    overflow-x: hidden;
-                }
-
-                .filenName {
-                    display: block !important;
-                    min-width: 40% !important;
-                    overflow: hidden;
-                    position: relative;
-                    /* animation: moving 10s linear infinite; */
-                    z-index: 0;
-                    inset: 0;
-                }
-
-                .filenName em {
-                    white-space: nowrap;
-                    word-wrap: normal;
-                    word-break: keep-all;
-                }
-
-                #copy_container {
-                    display: flex !important;
-                    justify-content: flex-end !important;
-                }
-
-                #copybtn {
-                    max-width: 100px;
-                }
-
-                @keyframes moving {
-                    0% {
-                        left: -100%;
-                    }
-
-                    100% {
-                        left: 100%;
-                    }
-                }
-
-                code {
-                    font-size: 14px !important;
-                }
-
-                code span {
-                    font-size: 14px !important;
-                }
-
-
-            }
-        </style>
 
     </head>
 
     <body>
         <?php include "../assets/components/navbar.php"; ?>
-        <div class="container mt-5" style="min-height: 70vh; height: auto;">
+        <div class="container-fluid d-flex flex-column justify-content-center align-items-left mt-5 px-md-4" style="min-height: 70vh; height: auto;">
             <?php
-
             echo "<h3>" . retrieveAfterLastSlash($fileUrl) . "</h3>";
 
-            // Assuming view.php is in the same directory as the files you want to view
             $fileLocation = $_SERVER['DOCUMENT_ROOT'] . $fileUrl;
 
-            // Check if the file exists and is readable
             if (file_exists($fileLocation) && is_readable($fileLocation)) {
-                // Display PDF files using PDF.js
                 $fileExtension = pathinfo($fileLocation, PATHINFO_EXTENSION);
 
                 switch ($fileExtension) {
@@ -161,39 +56,31 @@ if (isset($_GET['file'])) {
                         $resultLink = str_replace($partToRemove, '', $fileLocation);
                         echo "<div class='container' style='width: 100%; max-width: 100%;'>
                                 <img src='https://$resultLink' style='width: 100%; max-width: 100%; height: auto;'>  
-                            </div>";
+                              </div>";
                         break;
-
                     default:
                         $fileContent = htmlspecialchars(file_get_contents($fileLocation));
-                        echo "
-                        <div >
-                            <div id='copy_container' class='container-fluid d-flex flex-row justify-content-between align-items-center p-0 m-0''>
-                                <span class='filenName ms-3 text-light'><em id='contentSec'>$fileUrl</em></span>
-                                <button id='copybtn' title='Copy Code' class='btn btn-sm' onclick='copyCode()'>Copy Code</button>
-                            </div>
-                            <pre id='codeContainer' class='mt-0 mb-3 '><code class='language-$fileExtension match-braces no-whitespace-normalization line-numbers'>$fileContent</code></pre>
-                        </div>";
-                        // $check = $fileExtension == "py" ? "<script defer src='https://cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-python.min.js'></script>" :  "<script defer src='https://cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-$fileExtension.min.js'></script>";
-
-                        // switch($fileExtension) {
-                        //     case "py" :
-                        //         echo "<script defer src='https://cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-python.min.js'></script>";
-                        //         break;
-                        //     case "php" :
-                        //         echo '<script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-php-extras.min.js" integrity="sha512-slk6u22Z59/OgxTpC6/+BRJXb8f97I04A2KbD2nmvdrkBzequmHsf3Tm6n4iWW+Scf1j1f3qe+xj3DWtAgCXfg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>';
-                        //         echo '<script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-php.min.js" integrity="sha512-6UGCfZS8v5U+CkSBhDy+0cA3hHrcEIlIy2++BAjetYt+pnKGWGzcn+Pynk41SIiyV2Oj0IBOLqWCKS3Oa+v/Aw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>';
-                        //         break;
-                        //     case "cpp";
-                        //         echo '<script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-cpp.min.js" integrity="sha512-/kakiUcgosfrW14dYIe0cMjXoK6PN67r96Dz2zft/Rlm6TcgdCJjb6ZD/jpobHzduAs8NdSeMQHda8iJGkjdow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>';
-                        //         break;
-                        //     default : 
-                        //         echo "<script defer src='https://cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-$fileExtension.min.js'></script>";
-                        //         break;
-                        // }
-                        
-
-                        // echo $check;
+                        echo "<div id='main-code-container' class='container-fluid p-0'>
+                                <div class='fullscreen' onclick='fullscreen();'>
+                                    <img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABiElEQVR4nO2ZTW7DIBCF396+TKsmOYmXbdoDVVF3UXIDDpIcIL5GlRwg0lSWHKlCMAwpfyU8aTa2B78PMGAAmpqaHl7vAEYAVwCUOa6zl7Vvq3wUYJ4s4QUzFmCYLHHyASmhOxHTzcSiwkMsU/IngE6YPzAmpnsSdQA2MUCkEKFAJvUxQJABBKlAphrbAVBaHBiQg+H53VyWScla5AnA9x8+3AuAZSAv3sl67b0AON8BcZ5zubIpJsjeUIu+LXOxlLFNCaIYIxIYLlelBnEZugeCcoH4wkieVblAbgZXDoMmiGcDsIoNMvyKo2UEWmjlLObr3D29nKP2ruAgkrAZlkKQMKKD2LqZqzsVCUIMTAgISg2yjLCcodRdi1s7hYARq+qPfahl+HVNiK7JTjJpUmlLFNvoJIFROUB8IKQwKjVIFcv4fS0/Vn0tv7rVbD5UuR307zboulq2TDdM88cA6QF8xQApKR7voGcswDCFOHpbF2CYLPHqA3KDKel4+gTgzReiqampMv0ASd5jTrDJC3QAAAAASUVORK5CYII='>
+                                </div>
+                                <div class='fontSize' onclick='fsSetting()'>
+                                    <img width='48' height='48' src='https://img.icons8.com/external-those-icons-fill-those-icons/48/external-Font-Size-text-editor-those-icons-fill-those-icons.png' alt='external-Font-Size-text-editor-those-icons-fill-those-icons'/>
+                                </div>
+                                <div class='fsSettings'>
+                                    <div class='slider-container'>
+                                        <label for='font-size-slider'>Font Size: </label>
+                                        <input type='range' id='font-size-slider' min='10' max='40' value='16' step='1' oninput='changeFontSize(this.value)'>
+                                        <span id='font-size-display'>16px</span>
+                                    </div>
+                                </div>
+                                <div id='copy_container' class='container-fluid d-flex flex-row justify-content-between align-items-center p-0 m-0'>
+                                    <span class='filenName ms-3 text-light'><em id='contentSec'>$fileUrl</em></span>
+                                    <button id='copybtn' class='btn btn-sm' onclick='copyCode()'>Copy Code</button>
+                                </div>
+                                <pre id='codeContainer' class='mt-0 mb-3'><code class='language-$fileExtension match-braces no-whitespace-normalization line-numbers' id='font'>$fileContent</code></pre>
+                                </div>";
+                        echo "";
                         break;
                 }
             } else {
@@ -201,12 +88,9 @@ if (isset($_GET['file'])) {
             }
             ?>
         </div>
-
-
         <?php include "../assets/components/footer.php"; ?>
         <?php include "../assets/components/checkApprove.php"; ?>
         <?php include "../assets/components/scripts.php"; ?>
-
         <script src="../assets/script/checkAccepted.js"></script>
         <script>
             var tempContent = document.getElementById("contentSec").innerText;
@@ -218,10 +102,8 @@ if (isset($_GET['file'])) {
                 if (winSize <= 700) {
                     tempContent = contentSec.innerHTML;
                     contentSec.innerHTML = "dunite";
-                    contentSec.style.display = "block";
                 } else {
                     contentSec.innerHTML = tempContent;
-                    contentSec.style.display = "block";
                 }
             }
 
@@ -237,15 +119,76 @@ if (isset($_GET['file'])) {
                 textarea.value = code;
                 document.body.appendChild(textarea);
                 textarea.select();
-                textarea.setSelectionRange(0, 99999);
                 document.execCommand('copy');
                 document.body.removeChild(textarea);
                 document.getElementById("copybtn").innerText = "Copied!!";
-
                 setTimeout(() => {
                     document.getElementById("copybtn").innerText = "Copy Code";
                 }, 4000);
+            }
 
+            function fullscreen() {
+                var elem = document.getElementById("main-code-container");
+
+                if (!elem.getAttribute("data-fullscreen")) {
+                    if (elem.requestFullscreen) {
+                        elem.requestFullscreen();
+                    } else if (elem.webkitRequestFullscreen) {
+                        elem.webkitRequestFullscreen();
+                    } else if (elem.msRequestFullscreen) {
+                        elem.msRequestFullscreen();
+                    } else if (elem.mozRequestFullScreen) {
+                        elem.mozRequestFullScreen();
+                    }
+                    elem.style.overflow = "auto"; // Enable scrolling
+                    elem.style.width = "100vw"; // Full screen width
+                    elem.style.height = "100vh"; // Full screen height
+                    elem.setAttribute("data-fullscreen", "true");
+                } else {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                    } else if (document.webkitExitFullscreen) {
+                        document.webkitExitFullscreen();
+                    } else if (document.msExitFullscreen) {
+                        document.msExitFullscreen();
+                    } else if (document.mozCancelFullScreen) {
+                        document.mozCancelFullScreen();
+                    }
+                    elem.style.overflow = ""; // Reset to default
+                    elem.style.width = ""; // Reset to default
+                    elem.style.height = ""; // Reset to default
+                    elem.removeAttribute("data-fullscreen");
+                }
+            }
+
+            document.addEventListener("fullscreenchange", function() {
+                var elem = document.getElementById("main-code-container");
+                if (!document.fullscreenElement) {
+                    elem.removeAttribute("data-fullscreen");
+                    elem.style.overflow = ""; // Reset overflow when exiting fullscreen
+                    elem.style.width = ""; // Reset width when exiting fullscreen
+                    elem.style.height = ""; // Reset height when exiting fullscreen
+                }
+            });
+
+            function fsSetting() {
+                var settings = document.querySelector(".fsSettings");
+                if (!settings.getAttribute("data-settings-show")) {
+                    settings.style.visibility = "visible";
+                    settings.style.opacity = "1";
+                    settings.style.transform = "translateX(0)";
+                    settings.setAttribute("data-settings-show", "true")
+                } else {
+                    settings.style.visibility = "hidden";
+                    settings.style.opacity = "0";
+                    settings.style.transform = "translateX(200px)";
+                    settings.removeAttribute("data-settings-show");
+                }
+            }
+
+            function changeFontSize(value) {
+                document.getElementById('font').style.fontSize = value + 'px';
+                document.getElementById('font-size-display').textContent = value + 'px';
             }
         </script>
     </body>
