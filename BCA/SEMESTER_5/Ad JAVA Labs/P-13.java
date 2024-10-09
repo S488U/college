@@ -23,7 +23,7 @@ CurrencyConverter {
 
   public double convertDollarToRupee(double dollarAmt) {
     //Assuming conversion rate of 75 rs per $         
-return dollarAmt * 83.0; 
+    return dollarAmt * 83.0; 
   }
 }
 
