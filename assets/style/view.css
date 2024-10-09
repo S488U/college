@@ -1,0 +1,220 @@
+
+#pdfContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+pre {
+    border-radius: 0px 0px 7px 7px !important;
+    background-color: #212529 !important;
+}
+
+pre * {
+    background-color: #212529 !important;
+}
+
+#copy_container {
+    border-radius: 7px 7px 0px 0px !important;
+    background: #212529 !important;
+    border: 1px solid white;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+}
+
+#copybtn {
+    border: 1px solid #ddd;
+    border-top: none;
+    border-bottom: none;
+    border-right: none;
+    border-radius: 0 7px 0 0;
+    background-color: #212520;
+    color: #ddd;
+}
+
+#copybtn:hover {
+    background-color: #6E7271;
+}
+
+.fontSize,
+.fullscreen,
+.fsSettings {
+    background-color: #fff;
+    position: fixed;
+    z-index: 88;
+    right: 0;
+    transition: background-color 250ms ease-in-out;
+    cursor: pointer;
+}
+
+.fullscreen {
+    border-radius: 5px 0 0 0;
+    top: 220px;
+}
+
+.fontSize {
+    border-radius: 0 0 0 5px;
+    top: 270px;
+    padding: 3px;
+}
+
+.fontSize img {
+    width: 44px !important;
+    height: 44px !important;
+}
+
+.fontSize:hover,
+.fullscreen:hover {
+    background-color: #ddd;
+}
+
+.fsSettings {
+    width: 200px;
+    height: 100px;
+    border-radius: 5px 0 0 5px;
+    visibility: hidden;
+    transform: translateX(200px);
+    opacity: 0;
+    transition: opacity 250ms ease-in, transform 250ms ease-in, visibility 250ms ease-in;
+    position: fixed;
+    top: 320px;
+}
+
+#content {
+    font-size: 16px; /* Default font size */
+    text-align: center;
+    margin: 20px;
+}
+
+/* Slider container */
+.slider-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px 0;
+    width:100%;
+    height: 100%;
+    position: relative;
+}
+
+.slider-container label {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Slider */
+#font-size-slider {
+    -webkit-appearance: none;  /* Remove default appearance */
+    appearance: none;
+    width: 180px;
+    height: 10px;
+    background: #ddd;   /* Track background */
+    border-radius: 5px;
+    outline: none;
+    padding: 0;
+    margin: 0 10px;
+}
+
+/* Track fill before the thumb */
+#font-size-slider::-webkit-slider-runnable-track {
+    background: linear-gradient(to right, #3a7bd5, #00d2ff); /* Gradient */
+    height: 10px;
+    border-radius: 5px;
+}
+
+#font-size-slider::-moz-range-track {
+    background: linear-gradient(to right, #3a7bd5, #00d2ff);
+    height: 10px;
+    border-radius: 5px;
+}
+
+/* Slider Thumb */
+#font-size-slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Remove default appearance */
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: #0099ff;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    position: relative;
+        top: -5px;
+}
+
+#font-size-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background-color: #007BFF;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+/* Current font size display */
+#font-size-display {
+    font-size: 18px;
+    margin-left: 10px;
+    color: #333;
+}
+
+/* On hover, make thumb brighter */
+#font-size-slider:hover::-webkit-slider-thumb {
+    background-color: #0056b3;
+}
+
+#font-size-slider:hover::-moz-range-thumb {
+    background-color: #0056b3;
+}
+
+@media screen and (max-width:600px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .filenName {
+        display: block !important;
+        min-width: 40% !important;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .filenName em {
+        white-space: nowrap;
+    }
+
+    #copy_container {
+        display: flex !important;
+        justify-content: flex-end !important;
+    }
+
+    #copybtn {
+        max-width: 100px;
+    }
+
+    @keyframes moving {
+        0% {
+            left: -100%;
+        }
+
+        100% {
+            left: 100%;
+        }
+    }
+
+    code {
+        font-size: 14px !important;
+    }
+
+    code span {
+        font-size: 14px !important;
+    }
+}
