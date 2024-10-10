@@ -25,7 +25,7 @@ if (isset($_GET['file'])) {
         <link rel="stylesheet" href="../assets/style/view.css?v=<?php echo time() ?>">
         <link rel="shortcut icon" href="https://dunite.tech/assets/favicon/android-chrome-192x192.png?v=1706301104">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-        <script src="../assets/script/navbar.js"></script>
+        <script src="../assets/script/navbar.js?v=<?php echo time();?>"></script>
         <script defer src="../assets/theme/prism.js"></script>
         <?php include "./g-tag.php"; ?>
 
