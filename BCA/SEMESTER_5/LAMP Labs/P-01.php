@@ -1,3 +1,4 @@
+<!-- write a php script to check wheather a given number number is Armstrong or not -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,3 +46,9 @@
 </body>
 
 </html>
+<!--
+ output:-
+1 is a Armstrong number.
+Enter Number:	1
+		submit
+-->

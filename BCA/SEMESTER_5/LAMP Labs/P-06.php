@@ -29,3 +29,24 @@ detail -->
       </form>
    </body>
 </html>
+<!--
+output:-
+Upload Image: |choose File| bird.jpg
+|submit|
+
+
+Image Name:
+bird.jpg
+
+Image type:
+image/jpeg
+
+Image size:
+61361
+
+The image:
+	draw a bird picture!
+
+Image uploaded successfully!!
+ 
+-->

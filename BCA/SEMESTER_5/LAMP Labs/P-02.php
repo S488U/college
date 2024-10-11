@@ -49,3 +49,9 @@
         echo $sunday;
     }
 ?>
+<!-- 
+output:-
+Current hour is: 9
+Good morning
+Today is Friday
+-->

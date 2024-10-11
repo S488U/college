@@ -55,3 +55,11 @@
         <input type="submit" value="/" name="operator">
     </form>
 </html>
+
+<!-- output:-
+PHP Simple Calculator
+First Number: 6
+Second Number: 5
+Result: 11
++ - * /
+-->

@@ -1,3 +1,5 @@
+<!-- write a php program to demonstrate $_POST method and display pattern -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,3 +40,17 @@
     ?>
 </body>
 </html>
+<!-- 
+output:-
+Pyramid
+Enter the loop Number: 5 
+Enter the Symbol: * 
+clear | submit
+  
+*
+* *
+* * *
+* * * *
+* * * * *
+
+-->

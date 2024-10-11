@@ -45,3 +45,18 @@ palindrome or not. -->
 </body>
 
 </html>
+
+<!-- 
+output:-
+Enter the string: Hello world
+Submit
+
+
+The string is: Hello world
+The replaced string is: Helloworld
+Lower string: helloworld
+The replaced lower string is: helloworld
+Reverse is: dlrowolleh
+The given stirng Hello world is not palindrome
+
+-->
