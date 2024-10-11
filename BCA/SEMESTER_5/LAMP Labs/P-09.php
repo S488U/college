@@ -51,3 +51,16 @@
 </body>
 
 </html>
+
+<!--
+ output:-
+create Database | create Table | Delete Database
+
+Connection Established
+Database created successfully
+
+Table "details" created successfully
+
+Database is deleted
+
+-->

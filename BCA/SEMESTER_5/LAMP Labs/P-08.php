@@ -75,3 +75,24 @@
 </body>
 
 </html>
+<!-- 
+output:-
+
+Name:	hello
+Address:	india
+DOB: 01-01-2001
+Gender	* Male  Female
+Hobbies	Coding
+		Drawing
+		Travelling
+		Gaming
+
+submit | reset
+
+After Submitting:
+Name:	hello
+Address:	india
+DOB:	2001-01-01
+Gender:	Male
+Hobbies:	Gaming
+-->

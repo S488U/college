@@ -1,7 +1,7 @@
 <!-- Write a Php program to demonstrate array concept 
  to store marks of three students in three subjects. -->
 
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -21,7 +21,7 @@
             "Kishan" => array("Java" => "85", "PHP" => "90", "Networking" => "79")
         );
 
-        foreach ($stdMarks as $std => $subjectArray) {
+        foreach ($stdMarks as $sdt => $subjectArray) {
             echo "Marks of $sdt:<br>";
             foreach ($subjectArray as $subject => $marks) {
                 echo "$subject = $marks   ";
@@ -32,3 +32,17 @@
 </body>
 
 </html>
+
+<!--
+output:- 
+
+Students Marks
+Marks of Ramesh:
+Java = 88 PHP = 98 Networking = 78
+
+Marks of Suresh:
+Java = 83 PHP = 90 Networking = 82
+
+Marks of Kishan:
+Java = 85 PHP = 90 Networking = 79
+ -->

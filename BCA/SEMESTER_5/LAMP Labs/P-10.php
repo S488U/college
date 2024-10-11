@@ -23,7 +23,7 @@ if ($con) {
                <td>Enter Name:</td>
                <td>
                   <input type="text" name="name" required>
-                  Question 22
+                  
                </td>
             </tr>
             <tr>
@@ -86,3 +86,25 @@ if ($con) {
       </table>
    </body>
 </html>
+
+
+<!--
+ output:- 
+   insert.php
+
+View
+
+Connection is established
+Enter Name:	hello
+Enter Age:	20
+|insert|
+
+view.php
+
+Insert new record
+
+connection is established
+Name 			Age
+hello 		20
+
+-->
