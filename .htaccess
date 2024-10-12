@@ -1,3 +1,15 @@
+# .htaccess to block access to sensitive files
+<Files .env>
+    Order allow,deny
+    Deny from all
+</Files>
+
+<FilesMatch "^vendor/(.*)">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /
