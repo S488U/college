@@ -16,7 +16,6 @@ if ($_SERVER['REQUEST_URI'] === '/agree') {
 
     // Get the page title from the HTTP headers
     $pageTitle = isset($_SERVER['HTTP_REFERER']) ? htmlspecialchars($_SERVER['HTTP_REFERER']) : 'Unknown Page';
-
     include("../../dbconnection/connection.php");
 
     // Insert IP address, timestamp, and title into the database
