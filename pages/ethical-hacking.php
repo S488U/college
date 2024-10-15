@@ -1,5 +1,5 @@
 <?php
-include("../dbconnection/connection.php");
+include("/var/www/vhosts/components/db.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
