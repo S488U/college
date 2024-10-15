@@ -25,7 +25,7 @@ if (isset($_GET['file'])) {
         <link rel="stylesheet" href="../assets/style/view.css?v=<?php echo time() ?>">
         <link rel="shortcut icon" href="https://dunite.tech/assets/favicon/android-chrome-192x192.png?v=1706301104">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-        <script src="../assets/script/navbar.js?v=<?php echo time();?>"></script>
+        <script src="../assets/script/navbar.js?v=<?php echo time(); ?>"></script>
         <script defer src="../assets/theme/prism.js"></script>
         <?php include "./g-tag.php"; ?>
 
@@ -60,11 +60,13 @@ if (isset($_GET['file'])) {
                         break;
                     default:
                         $fileContent = htmlspecialchars(file_get_contents($fileLocation));
-                        echo "<div id='main-code-container' class='container-fluid p-0'>
-                                <div class='fullscreen' onclick='fullscreen();'>
+                        echo "
+                            <button onclick='showOutput()'' class='btn btn-dark my-2' data-toggle='tooltip' title='Click to see the output' style='width:fit-content;'>Output</button>
+                            <div id='main-code-container' class='container-fluid p-0'>
+                                <div class='fullscreen' onclick='fullscreen();' data-toggle='tooltip' title='Full Screen'>
                                     <img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABiElEQVR4nO2ZTW7DIBCF396+TKsmOYmXbdoDVVF3UXIDDpIcIL5GlRwg0lSWHKlCMAwpfyU8aTa2B78PMGAAmpqaHl7vAEYAVwCUOa6zl7Vvq3wUYJ4s4QUzFmCYLHHyASmhOxHTzcSiwkMsU/IngE6YPzAmpnsSdQA2MUCkEKFAJvUxQJABBKlAphrbAVBaHBiQg+H53VyWScla5AnA9x8+3AuAZSAv3sl67b0AON8BcZ5zubIpJsjeUIu+LXOxlLFNCaIYIxIYLlelBnEZugeCcoH4wkieVblAbgZXDoMmiGcDsIoNMvyKo2UEWmjlLObr3D29nKP2ruAgkrAZlkKQMKKD2LqZqzsVCUIMTAgISg2yjLCcodRdi1s7hYARq+qPfahl+HVNiK7JTjJpUmlLFNvoJIFROUB8IKQwKjVIFcv4fS0/Vn0tv7rVbD5UuR307zboulq2TDdM88cA6QF8xQApKR7voGcswDCFOHpbF2CYLPHqA3KDKel4+gTgzReiqampMv0ASd5jTrDJC3QAAAAASUVORK5CYII='>
                                 </div>
-                                <div class='fontSize' onclick='fsSetting()'>
+                                <div class='fontSize' onclick='fsSetting()' data-toggle='tooltip' title='Custom Font Size'>
                                     <img width='48' height='48' src='https://img.icons8.com/external-those-icons-fill-those-icons/48/external-Font-Size-text-editor-those-icons-fill-those-icons.png' alt='external-Font-Size-text-editor-those-icons-fill-those-icons'/>
                                 </div>
                                 <div class='fsSettings'>
@@ -76,11 +78,22 @@ if (isset($_GET['file'])) {
                                 </div>
                                 <div id='copy_container' class='container-fluid d-flex flex-row justify-content-between align-items-center p-0 m-0'>
                                     <span class='filenName ms-3 text-light'><em id='contentSec'>$fileUrl</em></span>
-                                    <button id='copybtn' class='btn btn-sm' onclick='copyCode()'>Copy Code</button>
+                                    <button id='copybtn' class='btn btn-sm' onclick='copyCode()' data-toggle='tooltip' title='Copy Program'>Copy Code</button>
                                 </div>
                                 <pre id='codeContainer' class='mt-0 mb-3'><code class='language-$fileExtension match-braces no-whitespace-normalization line-numbers' id='font'>$fileContent</code></pre>
                                 </div>";
                         echo "";
+                        date_default_timezone_set('Asia/Kolkata');
+                        echo '
+                            <script>
+                            function showOutput() {
+                                window.open(
+                                    "../output/output.php?pg=' . $fileUrl . '&id=' . date("hisAdmY") . '",
+                                    "blank"
+                                    );
+                            };
+                            </script>   
+                        ';
                         break;
                 }
             } else {
@@ -190,6 +203,10 @@ if (isset($_GET['file'])) {
                 document.getElementById('font').style.fontSize = value + 'px';
                 document.getElementById('font-size-display').textContent = value + 'px';
             }
+
+            $(function() {
+                $('[data-toggle="tooltip"]').tooltip();
+            });
         </script>
     </body>
 
