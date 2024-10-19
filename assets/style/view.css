@@ -20,6 +20,17 @@ pre * {
     background-color: #212529 !important;
 }
 
+
+pre *::selection {
+    background-color: #000000;
+    color: #ddd;
+}
+
+#main-code-container {
+    position:  relative !important;
+    height: auto;
+}
+
 #copy_container {
     border-radius: 7px 7px 0px 0px !important;
     background: #212529 !important;
@@ -27,6 +38,10 @@ pre * {
     border-left: none;
     border-right: none;
     border-top: none;
+    position: sticky !important;
+    top: 0;
+    z-index: 87;
+    transition: top 0.3s ease;
 }
 
 #copybtn {
@@ -37,6 +52,7 @@ pre * {
     border-radius: 0 7px 0 0;
     background-color: #212520;
     color: #ddd;
+    transition: top 0.3s ease;
 }
 
 #copybtn:hover {
@@ -207,7 +223,7 @@ pre * {
     }
 
     #copybtn {
-        max-width: 100px;
+        max-width: fit-content;
     }
 
     @keyframes moving {
@@ -226,5 +242,9 @@ pre * {
 
     code span {
         font-size: 14px !important;
+    }
+
+    #main-code-container::-webkit-scrollbar {
+        display: none;
     }
 }
