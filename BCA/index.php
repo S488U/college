@@ -1,6 +1,81 @@
+<?php
+
+if (!isset($_SESSION['openFolders'])) {
+    $_SESSION['openFolders'] = [];
+}
+
+function displayFolderStructure($path, $rootDirectory)
+{
+    $dir = opendir($path);
+    $entries = [];
+
+    while ($file = readdir($dir)) {
+        $fullPath = $path . '/' . $file;
+        $relativePath = str_replace($rootDirectory, '', $fullPath);
+
+        if ($file == '.' || $file == '..') {
+            continue;
+        }
+        
+        if (pathinfo($file, PATHINFO_EXTENSION) == 'php' && !preg_match('#/LAMP Labs/#', $relativePath)) {
+            continue;
+        }
+
+        if (is_dir($fullPath)) {
+            $entries[] = $file;
+        } else {
+            $entries[] = $file;
+        }
+    }
+
+    closedir($dir);
+    sort($entries);
+
+    foreach ($entries as $entry) {
+        $fullPath = $path . '/' . $entry;
+        $relativePath = str_replace($rootDirectory, '', $fullPath);
+        $isOpen = in_array($relativePath, $_SESSION['openFolders']); 
+
+        if (is_dir($fullPath)) {
+            echo '<div class="custom-folder">';
+            echo '<div class="custom-collapsible" onclick="toggleFolder(this, \'' . htmlspecialchars($relativePath) . '\')"><strong>' . $entry . '</strong> ➤</div>';
+            echo '<div class="custom-content" style="display: ' . ($isOpen ? 'block' : 'none') . ';">'; 
+            displayFolderStructure($fullPath, $rootDirectory);
+
+            echo '</div>';
+            echo '</div>';
+        } else {
+            $allowedExtensions = ["py", "html", "pdf", "txt", "java", "cpp", "c", "sh", "css", "png", "jpeg", "jpg", "webp", "php"];
+            $extension = pathinfo($entry, PATHINFO_EXTENSION);
+            $relativePathToComponents = str_replace("/assets", "", dirname($relativePath)); // Remove "/assets" from the directory path
+            $encodedRelativePath = implode("/", array_map('rawurlencode', explode("/", $relativePathToComponents))); // Encode each component of the path except "/"
+            $encodedEntry = rawurlencode($entry); // Encode the filename
+
+            if (in_array($extension, $allowedExtensions)) {
+                echo "<div class='custom-file'><a class='custom-file-link' href='view.php?file=/BCA$encodedRelativePath/$encodedEntry' >" . htmlspecialchars($entry) . "</a></div>";
+            } else {
+                echo "<div class='custom-file'><a class='custom-file-link' href='/BCA/$encodedRelativePath/$encodedEntry' download>" . htmlspecialchars($entry) . "</a></div>";
+            }
+        }
+    }
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['toggleFolder'])) {
+    $folderPath = $_POST['toggleFolder'];
+    
+    if (in_array($folderPath, $_SESSION['openFolders'])) {
+        $_SESSION['openFolders'] = array_diff($_SESSION['openFolders'], [$folderPath]); // Close the folder
+    } else {
+        $_SESSION['openFolders'][] = $folderPath;
+    }
+}
+
+$rootDirectory = __DIR__;
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +97,7 @@
             padding: 15px;
             border-radius: 5px;
             margin-bottom: 10px;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            transition: background-color 0.3s ease-out, color 0.3s ease-out;
             background-color: #ffffff;
             color: #333333;
         }
@@ -35,11 +110,15 @@
 
         .custom-folder {
             cursor: pointer;
+            padding: 0 5px;
+            padding-bottom: 5px;
+            padding-top: 5px;
         }
 
         .custom-file {
             background-color: #ffffff;
             color: #555555;
+            padding: 0; 
         }
 
         .custom-collapsible {
@@ -48,7 +127,7 @@
             justify-content: space-between;
             cursor: pointer;
             font-size: 18px;
-            padding: 3px 4px;
+            padding: 15px 10px;
             overflow: hidden;
         }
 
@@ -57,16 +136,24 @@
             margin-left: 20px;
             padding-left: 20px;
             border-left: 2px solid #3498db;
+            transition: border 300ms ease-in-out;
+        }
+
+        .custom-content:hover {
+            border-left: 2px solid red;
         }
 
         .custom-file-link {
             color: #3498db;
             text-decoration: none;
             display: block;
+            transition: color 200ms ease-in-out;
+            padding: 15px;
         }
 
         .custom-file-link:hover {
             text-decoration: underline;
+            color: red;
         }
 
         @media screen and (max-width: 600px) {
@@ -92,91 +179,28 @@
         }
     </style>
 </head>
-
 <body>
 
-    <div class="custom-container">
-        <?php
-        function displayFolderStructure($path, $rootDirectory)
-        {
-            $dir = opendir($path);
+<div class="custom-container">
+    <?php displayFolderStructure($rootDirectory, $rootDirectory); ?>
+</div>
 
-            $entries = [];
+<script>
+    function toggleFolder(element, folderPath) {
+        var content = element.nextElementSibling;
+        var isOpen = content.style.display === 'block';
+        content.style.display = isOpen ? 'none' : 'block';
+        element.innerHTML = (isOpen ? '<strong>' + element.textContent.trim().slice(0, -1) + '</strong> ➤' : '<strong>' + element.textContent.trim().slice(0, -1) + '</strong> ▼');
 
-            while ($file = readdir($dir)) {
-                $fullPath = $path . '/' . $file;
-                $relativePath = str_replace($rootDirectory, '', $fullPath);
+        var formData = new FormData();
+        formData.append('toggleFolder', folderPath);
 
-                // Check if the file is a PHP file and not in the "LAMP Labs" folder
-                if ($file == '.' || $file == '..') {
-                    continue;
-                }
-                if (pathinfo($file, PATHINFO_EXTENSION) == 'php' && !preg_match('#/LAMP Labs/#', $relativePath)) {
-                    continue;
-                }
-
-                if (is_dir($fullPath)) {
-                    $entries[] = $file;
-                } else {
-                    $entries[] = $file;
-                }
-            }
-           
-            closedir($dir);
-
-            // Sort the entries alphabetically
-            sort($entries);
-
-            foreach ($entries as $entry) {
-                $fullPath = $path . '/' . $entry;
-                $relativePath = str_replace($rootDirectory, '', $fullPath);
-
-                if (is_dir($fullPath)) {
-                    // Display a collapsible folder
-                    echo '<div class="custom-folder">';
-                    echo '<div class="custom-collapsible" onclick="toggleFolder(this)"><strong>' . $entry . '</strong> ➤</div>';
-                    echo '<div class="custom-content">';
-
-                    // Recursively display the contents of the directory
-                    displayFolderStructure($fullPath, $rootDirectory);
-
-                    echo '</div>';
-                    echo '</div>';
-                } else {
-                    // Handle file display/download based on extension
-                    $allowedExtensions = array("py", "html", "pdf", "txt", "java", "cpp", "c", "sh", "css", "png", "jpeg", "jpg", "webp", "php");
-                    $extension = pathinfo($entry, PATHINFO_EXTENSION);
-                    $relativePathToComponents = str_replace("/assets", "", dirname($relativePath)); // Remove "/assets" from the directory path
-                    $encodedRelativePath = implode("/", array_map('rawurlencode', explode("/", $relativePathToComponents))); // Encode each component of the path except "/"
-                    $encodedEntry = rawurlencode($entry); // Encode the filename
-
-                    if (in_array($extension, $allowedExtensions)) {
-                        // Redirect to view.php
-                        echo "<div class='custom-file'><a class='custom-file-link' href='view.php?file=/BCA$encodedRelativePath/$encodedEntry' target='_blank'>" . htmlspecialchars($entry) . "</a></div>"; // Generate the link
-                    } else {
-                        // Direct download link
-                        echo "<div class='custom-file'><a class='custom-file-link' href='/BCA/$encodedRelativePath/$encodedEntry' download>" . htmlspecialchars($entry) . "</a></div>"; // Generate the link
-                    }
-                }
-            }
-        }
-
-        // Specify the root directory
-        $rootDirectory = __DIR__;
-
-        // Display the folder structure
-        displayFolderStructure($rootDirectory, $rootDirectory);
-        ?>
-    </div>
-
-    <script>
-        function toggleFolder(element) {
-            var content = element.nextElementSibling;
-            content.style.display = (content.style.display === 'block') ? 'none' : 'block';
-            element.innerHTML = (content.style.display === 'block') ? '<strong>' + element.textContent.trim().slice(0, -1) + '</strong> ➤' : '<strong>' + element.textContent.trim().slice(0, -1) + '</strong> ▼';
-        }
-    </script>
+        fetch('', { 
+            method: 'POST',
+            body: formData
+        });
+    }
+</script>
 
 </body>
-
 </html>

@@ -22,7 +22,7 @@
             padding: 15px;
             border-radius: 5px;
             margin-bottom: 10px;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            transition: background-color 0.3s ease-out, color 0.3s ease-out;
             background-color: #ffffff;
             color: #333333;
         }
@@ -35,11 +35,15 @@
 
         .custom-folder {
             cursor: pointer;
+            padding: 0 5px;
+            padding-bottom: 5px;
+            padding-top: 5px;
         }
 
         .custom-file {
             background-color: #ffffff;
             color: #555555;
+            padding:0; 
         }
 
         .custom-collapsible {
@@ -48,7 +52,7 @@
             justify-content: space-between;
             cursor: pointer;
             font-size: 18px;
-            padding: 3px 4px;
+            padding: 15px 10px;
             overflow: hidden;
         }
 
@@ -57,16 +61,24 @@
             margin-left: 20px;
             padding-left: 20px;
             border-left: 2px solid #3498db;
+            transition: border 300ms ease-in-out;
+        }
+
+        .custom-content:hover {
+            border-left: 2px solid red;
         }
 
         .custom-file-link {
             color: #3498db;
             text-decoration: none;
             display: block;
+            transition: color 200ms ease-in-out;
+            padding: 15px;
         }
 
         .custom-file-link:hover {
             text-decoration: underline;
+            color: red;
         }
 
         @media screen and (max-width: 600px) {
