@@ -1,90 +1,91 @@
 <!-- Write a Php script to login using session variable and destroy the session
 variable. (Insert the records manually in the database). -->
 
-<!-- connect.php: -->
+<!-- connection.php: -->
 <?php
-try {
-    $con = mysqli_connect("localhost", "root", "", "mydbaa");
-} catch (Exception $E) {
-    echo "<script>alert('Some error occured. Try again later');</script>"; //calling JS alert function from PHP
+
+$server = "localhost";
+$username = "root";
+$password = "";
+$database = "mydb";
+
+$conn = new mysqli($server, $username, $password, $database);
+
+if($conn) {
+    echo "<script>console.log('Connection Successfull');</script>";
+} else {
+    echo "<script>console.log('Connection Failed');</script>";
 }
 ?>
 
 
 <!-- login.php: -->
-<html>
-
-<head></head>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
 <body>
     <form action="" method="post">
-        <table border="1">
-            <tr>
-                <td colspan="2" style="text-align: center;">LOGIN</td> <!-- skip style part if you want -->
-            </tr>
+        <h2>Login Page</h2>   
+        <table>
             <tr>
                 <td>Username</td>
-                <td>
-                    <input type="text" name="name" required>
-                </td>
+                <td><input type="text" name="username"></td>
             </tr>
             <tr>
                 <td>Password</td>
-                <td>
-                    <input type="password" name="pass" required>
-                </td>
+                <td><input type="password" name="password"></td>
             </tr>
             <tr>
-                <td colspan="2">
-                    <input type="submit" value="Submit" name="sub">
-                </td>
+                <td><input type="submit" name="submit" value="Submit"></td>
             </tr>
         </table>
     </form>
     <?php
     session_start();
-    include("connect.php");
-    if (isset($_POST["sub"])) {
-        $name = $_POST["name"];
-        $pass = $_POST["pass"];
-        $res = mysqli_query($con, "select * from login_table where Username='$name' and Password='$pass'");
-        $row = mysqli_fetch_assoc($res);
-        if ($row != null && $row != 0) {
-            $_SESSION['id'] = $row['Id'];
-            $_SESSION["Uname"] = $name;
-        } else {
-            echo "<script>alert('Invalid user');</script>";
+    include("connection.php");
+    if(isset($_POST["submit"])) {
+        $username = $_POST["username"];
+        $password = $_POST["password"];
+        $result = mysqli_query($conn, "select * from users where username = '$username' and password = '$password'");
+        $row = mysqli_fetch_assoc($result);
+        if($row != null && $row != 0) {
+            $_SESSION["id"] = $row["id"];
+            $_SESSION["username"] = $row["username"];
+        } else{
+            echo "<script>alert('Invalid User');</script>";
         }
-        if (isset($_SESSION['id'])) {
+
+        if(isset($_SESSION['id'])){
             header("location:index.php");
         }
     }
     ?>
 </body>
-
 </html>
-
 
 <!-- index.php: -->
 <?php
 session_start();
-if ($_SESSION["Uname"]) {
+if($_SESSION['username']) {
+    echo "<h2>Welcome</h2>";
+    echo "<h2>" . $_SESSION['username'] . "</h2>";
+    echo "<br><a href='logout.php'>Logout</a>";
+} else {
+    echo "Please Login First";
+}
+
 ?>
-    Welcome
-    <?php
-    echo ", " . $_SESSION["Uname"] . ".<br><br>";
-    ?>
-    Click here to <a href="logout.php">Logout</a>
-<?php
-} else
-    echo "Please log in first";
-?>
+
 
 <!-- logout.php: -->
 <?php
 session_start();
-unset($_SESSION["id"]);
-unset($_SESSION["Uname"]);
-unset($_SESSION["Pass"]);
-header("location:login.php");
+
+session_destroy();
+header("location: login.php");
+
 ?>
