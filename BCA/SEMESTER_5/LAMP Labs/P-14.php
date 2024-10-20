@@ -3,71 +3,60 @@ records manually in the database). -->
 
 
 <!-- index.php: -->
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Program Fourteen</title>
-    <style>
-        table {
-            border: 5px solid #000;
-            /* border-radius: 5px; */
-        }
-
-        td {
-            padding: 5px;
-            border: none;
-            /* border: 5px solid #000; */
-            /* border-radius: 5px; */
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program 14</title>
 </head>
-
 <body>
-    <table border="1">
+    <table border=1>
         <tr>
-            <td>Sl. No.</td>
+            <td>S.No</td>
             <td>First Name</td>
             <td>Last Name</td>
-            <td>Department</td>
+            <td>Deparment</td>
             <td>Section</td>
             <td>Percentage</td>
-            <?php
-            $con = mysqli_connect("localhost:3390//", "root", "", "mydbaa");
-            $limit = 3;
-            if (isset($_GET["page"])) { // can also use $_REQUEST
-                $offset = ($_GET["page"] - 1) * $limit;
-            } else {
-                $offset = 0;
-            }
-            $sql = "select count(Id) from std_details";
-            $res = mysqli_query($con, $sql);
-            $row = mysqli_fetch_array($res);
-            $totalrow = $row[0]; //to get the total no. of records
-            if ($totalrow > $limit) {
-                $nop = ceil($totalrow / $limit);
-            } else {
-                $nop = 0;
-            }
-            $res1 = mysqli_query($con, "select * from std_details order by Fname desc limit $limit offset $offset");
-            $count = 1;
-            while ($row = mysqli_fetch_assoc($res1)) {
-                echo "<tr><td>" . $count;
-                echo "</td><td>" . $row["Fname"];
-                echo "</td><td>" . $row["Lname"];
-                echo "</td><td>" . $row["Dept"];
-                echo "</td><td>" . $row["Class"];
-                echo "</td><td>" . $row["Percentage"];
-                echo "</td></tr>";
-                $count++;
-            }
-            echo "</table>";
-            echo "<br><br>";
-            for ($i = 1; $i <= $nop; $i++) {
-                echo "<td><a href='index.php?page=$i'>" . $i . "</a>&nbsp;";
-            }
-            ?>
         </tr>
+        <?php
+        $conn = new mysqli("localhost", "root", "", "mydb");
+        $limit = 3;
+        if(isset($_GET['page'])) {
+            $offset = ($_GET['page'] -1) * $limit;
+        } else {
+            $offset = 0;
+        }
+        $res = mysqli_query($conn, "select count(id) from std_details");
+        $row  = mysqli_fetch_array($res);
+        $totalRow = $row[0];
+        if($totalRow > $limit) {
+            $nop = ceil($totalRow / $limit);
+        } else {
+            $nop = 0;
+        }
+        $res1 = mysqli_query($conn, "select * from std_details order by fname desc limit $limit offset $offset");
+        $count = 1;
+        while($row = mysqli_fetch_array($res1)) {
+            echo "
+            <tr>
+                <td>" . $count . "</td>
+                <td>" . $row['fname'] . "</td>
+                <td>" . $row['lname'] . "</td>
+                <td>" . $row['dept'] . "</td>
+                <td>" . $row['class'] . "</td>
+                <td>" . $row['percentage'] . "</td>
+            </tr>
+            ";
+            $count++;
+        }
+        echo "</table><br><br><table border=1><tr>";
+            for($i = 1; $i<=$nop; $i++) {
+                echo "<td><a href='index.php?page=$i'>Page No: " . $i . "</a></td> ";
+            }
+            echo "</tr>";   
+        ?>
     </table>
 </body>
-
 </html>
