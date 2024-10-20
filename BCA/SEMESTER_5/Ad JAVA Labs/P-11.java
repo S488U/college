@@ -65,7 +65,7 @@ public class Client
 {
     public static void main(String args[]) 
 {
-        Try
+        try
  {
             InterestCalculator calculator = (InterestCalculator) Naming.lookup("rmi://localhost/InterestCalculator");
             

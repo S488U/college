@@ -1,5 +1,5 @@
 <?php
-include("/var/www/vhosts/components/db.php");
+include "/var/www/vhosts/components/db.php";
 
 if (isset($_POST["submit"])) {
     $title = $_POST["title"];
