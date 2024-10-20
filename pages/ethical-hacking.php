@@ -1,5 +1,5 @@
 <?php
-include "/var/www/vhosts/components/db.php";
+include "/var/www/vhosts/dunite.tech/components/db.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
