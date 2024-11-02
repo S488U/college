@@ -1,65 +1,36 @@
 <!-- Write a Php program to generate a simple calculator. -->
+<!-- enhanced code | Tested  -->
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Program Four</title>
-</head>
+<html>
+
 <body>
-    <?php 
-    if(isset($_POST["operator"])) {
+    <?php
+    $result = "";
+    if (isset($_POST["operator"])) {
         $firstNum = $_POST["firstNum"];
         $secondNum = $_POST["secondNum"];
-        $operator = $_POST["operator"];
-        $result = "";
-
-        if(is_numeric($firstNum) && is_numeric($secondNum)) {
-            switch($operator) {
-                case "+" :
-                    $result = $firstNum + $secondNum;
-                    break;
-                case "-" :
-                    $result = $firstNum - $secondNum;
-                    break;
-                case "*" :
-                    $result = $firstNum * $secondNum;
-                    break;
-                case "/" :
-                    $result = $firstNum / $secondNum;
-                    break;
-            }
+        $operator = $_POST['operator'];
+        if (is_numeric($firstNum) && is_numeric($secondNum)) {
+            $result = eval("return $firstNum $operator $secondNum;");
         }
     }
     ?>
-</body>
     <h1>PHP Simple Calculator</h1>
-    <form action="" method="post">
-        <div>
-            <label>First Number:</label>
-            <input type="number" name="firstNum" value="<?php echo $firstNum; ?>" required>
-        </div>
-        <div>
-            <label>Second Number: </label>
-            <input type="number" name="secondNum" value="<?php echo $secondNum; ?>" required>
-        </div>
-        <div>
-            <label>Result: </label>
-            <input type="number" name="result" value="<?php echo $result; ?>" readonly>
-        </div>
-
+    <form method="post">
+        <label>First Number:</label>
+        <input type="number" name="firstNum" value="<?php echo $firstNum ?? ''; ?>" required>
+        <br>
+        <label>Second Number:</label>
+        <input type="number" name="secondNum" value="<?php echo $secondNum ?? ''; ?>" required>
+        <br>
+        Result:
+        <input type="number" name="result" value="<?php echo $result; ?>" readonly>
+        <br>
         <input type="submit" value="+" name="operator">
         <input type="submit" value="-" name="operator">
         <input type="submit" value="*" name="operator">
         <input type="submit" value="/" name="operator">
     </form>
-</html>
+</body>
 
-<!-- output:-
-PHP Simple Calculator
-First Number: 6
-Second Number: 5
-Result: 11
-+ - * /
--->
+</html>

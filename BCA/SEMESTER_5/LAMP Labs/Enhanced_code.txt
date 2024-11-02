@@ -1,0 +1,13 @@
+Hi,
+
+The PHP codes have been shortened for easier understanding and learning.
+ Additionally, the code has been tested.
+
+Changes in Code:
+- Concatenation has been integrated directly instead of using separate concatenation.
+- The ternary operator has been used instead of if-else statements.
+- Repeated code has been eliminated.
+- CSS is optional; the code functions properly without it.
+- The <html> and <body> tags in PHP are optional.
+- Conditions have been added to prevent errors, for example: echo $variable ?? '';
+- Server connection variables are integrated to mysqli() function directly.
