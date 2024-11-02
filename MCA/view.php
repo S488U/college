@@ -66,8 +66,8 @@ if (isset($_GET['file'])) {
                     case 'docx':
                         $partToRemove = "/var/www/vhosts/dunite.tech/";
                         $resultLink = str_replace($partToRemove, '', $fileLocation);
-                        https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2F$resultLink&wdOrigin=BROWSELINK
-                        echo "<iframe loading='lazy' src='' width='100%' height='700' style='border-radius: 8px; margin-bottom: 40px;'></iframe>";
+                        
+                        echo "<iframe loading='lazy' src='https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2F$resultLink&wdOrigin=BROWSELINK' width='100%' height='700' style='border-radius: 8px; margin-bottom: 40px;'></iframe>";
                         break;
                     case 'jpeg':
                     case 'jpg':
