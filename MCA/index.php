@@ -52,7 +52,7 @@ function displayFolderStructure($path, $rootDirectory)
             $encodedEntry = rawurlencode($entry); // Encode the filename
 
             if (in_array($extension, $allowedExtensions)) {
-                echo "<div class='custom-file'><a class='custom-file-link' href='http://localhost:3000/MCA/view.php?file=/MCA$encodedRelativePath/$encodedEntry' >" . htmlspecialchars($entry) . "</a></div>";
+                echo "<div class='custom-file'><a class='custom-file-link' href='view.php?file=/MCA$encodedRelativePath/$encodedEntry' >" . htmlspecialchars($entry) . "</a></div>";
             } else {
                 if (in_array($extension, ["docx", "ppt", "pptx"])){
                     echo "<div class='custom-file'><a class='custom-file-link' href='https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fsu.dunite.tech%2FMCA/$encodedRelativePath/$encodedEntry&wdOrigin=BROWSELINK' >" . htmlspecialchars($entry) . "</a></div>";
