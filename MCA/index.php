@@ -45,7 +45,7 @@ function displayFolderStructure($path, $rootDirectory)
             echo '</div>';
             echo '</div>';
         } else {
-            $allowedExtensions = ["docx","py", "html", "pdf", "txt", "java", "cpp", "c", "sh", "css", "png", "jpeg", "jpg", "webp", "php"];
+            $allowedExtensions = ["docx","ppt", "pptx", "doc", "py", "html", "pdf", "txt", "java", "cpp", "c", "sh", "css", "png", "jpeg", "jpg", "webp", "php"];
             $extension = pathinfo($entry, PATHINFO_EXTENSION);
             $relativePathToComponents = str_replace("/assets", "", dirname($relativePath)); // Remove "/assets" from the directory path
             $encodedRelativePath = implode("/", array_map('rawurlencode', explode("/", $relativePathToComponents))); // Encode each component of the path except "/"
@@ -54,11 +54,11 @@ function displayFolderStructure($path, $rootDirectory)
             if (in_array($extension, $allowedExtensions)) {
                 echo "<div class='custom-file'><a class='custom-file-link' href='view.php?file=/MCA$encodedRelativePath/$encodedEntry' >" . htmlspecialchars($entry) . "</a></div>";
             } else {
-                if (in_array($extension, ["docx", "ppt", "pptx"])){
-                    echo "<div class='custom-file'><a class='custom-file-link' href='https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fsu.dunite.tech%2FMCA/$encodedRelativePath/$encodedEntry&wdOrigin=BROWSELINK' >" . htmlspecialchars($entry) . "</a></div>";
-                } else {
+                // if (in_array($extension, ["docx", "ppt", "pptx", "doc"])){
+                //     echo "<div class='custom-file'><a class='custom-file-link' href='https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fsu.dunite.tech%2FMCA/$encodedRelativePath/$encodedEntry&wdOrigin=BROWSELINK' >" . htmlspecialchars($entry) . "</a></div>";
+                // } else {
                 echo "<div class='custom-file'><a class='custom-file-link' href='/MCA/$encodedRelativePath/$encodedEntry' download>" . htmlspecialchars($entry) . "</a></div>";
-                }
+                // }
             }
         }
     }
