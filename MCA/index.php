@@ -52,9 +52,9 @@ function displayFolderStructure($path, $rootDirectory)
             $encodedEntry = rawurlencode($entry); // Encode the filename
 
             if (in_array($extension, $allowedExtensions)) {
-                echo "<div class='custom-file'><a class='custom-file-link' href='view.php?file=/BCA$encodedRelativePath/$encodedEntry' >" . htmlspecialchars($entry) . "</a></div>";
+                echo "<div class='custom-file'><a class='custom-file-link' href='view.php?file=/MCA$encodedRelativePath/$encodedEntry' >" . htmlspecialchars($entry) . "</a></div>";
             } else {
-                echo "<div class='custom-file'><a class='custom-file-link' href='/BCA/$encodedRelativePath/$encodedEntry' download>" . htmlspecialchars($entry) . "</a></div>";
+                echo "<div class='custom-file'><a class='custom-file-link' href='/MCA/$encodedRelativePath/$encodedEntry' download>" . htmlspecialchars($entry) . "</a></div>";
             }
         }
     }
