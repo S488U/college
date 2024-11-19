@@ -7,3 +7,6 @@
 
   gtag('config', 'G-9RZ7EVD4TN');
 </script>
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2144590426473210" crossorigin="anonymous"></script>
