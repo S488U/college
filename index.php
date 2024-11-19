@@ -26,6 +26,12 @@
 
     <div class="container d-flex flex-column justify-content-center align-items-center gap-5 mt-5 p-5 p-md-5" style="min-height: 70vh; height:auto;">
         <h1 class="text-capitalize text-center">Find your desired Study Materials Here</h1>
+        <div class="container-fluid d-flex justify-content-center align-items-center">
+            <form class="d-block">
+                <input class="search" type="text" name="" id="">
+                <input class="search-btn" type="submit" value="search" id="">
+            </form>
+        </div>
         <div class="container-fluid">
             <div class="row row-cols-1 row-cols-md-2 g-5">
                 <div class="col">
