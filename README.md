@@ -10,15 +10,15 @@ Dear Users,
  Copying programs from our website for exams or any other form of assessment<br> will lead to malpractice. We are not responsible for any issues that<br> may arise from such actions. Please use our resources responsibly<br> and solely for educational purposes.
 
 Thank you for your understanding.
-<span><a target="_blank" href="https://duploader.tech">-Duploader</a></span>
+<span><a target="_blank" href="https://dunite.tech">-Dunite</a></span>
 </pre>
 <h3>
 
 <br>
 
-<p>Directly Visit the page: <a target="_blank" title="Original website" href="https://su.duploader.tech/">SU Study Materials</a></p>
+<p>Directly Visit the page: <a target="_blank" title="Original website" href="https://su.dunite.tech/">SU Study Materials</a></p>
 
-If you wish to contribute in the project, contact me <a target="_blank" title="Author Male" href="mailto:shahabassabbu12@gmail.com">shahabassabbu12@gmail.com</a> or <a href="https://duploader.tech/contact/">Contact</a>
+If you wish to contribute in the project, contact me <a target="_blank" title="Author Male" href="mailto:shahabassabbu12@gmail.com">shahabassabbu12@gmail.com</a> or <a href="https://dunite.tech/contact/">Contact</a>
 
 # BCA: -
 
