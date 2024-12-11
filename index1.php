@@ -25,102 +25,30 @@
     <?php include "./assets/components/navbar.php"; ?>
 
     <div class="container d-flex flex-column justify-content-center align-items-center gap-5 mt-5 p-5 p-md-5" style="min-height: 70vh; height:auto;">
-        <h1 class="text-capitalize text-center">Find your desired Study Materials Here</h1>
-        <div class="container-fluid d-flex justify-content-center align-items-center">
-            <form class="d-flex flex-row gap-2 form">
-                <input class="search form-control" type="text" name="" id="" placeholder="search here..">
-                <input class="search-btn btn btn-dark" type="submit" value="search" id="">
-            </form>
+        <div class="container-fluid d-flex flex-column justify-content-center align-items-center text-center gap-2">
+            <h1 class="text-capitalize text-center mb-0">Find your desired Study Materials Here</h1>
+            <p class="text-center fs-5" style="max-width: 600px; width:auto;">Streamline your search with the <a class="text-danger" style="cursor: pointer;" href="./pages/engine.php">SU study engine</a>. Fast access to BCA, MCA, and specialized courses at your fingertips.</p>
         </div>
-        <script>
-        const form = document.getElementById('searchForm');
-        const resultsDiv = document.getElementById('results');
-
-        form.addEventListener('submit', function (e) {
-            e.preventDefault(); // Prevent the form from reloading the page
-
-            const query = document.getElementById('searchInput').value.trim();
-            if (!query) return;
-
-            resultsDiv.innerHTML = "<p>Searching...</p>";
-
-            // Fetch results from search.php
-            fetch(`search.php?query=${encodeURIComponent(query)}`)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.length === 0) {
-                        resultsDiv.innerHTML = "<p>No results found.</p>";
-                        return;
-                    }
-
-                    // Display results
-                    const list = document.createElement('ul');
-                    data.forEach(url => {
-                        const listItem = document.createElement('li');
-                        listItem.innerHTML = `<a href="${url}" target="_blank">${url}</a>`;
-                        list.appendChild(listItem);
-                    });
-                    resultsDiv.innerHTML = "";
-                    resultsDiv.appendChild(list);
-                })
-                .catch(error => {
-                    console.error("Error:", error);
-                    resultsDiv.innerHTML = "<p>Something went wrong. Please try again later.</p>";
-                });
-        });
-    </script>
-
-        <!-- Results Container -->
-        <div id="results" class="container-fluid">
-
-        </div>
-
         <div class="container-fluid">
             <div class="row row-cols-1 row-cols-md-2 g-5">
-                <div class="col">
-                    <div class="card" onclick="linkFunction('bca');">
-                        <div class="card-body">
-                            <h1 class="card-title">BCA</h1>
-                            <p class="card-text text-break text-capitalize">
-                                Find all the study Materials of Bachelors of Computer Application.
-                            </p>
-                            <a class="card-link text-capitalize" href="#">BCA Study materials</a>
+                <?php
+                include("./utils/pageLink.php");
+                foreach ($courses as $courseKey => $course) {
+                ?>
+                    <div class="col" onclick="window.location.href='<?php echo $course['redirectLink']; ?>'">
+                        <div class="card">
+                            <div class="card-body">
+                                <h1 class="card-title"><?php echo $course['name']; ?></h1>
+                                <p class="card-text text-break text-capitalize">
+                                    Find all the study materials related to <?php echo $course['name']; ?>.
+                                </p>
+                                <a class="card-link text-capitalize" href="<?php echo $course['redirectLink']; ?>">Study materials</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card" onclick="linkFunction('mca');">
-                        <div class="card-body">
-                            <h1 class="card-title">MCA</h1>
-                            <p class="card-text text-break text-capitalize">
-                                Find all the study Materials of Masters of computer application.
-                            </p>
-                            <a class="card-link text-capitalize" href="#">MCA Study materials</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card" onclick="linkFunction('bba');">
-                        <div class="card-body">
-                            <h1 class="card-title">BBA</h1>
-                            <p class="card-text text-break text-capitalize">
-                                Find all the study Materials of Bachelor of Business Administration.
-                            </p>
-                            <a class="card-link text-capitalize" href="#">MCA Study materials</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card" onclick="linkFunction('mba');">
-                        <div class="card-body">
-                            <h1 class="card-title">MBA</h1>
-                            <p class="card-text text-break text-capitalize">
-                                Find all the study Materials of Masters of Business Administration.
-                            </p>
-                            <a class="card-link text-capitalize" href="#">MCA Study materials</a>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                }
+                ?>
             </div>
         </div>
 
@@ -136,18 +64,6 @@
             border: 0.5px solid black !important;
         }
     </style>
-    <script>
-        function linkFunction(e) {
-            var courses = ['mca', 'bca', 'mba', 'bba'];
-            for (let i = 0; i < courses.length; i++) {
-                if (courses[i] === e) {
-                    window.history.replaceState({}, document.title, window.location.pathname);
-                    window.location.href = "./pages/" + e + ".php";
-                }
-            }
-
-        }
-    </script>
 
     <?php
     include "./assets/components/footer.php";

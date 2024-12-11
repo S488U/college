@@ -17,6 +17,7 @@
     <link rel="shortcut icon" type="image/png" sizes="16x16" href="https://dunite.tech/assets/favicon/android-chrome-192x192.png?v=1706301104">
     <link rel="stylesheet" href="./assets/style/scrollbar.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <?php include "./pages/g-tag.php"; ?>
     </script>
 </head>
@@ -25,53 +26,31 @@
     <?php include "./assets/components/navbar.php"; ?>
 
     <div class="container d-flex flex-column justify-content-center align-items-center gap-5 mt-5 p-5 p-md-5" style="min-height: 70vh; height:auto;">
-        <h1 class="text-capitalize text-center">Find your desired Study Materials Here</h1>
+        <div class="container-fluid d-flex flex-column justify-content-center align-items-center text-center gap-2">
+            <h1 class="animate__animated animate__pulse text-capitalize text-center mb-0">Find your desired Study Materials Here</h1>
+            <!-- <p class="text-center fs-5" style="max-width: 600px; width:auto;">Streamline your search with the <a class="text-danger" style="cursor: pointer;" href="./pages/engine.php">SU study engine</a>. Fast access to BCA, MCA, and specialized courses at your fingertips.</p> -->
+        </div>
         <div class="container-fluid">
             <div class="row row-cols-1 row-cols-md-2 g-5">
-                <div class="col">
-                    <div class="card" onclick="linkFunction('bca');">
-                        <div class="card-body">
-                            <h1 class="card-title">BCA</h1>
-                            <p class="card-text text-break text-capitalize">
-                                Find all the study Materials of Bachelors of Computer Application.
-                            </p>
-                            <a class="card-link text-capitalize" href="#">BCA Study materials</a>
+                <?php
+                include "./utils/pageLink.php";
+
+                foreach ($courses as $courseKey => $course) {
+                ?>
+                    <div class="col animate__animated animate__fadeInUp" onclick="window.location.href='<?php echo $course['redirectLink']; ?>'">
+                        <div class="card">
+                            <div class="card-body">
+                                <h1 class="card-title"><?php echo $course['name']; ?></h1>
+                                <p class="card-text text-break text-capitalize">
+                                    Find all the study materials related to <?php echo $course['name']; ?>.
+                                </p>
+                                <a class="card-link text-capitalize" href="<?php echo $course['redirectLink']; ?>">Study materials</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card" onclick="linkFunction('mca');">
-                        <div class="card-body">
-                            <h1 class="card-title">MCA</h1>
-                            <p class="card-text text-break text-capitalize">
-                                Find all the study Materials of Masters of computer application.
-                            </p>
-                            <a class="card-link text-capitalize" href="#">MCA Study materials</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card" onclick="linkFunction('bba');">
-                        <div class="card-body">
-                            <h1 class="card-title">BBA</h1>
-                            <p class="card-text text-break text-capitalize">
-                                Find all the study Materials of Bachelor of Business Administration.
-                            </p>
-                            <a class="card-link text-capitalize" href="#">MCA Study materials</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card" onclick="linkFunction('mba');">
-                        <div class="card-body">
-                            <h1 class="card-title">MBA</h1>
-                            <p class="card-text text-break text-capitalize">
-                                Find all the study Materials of Masters of Business Administration.
-                            </p>
-                            <a class="card-link text-capitalize" href="#">MCA Study materials</a>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                }
+                ?>
             </div>
         </div>
 
@@ -87,18 +66,6 @@
             border: 0.5px solid black !important;
         }
     </style>
-    <script>
-        function linkFunction(e) {
-            var courses = ['mca', 'bca', 'mba', 'bba'];
-            for (let i = 0; i < courses.length; i++) {
-                if (courses[i] === e) {
-                    window.history.replaceState({}, document.title, window.location.pathname);
-                    window.location.href = "./pages/" + e + ".php";
-                }
-            }
-
-        }
-    </script>
 
     <?php
     include "./assets/components/footer.php";

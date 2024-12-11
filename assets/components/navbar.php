@@ -13,11 +13,6 @@
             <li class="nav-item">
                 <a class="nav-link user-login" href="../../pages/mca.php">MCA</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link user-login" href="../../pages/ethical-hacking.php">EH Course</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link user-login" href="../../pages/ibm.php">IBM</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link user-login" href="../../pages/upload.php">Upload</a>
