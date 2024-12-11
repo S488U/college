@@ -6,3 +6,4 @@
 /dbconnection
 /.env
 /output/allFiles/*
+/.htaccess
