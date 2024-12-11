@@ -26,6 +26,55 @@
 
     <div class="container d-flex flex-column justify-content-center align-items-center gap-5 mt-5 p-5 p-md-5" style="min-height: 70vh; height:auto;">
         <h1 class="text-capitalize text-center">Find your desired Study Materials Here</h1>
+        <div class="container-fluid d-flex justify-content-center align-items-center">
+            <form class="d-flex flex-row gap-2 form">
+                <input class="search form-control" type="text" name="" id="" placeholder="search here..">
+                <input class="search-btn btn btn-dark" type="submit" value="search" id="">
+            </form>
+        </div>
+        <script>
+        const form = document.getElementById('searchForm');
+        const resultsDiv = document.getElementById('results');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent the form from reloading the page
+
+            const query = document.getElementById('searchInput').value.trim();
+            if (!query) return;
+
+            resultsDiv.innerHTML = "<p>Searching...</p>";
+
+            // Fetch results from search.php
+            fetch(`search.php?query=${encodeURIComponent(query)}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.length === 0) {
+                        resultsDiv.innerHTML = "<p>No results found.</p>";
+                        return;
+                    }
+
+                    // Display results
+                    const list = document.createElement('ul');
+                    data.forEach(url => {
+                        const listItem = document.createElement('li');
+                        listItem.innerHTML = `<a href="${url}" target="_blank">${url}</a>`;
+                        list.appendChild(listItem);
+                    });
+                    resultsDiv.innerHTML = "";
+                    resultsDiv.appendChild(list);
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    resultsDiv.innerHTML = "<p>Something went wrong. Please try again later.</p>";
+                });
+        });
+    </script>
+
+        <!-- Results Container -->
+        <div id="results" class="container-fluid">
+
+        </div>
+
         <div class="container-fluid">
             <div class="row row-cols-1 row-cols-md-2 g-5">
                 <div class="col">
