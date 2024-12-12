@@ -29,7 +29,7 @@ include "/var/www/vhosts/dunite.tech/components/db.php";
         <h1 class="text-capitalize">ethical Hacking Training</h1>
         <div class="container-fluid d-flex flex-column justify-content-center align-items-center ">
             <div class="container py-5">
-                <div class="row row-cols-1 row-cols-md-2 g-3 ">
+                <div class="row row-cols-1 row-cols-md-2 g-2 g-md-3">
                     <?php
                     $sql = "SELECT * FROM courses";
                     $result = $conn->query($sql);
