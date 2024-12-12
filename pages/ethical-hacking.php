@@ -29,7 +29,7 @@ include "/var/www/vhosts/dunite.tech/components/db.php";
         <h1 class="text-capitalize">ethical Hacking Training</h1>
         <div class="container-fluid d-flex flex-column justify-content-center align-items-center ">
             <div class="container py-5">
-                <div class="row row-cols-1 row-cols-md-2 g-2 ">
+                <div class="row row-cols-1 row-cols-md-2 g-3 ">
                     <?php
                     $sql = "SELECT * FROM courses";
                     $result = $conn->query($sql);
@@ -38,7 +38,7 @@ include "/var/www/vhosts/dunite.tech/components/db.php";
                         while ($row = $result->fetch_assoc()) {
                             echo '<div class="col border rounded px-3 py-2">
                                     <h2 class="text-capitalize fs-2">' . $row["title"] . '</h2>
-                                    <p class="text-secondary overflow-auto" style="height:150px;">' . $row["description"] . '</p>
+                                    <p id="para" class="text-secondary overflow-auto" style="height:150px;">' . $row["description"] . '</p>
                                     <a href="' . $row["link"] . '" class="btn btn-dark text-white d-block">Get now</a>
                                 </div>';
                         }
@@ -51,6 +51,17 @@ include "/var/www/vhosts/dunite.tech/components/db.php";
             </div>
         </div>
     </div>
+    <style>
+        #para::-webkit-scrollbar {
+            width: 2px;
+            background-color: lightgray;
+        }
+
+        #para::-webkit-scrollbar-thumb {
+            width: 2px;
+            background-color: gray;
+        }
+    </style>
 
     <?php include "../assets/components/footer.php"; ?>
     <?php include "../assets/components/checkApprove.php"; ?>
