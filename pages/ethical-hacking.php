@@ -13,7 +13,7 @@ include "/var/www/vhosts/dunite.tech/components/db.php";
     <meta name="description" content="This website hosts comprehensive BCA study materials from Srinivas University. Here, students can access a wide range of educational resources designed to support their academic journey, providing a valuable hub for learning and reference throughout their BCA studies at Srinivas University.">
     <meta property="og:description" content="This website hosts comprehensive BCA study materials from Srinivas University. Here, students can access a wide range of educational resources designed to support their academic journey, providing a valuable hub for learning and reference throughout their BCA studies at Srinivas University.">
     <meta property="og:title" content="Ethical Hacking Training - SU Study Materials"> -->
-    <meta property="og:image" content=""> 
+    <meta property="og:image" content="">
 
     <link rel="stylesheet" href="../assets/style/scrollbar.css">
     <link rel="shortcut icon" type="image/png" sizes="16x16" href="https://dunite.tech/assets/favicon/android-chrome-192x192.png?v=1706301104">
@@ -28,25 +28,27 @@ include "/var/www/vhosts/dunite.tech/components/db.php";
     <div class="container d-flex flex-column justify-content-center align-items-center gap-5 mt-5 mb-5 p-md-5" style="min-height: 60vh; height:auto;">
         <h1 class="text-capitalize">ethical Hacking Training</h1>
         <div class="container-fluid d-flex flex-column justify-content-center align-items-center ">
-        <?php 
-    $sql = "SELECT * FROM courses";
-    $result = $conn->query($sql);
-    
-    if ($result->num_rows > 0) {
-        // output data of each row
-        while($row = $result->fetch_assoc()) {
-            //make a good layout
-            echo '<div class="container d-flex flex-column justify-content-center align-items-center bg-light mt-3 m-0 p-2 px-4 rounded" style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; ">';
-            echo '<h4 class="m-0 p-0">' . $row["title"]. '</h4>';
-            echo '<p class="m-0 p-0">' . $row["description"]. '</p>';
-            echo '<p class="m-0 p-0">Link: <span> <a target="_blank" href=' . $row["link"]. '>' . $row["link"]. '</a></span></p>';
-            echo '</div>';
-        }
-    } else {
-        echo "0 results";
-    }
-    $conn->close();
-    ?>
+            <div class="container py-5">
+                <div class="row row-cols-1 row-cols-md-2 g-2 ">
+                    <?php
+                    $sql = "SELECT * FROM courses";
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo '<div class="col border rounded px-3 py-2">
+                                    <h2 class="text-capitalize fs-2">' . $row["title"] . '</h2>
+                                    <p class="text-secondary overflow-auto" style="height:150px;">' . $row["description"] . '</p>
+                                    <a href="' . $row["link"] . '" class="btn btn-dark text-white d-block">Get now</a>
+                                </div>';
+                        }
+                    } else {
+                        echo "0 results";
+                    }
+                    $conn->close();
+                    ?>
+                </div>
+            </div>
         </div>
     </div>
 
