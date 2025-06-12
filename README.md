@@ -1,3 +1,4 @@
+**Those who wish to contribute to the repo are warmly welcomed**
 <h1>S488U College</h1>
 
 <h3>This repository contains all study materials, records, and lab programs for BCA & MCA.</h3> 
