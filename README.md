@@ -1,7 +1,7 @@
 <p><strong>Those who wish to contribute to the repo are warmly welcomed</strong></p>
 <h1>S488U College</h1>
 
-<h3>This repository contains all study materials, records, and lab programs for BCA & MCA.</h3> 
+<h3>This repository contains all study materials, records, and lab programs for BCA & MCA.</h3>
 
 <h3>
 Warning: 
@@ -27,7 +27,7 @@ Warning:
 <p><a href="https://github.com/S488U/college/tree/main/BCA/SEMESTER_5">Semester 5 link.</a></p>
 <ul>
     <li><a target="_blank" href="https://github.com/S488U/college/tree/main/BCA/SEMESTER_5/Ad%20JAVA">Ad Java</a></li>
-    <li><a   target="_blank" href="https://github.com/S488U/college/tree/main/BCA/SEMESTER_5/Ad%20JAVA%20Labs">Ad Java Lab</a></li>
+    <li><a target="_blank" href="https://github.com/S488U/college/tree/main/BCA/SEMESTER_5/Ad%20JAVA%20Labs">Ad Java Lab</a></li>
     <li><a target="_blank" href="https://github.com/S488U/college/tree/main/BCA/SEMESTER_5/LAMP">LAMP</a></li>
     <li><a target="_blank" href="https://github.com/S488U/college/tree/main/BCA/SEMESTER_5/LAMP%20Labs">LAMP Lab</a></li>
     <li><a target="_blank" href="https://github.com/S488U/college/tree/main/BCA/SEMESTER_5/Software%20Engineering">Software Engineering</a></li>
@@ -42,7 +42,7 @@ Warning:
 <p><a href="https://github.com/S488U/college/tree/main/BCA/SEMESTER_4">Semester 4 link.</a></p>
 <ul>
     <li><a target="_blank" href="https://github.com/S488U/college/tree/main/BCA/SEMESTER_4/Basics%20of%20JAVA">Basics of Java</a></li>
-    <li><a   target="_blank" href="https://github.com/S488U/college/tree/main/BCA/SEMESTER_4/Java%20Lab">Java Lab</a></li>
+    <li><a target="_blank" href="https://github.com/S488U/college/tree/main/BCA/SEMESTER_4/Java%20Lab">Java Lab</a></li>
     <li><a target="_blank" href="https://github.com/S488U/college/tree/main/BCA/SEMESTER_4/Python">Python</a></li>
     <li><a target="_blank" href="https://github.com/S488U/college/tree/main/BCA/SEMESTER_4/Python%20Lab">Python Lab</a></li>
     <li><a target="_blank" href="https://github.com/S488U/college/tree/main/BCA/SEMESTER_4/E-Commerce">E-Commerce</a></li>
@@ -63,7 +63,9 @@ Warning:
 
 <h3>HTML: -</h3>
 <ul>
-    <li><p>Part - A</p></li>
+    <li>
+        <p>Part - A</p>
+    </li>
     <li><a target="_blank" href="https://s488u.github.io/college/BCA/SEMESTER_3/HTML_LAB/Part_A/Program-1/index.html">Program-1</a></li>
     <li><a target="_blank" href="https://s488u.github.io/college/BCA/SEMESTER_3/HTML_LAB/Part_A/Program-2/frameset.html">Program-2</a></li>
     <li><a target="_blank" href="https://s488u.github.io/college/BCA/SEMESTER_3/HTML_LAB/Part_A/Program-3/Admission_form.html">Program-3</a></li>
@@ -75,7 +77,9 @@ Warning:
 </ul>
 
 <ul>
-    <li><p>Part - B</p></li>
+    <li>
+        <p>Part - B</p>
+    </li>
     <li><a target="_blank" href="https://s488u.github.io/college/BCA/SEMESTER_3/HTML_LAB/Part_B/Program-1/fibonacci.html">Program-1</a></li>
     <li><a target="_blank" href="https://s488u.github.io/college/BCA/SEMESTER_3/HTML_LAB/Part_B/Program-2/square_of_the_number.html">Program-2</a></li>
     <li><a target="_blank" href="https://s488u.github.io/college/BCA/SEMESTER_3/HTML_LAB/Part_B/Program-3/Reverse.html">Program-3</a></li>
@@ -90,9 +94,13 @@ Warning:
 <h3>Data Structure Lab: -</h3>
 <p>Get the Data structure lab programs code from here:-</p>
 <ul>
-    <li><p>Part A & B: -</p></li>
+    <li>
+        <p>Part A & B: -</p>
+    </li>
     <li><a target="_blank" href="https://github.com/S488U/college/tree/main/BCA/SEMESTER_3/DATA_STRUCTURE_LAB/DS%20Progarms%20Part%20A%20%26%20B.pdf">PDF</a></li>
-    <li><p>Code: -</p></li>
+    <li>
+        <p>Code: -</p>
+    </li>
     <li><a target="_blank" href="https://github.com/S488U/college/tree/main/BCA/SEMESTER_3/DATA_STRUCTURE_LAB/Part-A">Part - A</a></li>
     <li><a target="_blank" href="https://github.com/S488U/college/tree/main/BCA/SEMESTER_3/DATA_STRUCTURE_LAB/Part-B">Part - B</a></li>
 </ul>
