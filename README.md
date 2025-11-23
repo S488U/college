@@ -135,7 +135,7 @@ Warning:
 
 <ul>
     <li><a target="_blank" href="https://github.com/S488U/college/tree/main/BCA/SEMESTER_1/C">C langauge</a></li>
-    <li><a target="_blank" href="https://github.com/S488U/college/tree/main/BCA/SEMESTER_1/C">C Lab</a></li>
+    <li><a target="_blank" href="https://github.com/S488U/college/tree/main/BCA/SEMESTER_1/C%20Lab">C Lab</a></li>
     <li><a target="_blank" href="https://github.com/S488U/college/tree/main/BCA/SEMESTER_1/English">English</a></li>
     <li><a target="_blank" href="https://github.com/S488U/college/tree/main/BCA/SEMESTER_1/FIT">Foundation of Information & Technology</a></li>
     <li><a target="_blank" href="https://github.com/S488U/college/tree/main/BCA/SEMESTER_1/FIT_lab">FIT Lab</a></li>
