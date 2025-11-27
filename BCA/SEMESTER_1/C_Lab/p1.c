@@ -13,5 +13,5 @@ void main()
     {
         large = c;
     }
-    printf("The largest number id %d", large);
+    printf("The largest number is %d", large);
 }
