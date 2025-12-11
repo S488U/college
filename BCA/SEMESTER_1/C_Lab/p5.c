@@ -15,6 +15,9 @@ void main()
     }
     gcd = a;
     lcm = (x*y)/gcd;
+    printf("Greatest common divisor of %d and %d is % d\n",x,y,gcd);
+    printf("Least common multiple of %d and %d is %d",x,y,lcm);
+
 
     
 }
