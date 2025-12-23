@@ -1,5 +1,7 @@
-<p><strong>Those who wish to contribute to the repo are warmly welcomed</strong></p>
+<p><strong>Those who wish to contribute to the repo are warmly welcome.</strong></p>
 <h1>S488U College</h1>
+
+<h2>Website is now up: <a target="_blank" href="https://plexaur.com">https://plexaur.com</a></h2>
 
 <h3>This repository contains all study materials, records, and lab programs for BCA & MCA.</h3>
 
@@ -17,7 +19,7 @@ Warning:
 
 <br>
 
-<p>Directly Visit the page: <a target="_blank" title="Original website" href="https://su.dunite.tech/">SU Study Materials</a></p>
+<p>Directly Visit the page: <a target="_blank" title="Original website" href="https://plexaur.com/">SU Study Materials</a></p>
 
 <p>If you wish to contribute in the project, contact me <a target="_blank" title="Author Male" href="mailto:shahabassabbu12@gmail.com">shahabassabbu12@gmail.com</a> or <a href="https://dunite.tech/contact/">Contact</a></p>
 
