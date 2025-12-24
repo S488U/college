@@ -7,3 +7,4 @@
 /.env
 /output/allFiles/*
 /.htaccess
+load_env.php
