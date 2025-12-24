@@ -1,16 +1,21 @@
 User-agent: *
+
+# 1. Block specific root directories
 Disallow: /MCA/
 Disallow: /BCA/
 Disallow: /IBM/
+
+# 2. Block system/utility paths
 Disallow: /uploads/
-Disallow: /assets/
+Disallow: /utils/
+Disallow: /compiler/run
 
+# 3. Admin Wrapper Block
+Disallow: /pages/admin
+
+# 4. Allowed Paths
 Allow: /pages/
-Allow: /pages/bca.php
-Allow: /pages/mca.php
-Allow: /pages/ibm.php
-Allow: /pages/about.php
-Allow: /pages/upload.php
-Allow: /$
+Allow: /compiler/index
 
-Sitemap: https://su.duploader.tech/sitemap.xml
+# Sitemaps
+Sitemap: https://plexaur.com/sitemap.xml
