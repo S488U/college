@@ -132,7 +132,7 @@
                     <li><a href="https://plexaur.com">Plexaur</a></li>
                     <li><a href="https://plexaur.com/pages/feedback">Feedback</a></li>
                     <li><a href="https://shahabas.vercel.app/#contact">Contact Us</a></li>
-                    <li><a href="https://su.dunite.tech/pages/upload">Upload</a></li>
+                    <li><a href="https://plexaur.com/pages/upload">Upload</a></li>
                 </ul>
             </div>
 
