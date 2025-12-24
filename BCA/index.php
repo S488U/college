@@ -21,7 +21,6 @@ function getFileIcon($filename) {
         'php'  => 'fa-php text-primary',
         'html' => 'fa-html5 text-danger',
         'css'  => 'fa-css3-alt text-primary',
-        'js'   => 'fa-js text-warning',
         'c'    => 'fa-c text-primary',
         'cpp'  => 'fa-c text-primary',
         'java' => 'fa-java text-danger',
