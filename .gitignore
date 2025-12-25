@@ -8,3 +8,5 @@
 /output/allFiles
 /.htaccess
 load_env.php
+*.mp4
+/dumbcli
