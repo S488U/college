@@ -1,6 +1,6 @@
 <?php
 // DB Connection - Use relative if absolute fails locally
-$dbPath = "../../components/db.php";
+$dbPath = "../config/db.php";
 if(file_exists($dbPath)) include $dbPath;
 else include "../assets/components/db.php"; 
 

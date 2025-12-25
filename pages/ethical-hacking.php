@@ -1,13 +1,8 @@
 <?php
 // Database Connection
-// Using the absolute path provided, or falling back to relative if on local dev
-$dbPath = "../../components/db.php";
-if (file_exists($dbPath)) {
-    include $dbPath;
-} else {
-    // Fallback for local testing or relative structure
-    include "../assets/components/db.php"; 
-}
+$dbPath = "../config/db.php";
+include $dbPath;
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">

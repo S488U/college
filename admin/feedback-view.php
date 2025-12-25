@@ -2,7 +2,7 @@
 // admin/feedback-view.php
 
 // 1. DB Connection (Reuse existing logic)
-$dbPath = "../../components/db.php";
+$dbPath = "../config/db.php";
 if(file_exists($dbPath)) include_once $dbPath;
 else include_once "../assets/components/db.php"; 
 
