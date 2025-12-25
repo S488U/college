@@ -1,6 +1,10 @@
 <?php
-include "/var/www/vhosts/dunite.tech/components/db.php";
+// DB Connection - Use relative if absolute fails locally
+$dbPath = "../../components/db.php";
+if(file_exists($dbPath)) include $dbPath;
+else include "../assets/components/db.php"; 
 
+// Handle Submit
 if (isset($_POST["submit"])) {
     $title = $_POST["title"];
     $description = $_POST["description"];
@@ -8,74 +12,99 @@ if (isset($_POST["submit"])) {
 
     $stmt = $conn->prepare("INSERT INTO courses (title, description, link) VALUES (?, ?, ?)");
     $stmt->bind_param("sss", $title, $description, $link);
-    $stmt->execute();
-
-    echo "Course added successfully";
-
+    
+    if($stmt->execute()){
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">Course added successfully! <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>';
+    }
     $stmt->close();
 }
 
-// Check if delete button is clicked
+// Handle Delete
 if(isset($_GET['delete_id'])) {
     $delete_id = $_GET['delete_id'];
     $delete_query = "DELETE FROM courses WHERE id = ?";
     $stmt = $conn->prepare($delete_query);
     $stmt->bind_param("i", $delete_id);
-    $stmt->execute();
-    echo "Course deleted successfully";
+    if($stmt->execute()){
+        echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">Course deleted. <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>';
+        // JS Redirect to strip GET param so refresh doesn't re-delete
+        echo "<script>if(window.history.replaceState){window.history.replaceState(null, null, window.location.href.split('?')[0]);}</script>";
+    }
     $stmt->close();
 }
-
 ?>
 
-<div class="container-sm flex flex-column  justify-content-center align-items-center">
-    <form method="post" class="form mx-auto border border-dark p-md-4 p-1 py-5 rounded">
-        <h1 class="text-center text-capitalize p-3">Course Update Section</h1>
-        <div class="d-flex flex-column  m-1">
-            <label for="">Course Title: </label>
-            <input class="form-control border border-dark rounded" type="text" name="title" id="">
+<div class="row g-4">
+    <!-- ADD COURSE FORM -->
+    <div class="col-lg-4">
+        <div class="glass-card p-4">
+            <h4 class="mb-4 text-white"><i class="fa-solid fa-plus-circle me-2 text-primary"></i>Add New Course</h4>
+            
+            <form method="post">
+                <div class="mb-3">
+                    <label class="form-label text-gray small">Course Title</label>
+                    <input class="form-control" type="text" name="title" required placeholder="e.g. Ethical Hacking 101">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label text-gray small">Description</label>
+                    <textarea class="form-control" name="description" rows="4" required placeholder="Short brief..."></textarea>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label text-gray small">External Link</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-dark border-secondary text-gray"><i class="fa-solid fa-link"></i></span>
+                        <input class="form-control" type="url" name="link" required placeholder="https://">
+                    </div>
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="submit" name="submit" class="btn btn-primary">Publish Course</button>
+                    <button type="reset" class="btn btn-outline-secondary">Reset</button>
+                </div>
+            </form>
         </div>
-        <div class="d-flex flex-column m-1">
-            <label for="">Course Description: </label>
-            <textarea class="form-control border border-dark rounded" type="text" name="description" id=""></textarea>
-        </div>
-        <div class="d-flex flex-column m-1">
-            <label for="">Course Link: </label>
-            <input class="form-control border border-dark rounded" type="text" name="link" id="" placeholder="https://example.com/">
-        </div>
-        <div class="d-flex flex-row m-1 py-4 gap-2">
-            <input class="btn btn-danger flex-fill" type="reset" value="Reset">
-            <input class="btn btn-dark flex-fill" name="submit" type="submit" value="Submit">
-        </div>
-    </form>
+    </div>
 
-    <div class="container flex flex-column  justify-content-center align-items-center my-5">
-    <?php 
-    $sql = "SELECT * FROM courses";
-    $result = $conn->query($sql);
-    
-    if ($result->num_rows > 0) {
-        // output data of each row
-        while($row = $result->fetch_assoc()) {
-            echo '<div class="d-flex flex-column bg-dark-subtle m-3 p-2 px-4 rounded">';
-            echo '<h4 class="m-0 p-0">' . $row["title"]. '</h4>';
-            echo '<p class="m-0 p-0">' . $row["description"]. '</p>';
-            echo '<p class="m-0 p-0">Link: <span> <a href=' . $row["link"]. '>' . $row["link"]. '</a></span></p>';
-            echo '<p class="m-0 p-0">Timestamp: ' . $row["timestamp"]. '</p>';
-            echo '<a href="?delete_id=' . $row["id"] . '" class="btn btn-danger">Delete</a>';
-            echo '</div>';
-        }
-    } else {
-        echo "0 results";
-    }
-    ?>
+    <!-- COURSE LIST -->
+    <div class="col-lg-8">
+        <div class="glass-card p-4">
+            <h4 class="mb-4 text-white">Active Courses</h4>
+            <div class="table-responsive">
+                <table class="table table-dark-glass table-hover">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Date</th>
+                            <th class="text-end">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php 
+                    $sql = "SELECT * FROM courses ORDER BY timestamp DESC";
+                    $result = $conn->query($sql);
+                    
+                    if ($result && $result->num_rows > 0) {
+                        while($row = $result->fetch_assoc()) {
+                            $shortDesc = substr($row["description"], 0, 50) . (strlen($row["description"]) > 50 ? "..." : "");
+                            echo '<tr>';
+                            echo '<td class="fw-bold text-white">' . htmlspecialchars($row["title"]) . '</td>';
+                            echo '<td class="text-gray small">' . htmlspecialchars($shortDesc) . '</td>';
+                            echo '<td class="small text-nowrap">' . date('M d, Y', strtotime($row["timestamp"])) . '</td>';
+                            echo '<td class="text-end">
+                                    <div class="btn-group">
+                                        <a href="' . htmlspecialchars($row["link"]) . '" style="margin: 0 8px;" target="_blank" class="btn btn-sm btn-outline-info" title="Visit Link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                                        <a href="?delete_id=' . $row["id"] . '" class="btn btn-sm btn-outline-danger" onclick="return confirm(\'Are you sure you want to delete this course?\')" title="Delete"><i class="fa-solid fa-trash"></i></a>
+                                    </div>
+                                  </td>';
+                            echo '</tr>';
+                        }
+                    } else {
+                        echo '<tr><td colspan="4" class="text-center py-4 text-muted">No courses found.</td></tr>';
+                    }
+                    ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
-
-<style>
-    input:focus,
-    textarea:focus {
-        box-shadow: none !important;
-        outline: none !important;
-    }
-</style>

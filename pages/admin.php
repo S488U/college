@@ -4,53 +4,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Page - SU Study Materials</title>
+    <title>Admin Dashboard - SU Study Materials</title>
+    
+    <!-- CSS & Fonts -->
     <link rel="stylesheet" href="../assets/style/scrollbar.css">
-    <link rel="shortcut icon" type="image/png" sizes="16x16" href="https://dunite.tech/assets/favicon/android-chrome-192x192.png?v=1706301104">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="../assets/script/navbar.js"></script>
+    <link rel="shortcut icon" type="image/png" sizes="16x16" href="/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Code:wght@500&display=swap" rel="stylesheet">
+	
+    <style>
+        :root {
+            --page-bg: #0f172a;
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --glass-bg: rgba(30, 41, 59, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --input-bg: rgba(15, 23, 42, 0.6);
+        }
+
+        body {
+            background-color: var(--page-bg);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Dashboard Header */
+        .dash-header {
+            background: linear-gradient(to right, #1e293b, #0f172a);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+
+        .dash-title {
+            background: linear-gradient(to right, #fff, #cbd5e1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        /* Tab Navigation */
+        .nav-pills .nav-link {
+            color: var(--text-muted);
+            background: transparent;
+            border: 1px solid transparent;
+            margin-right: 10px;
+            border-radius: 8px;
+            padding: 10px 20px;
+            transition: all 0.3s;
+        }
+
+        .nav-pills .nav-link:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+        }
+
+        .nav-pills .nav-link.active {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            border-color: var(--accent);
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+        }
+
+        /* Glass Cards */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Form Elements */
+        .form-control, .form-control:focus {
+            background-color: var(--input-bg);
+            border: 1px solid var(--glass-border);
+            color: #fff;
+        }
+        .form-control:focus {
+            box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.3);
+            border-color: var(--accent);
+        }
+		
+		.form-control::placeholder {
+			color: gray;
+		}
+        
+        /* Table Styles */
+        .table-dark-glass {
+            --bs-table-bg: transparent;
+            --bs-table-color: var(--text-main);
+            border-color: var(--glass-border);
+        }
+        .table-dark-glass th {
+            border-bottom-width: 1px;
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .table-dark-glass td {
+            vertical-align: middle;
+        }
+        
+        /* Added for text-accent used in feedback */
+        .text-accent { color: var(--accent); }
+    </style>
 </head>
 
 <body>
     <?php include "../assets/components/navbar.php"; ?>
-    <?php include "../admin/admin_nav.php"; ?>
 
-    <div  id="mainCon" class="container d-flex flex-column justify-content-center align-items-center gap-5 mt-1 p-5 p-md-5" style="min-height: 60vh; height:auto;">
-
-        <?php include "../admin/course-update.php"; ?>
-        <?php include "../admin/upload-shows.php"; ?>
-
+    <!-- Dashboard Header with Nav -->
+    <div class="dash-header">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                <h2 class="dash-title m-0"><i class="fa-solid fa-gauge-high me-2"></i> Admin Dashboard</h2>
+                
+                <!-- Navigation Tabs -->
+                <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-courses-tab" data-bs-toggle="pill" data-bs-target="#pills-courses" type="button" role="tab"><i class="fa-solid fa-book me-2"></i>Courses</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-uploads-tab" data-bs-toggle="pill" data-bs-target="#pills-uploads" type="button" role="tab"><i class="fa-solid fa-cloud-arrow-up me-2"></i>Uploads</button>
+                    </li>
+                    <!-- NEW FEEDBACK TAB -->
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-feedback-tab" data-bs-toggle="pill" data-bs-target="#pills-feedback" type="button" role="tab"><i class="fa-solid fa-comments me-2"></i>Feedback</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 
+    <div class="container mb-5" style="min-height: 60vh;">
+        <!-- Tab Content Wrapper -->
+        <div class="tab-content" id="pills-tabContent">
+            
+            <!-- Tab 1: Courses -->
+            <div class="tab-pane fade show active" id="pills-courses" role="tabpanel">
+                <?php include "../admin/course-update.php"; ?>
+            </div>
 
+            <!-- Tab 2: Uploads -->
+            <div class="tab-pane fade" id="pills-uploads" role="tabpanel">
+                <?php include "../admin/upload-shows.php"; ?>
+            </div>
+            
+            <!-- Tab 3: Feedback (NEW) -->
+            <div class="tab-pane fade" id="pills-feedback" role="tabpanel">
+                <?php include "../admin/feedback-view.php"; ?>
+            </div>
+
+        </div>
+    </div>
 
     <?php include "../assets/components/footer.php"; ?>
     <?php include "../assets/components/scripts.php"; ?>
+	
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script src="../assets/script/checkAccepted.js"></script>
-</body>
-<script>
-    function LinkGenerate(e) {
-        let elementLink = e.innerText;
-        let mainCon = document.getElementById("mainCon");
-        
-        if (elementLink === "Upload") {
-            // Assuming you're using XMLHttpRequest (XHR) for AJAX
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status === 200) {
-                        // Assuming the response contains HTML content
-                        mainCon.innerHTML = xhr.responseText;
-                    } else {
-                        console.error('Failed to load content');
-                    }
+    <!-- TAB PERSISTENCE SCRIPT -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // 1. Restore the active tab on page load
+            const activeTabId = localStorage.getItem('activeAdminTab');
+            if (activeTabId) {
+                const triggerEl = document.querySelector(`#${activeTabId}`);
+                if (triggerEl) {
+                    const tabInstance = new bootstrap.Tab(triggerEl);
+                    tabInstance.show();
                 }
-            };
-            xhr.open('GET', './course-update.php', true);
-            xhr.send();
-        }
-    }
-</script>
+            }
 
+            // 2. Save the active tab whenever a user clicks one
+            const tabElss = document.querySelectorAll('button[data-bs-toggle="pill"]');
+            tabElss.forEach(tabEl => {
+                tabEl.addEventListener('shown.bs.tab', event => {
+                    localStorage.setItem('activeAdminTab', event.target.id);
+                });
+            });
+        });
+    </script>
+</body>
 </html>
