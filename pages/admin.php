@@ -110,6 +110,23 @@
         
         /* Added for text-accent used in feedback */
         .text-accent { color: var(--accent); }
+
+        .table-dark-glass.table-hover tbody tr:hover {
+            background-color: rgba(255, 255, 255, 0.075) !important;
+            transition: background-color 0.2s ease;
+        }
+
+        .table-dark-glass.table-hover tbody tr:hover td {
+            color: inherit !important; 
+        }
+
+        .table-dark-glass.table-hover tbody tr:hover .text-white {
+            color: #fff !important;
+        }
+
+        .table-dark-glass.table-hover tbody tr:hover .text-gray {
+            color: #adb5bd !important;
+        }   
     </style>
 </head>
 
