@@ -68,10 +68,12 @@ function renderCategory($cat) {
                 
                 if ($f_result && $f_result->num_rows > 0) {
                     while($row = $f_result->fetch_assoc()) {
-                        $date = date('M d, Y', strtotime($row['timestamp']));
-                        $name = htmlspecialchars($row['name']);
+                        $db_date = $row['timestamp'] ?? $row['created_at'] ?? null;
+                        $date = ($db_date) ? date('M d, Y', strtotime($db_date)) : "Unknown Date";
+                        
+                        $name = htmlspecialchars($row['name'] ?? 'Anonymous');
                         $email = htmlspecialchars($row['email'] ?? 'No Email');
-                        $msg = nl2br(htmlspecialchars($row['message']));
+                        $msg = nl2br(htmlspecialchars($row['message'] ?? ''));
                         
                         echo '<tr>
                                 <td>
