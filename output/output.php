@@ -243,7 +243,7 @@ function createTmpFile($pgId, $fileContent) {
                 <!-- Info Alert -->
                 <div class="alert alert-info d-flex align-items-center gap-2 py-2 px-3 rounded-pill mb-4 fade show" role="alert" style="font-size: 0.9rem; border: 1px solid rgba(56, 189, 248, 0.2); background: rgba(56, 189, 248, 0.05); color: #bae6fd;">
                     <i class="fa-solid fa-clock"></i>
-                    <span>Output link expires in <strong>24 hours</strong>.</span>
+                    <span>Output link expires in <strong>every sunday</strong>.</span>
                 </div>
 
                 <!-- Browser Window UI -->
