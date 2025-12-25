@@ -5,6 +5,6 @@
 /BCA/SEMESTER_5/Ad JAVA Labs/test.txt
 /dbconnection
 /.env
-/output/allFiles/*
+/output/allFiles
 /.htaccess
 load_env.php
