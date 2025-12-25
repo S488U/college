@@ -1,84 +1,122 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHP Compiler</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container mt-0 my-5 p-0">
-        <h1 class="mb-4 text-center">PHP Compiler</h1>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card h-100">
-                    <div class="card-header">
-                        <h2>Write your PHP code here:</h2>
-                    </div>
-                    <div class="card-body">
-                        <form method="post">
-                            <div class="form-group h-100">
-                                <textarea name="php_code" id="php_code" class="form-control" rows="10" placeholder="Write your PHP code here..."><?php echo isset($_POST['php_code']) ? htmlspecialchars($_POST['php_code']) : ''; ?></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Run Code</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card h-100">
-                    <div class="card-header">
-                        <h2>Output</h2>
-                    </div>
-                    <div class="card-body">
-                        <div class="output">
-                            <?php
-                            function is_safe_php_code($code) {
-                                $disallowed_functions = ['exec', 'shell_exec', 'system', 'passthru', 'proc_open', 'popen', 'curl_exec', 'curl_multi_exec', 'parse_ini_file', 'show_source', 'file_put_contents', 'file_get_contents'];
-                                foreach ($disallowed_functions as $function) {
-                                    if (stripos($code, $function) !== false) {
-                                        return false;
-                                    }
-                                }
-                                $disallowed_js_patterns = ['<script', 'javascript:', 'onerror=', 'onload=', 'onmouseover=', 'alert(', 'confirm('];
-                                foreach ($disallowed_js_patterns as $pattern) {
-                                    if (stripos($code, $pattern) !== false) {
-                                        return false;
-                                    }
-                                }
-                                return true;
-                            }
+<?php 
+$default = '<?php
+// Write your PHP code here
+// Developed by https://github.com/S488U
 
-                            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['php_code'])) {
-                                $php_code = $_POST['php_code'];
-                                if (!empty($php_code)) {
-                                    if (is_safe_php_code($php_code)) {
-                                        $tmp_file = tempnam(sys_get_temp_dir(), 'php');
-                                        file_put_contents($tmp_file, $php_code);
-                                        ob_start();
-                                        include $tmp_file;
-                                        $output = ob_get_clean();
-                                        unlink($tmp_file);
-                                        echo $output;
-                                    } else {
-                                        echo "The code contains disallowed functions or JavaScript.";
-                                    }
-                                } else {
-                                    echo "Please enter some PHP code.";
-                                }
-                            }
-                            ?>
-                        </div>
-                    </div>
+$greetings = "Hello, Srinivas University!";
+echo $greetings . "\n";
+echo "Welcome to the Online Compiler.\n";
+echo "Built by Plexaur.com"
+?>'; 
+?>
+
+<!-- Main IDE Wrapper -->
+<div class="ide-container">
+    <!-- Header with Controls -->
+    <div class="ide-header">
+        <div class="ide-title">
+            <i class="fa-brands fa-php fa-lg text-primary"></i>
+            <span>main.php</span>
+        </div>
+        <button type="button" id="runBtn" class="btn-run">
+            <span class="loader" id="runLoader"></span>
+            <i class="fa-solid fa-play" id="runIcon"></i> 
+            Run Code
+        </button>
+    </div>
+
+    <!-- Split Layout: Editor & Terminal -->
+    <div class="d-flex ide-body">
+        
+        <!-- Code Editor Area -->
+        <div class="flex-grow-1" style="flex-basis: 60%;">
+            <form id="codeForm" style="height: 100%;">
+                <textarea id="php_code" name="php_code"><?php echo htmlspecialchars($default); ?></textarea>
+            </form>
+        </div>
+
+        <!-- Output Terminal Area -->
+        <div class="flex-grow-1" style="flex-basis: 40%;">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <i class="fa-solid fa-terminal me-2"></i> Console Output
                 </div>
+                <div class="terminal-content" id="outputBox">// Output will appear here...</div>
             </div>
         </div>
+
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
-</body>
-</html>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Initialize CodeMirror
+        const textArea = document.getElementById('php_code');
+        
+        const editor = CodeMirror.fromTextArea(textArea, {
+            mode: "application/x-httpd-php",
+            theme: "dracula",
+            lineNumbers: true,
+            indentUnit: 4,
+            indentWithTabs: true,
+            autoCloseBrackets: true,
+            autoCloseTags: true,
+            matchBrackets: true,
+            lineWrapping: true
+        });
+
+        // Run Logic
+        const runBtn = document.getElementById('runBtn');
+        const loader = document.getElementById('runLoader');
+        const icon = document.getElementById('runIcon');
+        const outputBox = document.getElementById('outputBox');
+
+        runBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // UI Loading State
+            runBtn.disabled = true;
+            loader.style.display = 'block';
+            icon.style.display = 'none';
+            outputBox.innerHTML = '<span class="text-gray">Executing script...</span>';
+
+            const code = editor.getValue();
+            
+            // Using relative path assuming this file is included in pages/compiler.php
+            // and run.php is in ../compiler/run.php relative to the page
+            const url = "../compiler/run.php"; 
+
+            fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams({ php_code: code })
+            })
+            .then(res => res.text())
+            .then(output => {
+                // Formatting output for terminal feel
+                if(!output.trim()) {
+                    outputBox.innerHTML = '<span class="text-gray">// Script finished with no output.</span>';
+                } else {
+                    // Simple styling for errors vs success (heuristic)
+                    if(output.includes('Fatal error') || output.includes('Parse error')) {
+                         outputBox.style.color = '#ef4444'; // Red for errors
+                    } else {
+                         outputBox.style.color = '#10b981'; // Green for success
+                    }
+                    outputBox.textContent = output;
+                }
+            })
+            .catch(err => {
+                outputBox.style.color = '#ef4444';
+                outputBox.textContent = 'Server Error: Failed to reach compiler endpoint.';
+                console.error(err);
+            })
+            .finally(() => {
+                // Reset UI
+                runBtn.disabled = false;
+                loader.style.display = 'none';
+                icon.style.display = 'inline-block';
+            });
+        });
+    });
+</script>
