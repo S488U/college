@@ -99,7 +99,7 @@ if(isset($_GET['delete_id'])) {
                             echo '</tr>';
                         }
                     } else {
-                        echo '<tr><td colspan="4" class="text-center py-4 text-muted">No courses found.</td></tr>';
+                        echo '<tr><td colspan="4" class="text-center py-4 text-gray">No courses found.</td></tr>';
                     }
                     ?>
                     </tbody>
