@@ -137,6 +137,8 @@ function calculateScore($webPath, $fileName, $rawQuery) {
             if ($wantedSem != $foundSem) {
                 return -1; // Wrong semester
             }
+            // Ensure semester-only queries (e.g. "semester 2") still rank and return results.
+            $score += 5000;
         } else {
             return -1; // Query asked for a semester but path does not contain one.
         }
