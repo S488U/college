@@ -8,8 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // 2. Database Connection
-// Adjust path to reach your root 'components/db.php'
-$dbPath = __DIR__ . "/../../../components/db.php"; 
+$dbPath = __DIR__ . "/../../config/db.php";
 
 if (file_exists($dbPath)) {
     include($dbPath);
