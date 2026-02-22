@@ -203,7 +203,7 @@
                                 <p class="text-gray mt-2 small">Searching archives...</p>
                             </div>`;
 
-                        fetch(`search.php?query=${encodeURIComponent(query)}`)
+                        fetch(`/pages/search?query=${encodeURIComponent(query)}`)
                             .then(response => response.json())
                             .then(data => {
                                 if (data.length > 0) {
@@ -226,7 +226,7 @@
                                             .join('');
 
                                         const fileIconClass = getFileIcon(fileName);
-                                        const viewerBase = "./view";
+                                        const viewerBase = "/pages/view";
                                         const finalUrl = `${viewerBase}?file=${encodeURIComponent(filePath)}`;
 
                                         // Dark Mode Card HTML
