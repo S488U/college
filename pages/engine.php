@@ -226,7 +226,7 @@
                                             .join('');
 
                                         const fileIconClass = getFileIcon(fileName);
-                                        const viewerBase = "https://plexaur.com/pages/view";
+                                        const viewerBase = "./view";
                                         const finalUrl = `${viewerBase}?file=${encodeURIComponent(filePath)}`;
 
                                         // Dark Mode Card HTML
