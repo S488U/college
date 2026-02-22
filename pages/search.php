@@ -143,48 +143,48 @@ function searchFiles($dir, $rawQuery, &$candidates, &$scanCount, $maxScan) {
     if ($scanCount >= $maxScan) return;
     if (!is_dir($dir)) return;
 
-    if ($handle = opendir($dir)) {
-        while (($entry = readdir($handle)) !== false) {
-            if ($scanCount >= $maxScan) break;
-            if ($entry === '.' || $entry === '..') continue;
+    $entries = scandir($dir);
+    if ($entries === false) return;
 
-            $fullPath = $dir . DIRECTORY_SEPARATOR . $entry;
+    foreach ($entries as $entry) {
+        if ($scanCount >= $maxScan) break;
+        if ($entry === '.' || $entry === '..') continue;
+
+        $fullPath = $dir . DIRECTORY_SEPARATOR . $entry;
+        
+        // --- DIRECTORY ---
+        if (is_dir($fullPath)) {
+            if (in_array($entry, $blocked_directories)) continue;
+            searchFiles($fullPath, $rawQuery, $candidates, $scanCount, $maxScan);
+        } 
+        // --- FILE ---
+        else {
+            $scanCount++;
             
-            // --- DIRECTORY ---
-            if (is_dir($fullPath)) {
-                if (in_array($entry, $blocked_directories)) continue;
-                searchFiles($fullPath, $rawQuery, $candidates, $scanCount, $maxScan);
-            } 
-            // --- FILE ---
-            else {
-                $scanCount++;
-                
-                if (in_array($entry, $blocked_filenames)) continue;
-                $ext = strtolower(pathinfo($entry, PATHINFO_EXTENSION));
-                if (in_array($ext, $blocked_extensions)) continue;
+            if (in_array($entry, $blocked_filenames)) continue;
+            $ext = strtolower(pathinfo($entry, PATHINFO_EXTENSION));
+            if (in_array($ext, $blocked_extensions)) continue;
 
-                // Web Path
-                $docRoot = $_SERVER['DOCUMENT_ROOT'];
-                $webPath = str_replace($docRoot, '', $fullPath);
-                $webPath = str_replace('\\', '/', $webPath); 
-                if (substr($webPath, 0, 1) !== '/') $webPath = '/' . $webPath;
+            // Web Path
+            $docRoot = $_SERVER['DOCUMENT_ROOT'];
+            $webPath = str_replace($docRoot, '', $fullPath);
+            $webPath = str_replace('\\', '/', $webPath); 
+            if (substr($webPath, 0, 1) !== '/') $webPath = '/' . $webPath;
 
-                if (in_array($webPath, $blocked_relative_paths)) continue;
+            if (in_array($webPath, $blocked_relative_paths)) continue;
 
-                // --- SCORING ---
-                $score = calculateScore($webPath, $entry, $rawQuery);
+            // --- SCORING ---
+            $score = calculateScore($webPath, $entry, $rawQuery);
 
-                // Filter logic: Only keep if score > 0
-                // Score can be -1 if it's the wrong semester
-                if ($score > 0) {
-                    $candidates[] = [
-                        'path' => $webPath,
-                        'score' => $score
-                    ];
-                }
+            // Filter logic: Only keep if score > 0
+            // Score can be -1 if it's the wrong semester
+            if ($score > 0) {
+                $candidates[] = [
+                    'path' => $webPath,
+                    'score' => $score
+                ];
             }
         }
-        closedir($handle);
     }
 }
 
@@ -192,11 +192,11 @@ function searchFiles($dir, $rawQuery, &$candidates, &$scanCount, $maxScan) {
 if (isset($_GET['query']) && !empty($_GET['query'])) {
     $rawQuery = trim($_GET['query']);
     
-    $rootDir = $_SERVER['DOCUMENT_ROOT']; 
+    $rootDir = realpath(dirname(__DIR__)); 
     
     $candidates = [];
     $scanCount = 0;
-    $maxScan = 3000; // Adjusted for performance
+    $maxScan = 10000; // Higher cap for larger repositories
     
     if(is_dir($rootDir)){
         searchFiles($rootDir, $rawQuery, $candidates, $scanCount, $maxScan);
