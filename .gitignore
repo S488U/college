@@ -6,7 +6,7 @@
 /dbconnection
 /.env
 /output/allFiles
-/.htaccess
 load_env.php
+/.htaccess
 *.mp4
 /dumbcli
