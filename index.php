@@ -2,14 +2,7 @@
 // 1. PERFORMANCE: Start Output Buffering
 ob_start();
 
-// 2. LOGIC: Move security/logic checks to the top.
-// If checkApprove redirects users, it must happen before HTML is sent.
-// If it is just logging, consider doing it via AJAX in the footer instead.
-if (file_exists("./assets/components/checkApprove.php")) {
-    include "./assets/components/checkApprove.php";
-}
-
-// 3. DATA: specific optimizations for pageLink
+// 2. DATA: specific optimizations for pageLink
 if (file_exists("./utils/pageLink.php")) {
     include "./utils/pageLink.php";
 } else {
@@ -260,8 +253,7 @@ if (file_exists("./utils/pageLink.php")) {
 
     <?php
     include "./assets/components/footer.php";
-    // NOTE: checkApprove removed from here and moved to top. 
-    // If it MUST be here (e.g., footer badge), ensure it performs NO database queries.
+    include "./assets/components/checkApprove.php";
     include "./assets/components/scripts.php";
     ?>
 
