@@ -66,6 +66,13 @@ function normalize($str) {
     return strtolower(trim($str));
 }
 
+function parseSemesterNumber($normalizedQuery) {
+    if (preg_match('/\b(?:semester|sem)\s*(\d+)\b/i', $normalizedQuery, $match)) {
+        return $match[1];
+    }
+    return null;
+}
+
 function calculateScore($webPath, $fileName, $rawQuery) {
     $score = 0;
     
@@ -76,6 +83,15 @@ function calculateScore($webPath, $fileName, $rawQuery) {
     
     $keywords = explode(' ', $normQuery);
     $keywords = array_filter($keywords);
+    $wantedSem = parseSemesterNumber($normQuery);
+
+    // Remove generic semester tokens from keyword scoring.
+    // Example: "sem 2 java" should prioritize "java" beyond semester matching.
+    $keywords = array_values(array_filter($keywords, function($token) use ($wantedSem) {
+        if ($token === 'semester' || $token === 'sem') return false;
+        if ($wantedSem !== null && $token === (string)$wantedSem) return false;
+        return true;
+    }));
 
     // 2. CRITERIA 1: THE GOLDEN FOLDER (Massive Boost)
     // Does the path contain the exact phrase "semester 2" as a folder segment?
@@ -114,24 +130,22 @@ function calculateScore($webPath, $fileName, $rawQuery) {
 
     // 4. PENALTY for "Semester X" mismatch
     // If user searches "Semester 2", but path says "Semester 1", kill the score.
-    if (strpos($normQuery, 'semester') !== false) {
-        // Extract the number user wants (e.g., "2")
-        preg_match('/semester\s+(\d+)/', $normQuery, $userSemMatch);
-        
-        if (!empty($userSemMatch[1])) {
-            $wantedSem = $userSemMatch[1];
-            
-            // Extract the semester number from the FILE PATH
-            // Looks for "semester 1", "semester 5", etc.
-            if (preg_match('/semester\s+(\d+)/', $normPath, $fileSemMatch)) {
-                $foundSem = $fileSemMatch[1];
-                
-                // If they don't match, this file is TRASH.
-                if ($wantedSem != $foundSem) {
-                    return -1; // Force ignore
-                }
+    if ($wantedSem !== null) {
+        // Accept both "semester X" and "sem X" in path names.
+        if (preg_match('/\b(?:semester|sem)\s+(\d+)\b/', $normPath, $fileSemMatch)) {
+            $foundSem = $fileSemMatch[1];
+            if ($wantedSem != $foundSem) {
+                return -1; // Wrong semester
             }
+        } else {
+            return -1; // Query asked for a semester but path does not contain one.
         }
+    }
+
+    // If user provided topic words after semester (e.g. "sem 2 java"),
+    // require at least one of those topic words to match.
+    if (!empty($keywords) && $matches === 0) {
+        return -1;
     }
 
     return $score;
