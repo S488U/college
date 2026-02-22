@@ -9,7 +9,7 @@
     <!-- CSS & Fonts -->
     <script src="../assets/script/navbar.js"></script>
     <link rel="shortcut icon" type="image/png" sizes="16x16" href="/favicon.ico">
-    <link rel="stylesheet" href="./assets/style/scrollbar.css">
+    <link rel="stylesheet" href="../assets/style/scrollbar.css">
     
     <!-- Bootstrap & Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
