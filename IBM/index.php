@@ -8,6 +8,8 @@ if (!isset($_SESSION['openFolders'])) {
     $_SESSION['openFolders'] = [];
 }
 
+require_once __DIR__ . '/../utils/fileLink.php';
+
 // ICON HELPER FUNCTION
 function getFileIcon($filename) {
     $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
@@ -111,18 +113,14 @@ function displayFolderStructure($path, $rootDirectory)
             echo '</div>';
         } else {
             // FILE LOGIC
-            $allowedExtensions = ["py", "html", "pdf", "txt", "java", "cpp", "c", "sh", "css", "png", "jpeg", "jpg", "webp", "php","ppt", "pptx", "docx", "doc", "sql", 'js'];
-            $extension = strtolower(pathinfo($entry, PATHINFO_EXTENSION));
-            $cleanPath = ltrim($relativePath, '/');
-            $pathSegments = explode('/', $cleanPath);
-            $encodedSegments = array_map('rawurlencode', $pathSegments);
-            $encodedPath = implode('/', $encodedSegments);
-            $baseLink = "/IBM/" . $encodedPath;
+            $extension = normalizeExtension($entry);
+            $baseLink = buildEncodedBaseLink('IBM', $relativePath);
+            $viewerHref = buildViewerHref('IBM', $relativePath);
             $icon = getFileIcon($entry);
 
             echo "<div class='custom-file'>";
-            if (in_array($extension, $allowedExtensions)) {
-                echo "<a class='custom-file-link' href='view?file=$baseLink' >$icon" . htmlspecialchars($entry) . "</a>";
+            if (isViewableExtension($extension)) {
+                echo "<a class='custom-file-link' href='$viewerHref' >$icon" . htmlspecialchars($entry) . "</a>";
             } else {
                 echo "<a class='custom-file-link' href='$baseLink' download>$icon" . htmlspecialchars($entry) . "</a>";
             }

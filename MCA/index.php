@@ -8,6 +8,8 @@ if (!isset($_SESSION['openFolders'])) {
     $_SESSION['openFolders'] = [];
 }
 
+require_once __DIR__ . '/../utils/fileLink.php';
+
 // ICON HELPER FUNCTION
 function getFileIcon($filename) {
     $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
@@ -96,29 +98,14 @@ function displayFolderStructure($path, $rootDirectory)
             echo '</div>';
             echo '</div>';
         } else {
-            // --- CRITICAL FIX FOR ENCODING ---
-            $allowedExtensions = ["py", "html", "pdf", "txt", "java", "cpp", "c", "sh", "css", "png", "jpeg", "jpg", "webp", "php", 'ppt', 'pptx', 'docx', 'doc', 'sql', "js"];
-            $extension = strtolower(pathinfo($entry, PATHINFO_EXTENSION));
-            
-            // 1. Break path into segments
-            // Relative path starts with / usually (e.g. /SEMESTER_1/File.pdf)
-            // We strip the leading slash for explode, then re-add later
-            $cleanPath = ltrim($relativePath, '/');
-            $pathSegments = explode('/', $cleanPath);
-            
-            // 2. Encode every segment (handles spaces -> %20, # -> %23, etc)
-            $encodedSegments = array_map('rawurlencode', $pathSegments);
-            $encodedPath = implode('/', $encodedSegments);
-            
-            // 3. Construct final link
-            $baseLink = "/MCA/" . $encodedPath; 
-            
+            $extension = normalizeExtension($entry);
+            $baseLink = buildEncodedBaseLink('MCA', $relativePath);
+            $viewerHref = buildViewerHref('MCA', $relativePath);
             $icon = getFileIcon($entry);
 
             echo "<div class='custom-file'>";
-            if (in_array($extension, $allowedExtensions)) {
-                // Pass the fully encoded path to view.php
-                echo "<a class='custom-file-link' href='view?file=$baseLink' >$icon" . htmlspecialchars($entry) . "</a>";
+            if (isViewableExtension($extension)) {
+                echo "<a class='custom-file-link' href='$viewerHref' >$icon" . htmlspecialchars($entry) . "</a>";
             } else {
                 echo "<a class='custom-file-link' href='$baseLink' download>$icon" . htmlspecialchars($entry) . "</a>";
             }
