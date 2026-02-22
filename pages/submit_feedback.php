@@ -14,14 +14,10 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // 2. Connect DB
-// BEST PRACTICE: Use a relative path or __DIR__ instead of hardcoded absolute paths
-// Adjust "../assets/components/db.php" based on your actual file structure
-$dbPath = __DIR__ . '/../assets/components/db.php'; 
+$dbPath = __DIR__ . '/../config/db.php';
 
 if (file_exists($dbPath)) {
     include($dbPath);
-} elseif (file_exists("../../components/db.php")) {
-    include("../../components/db.php");
 } else {
     echo json_encode(['status' => 'error', 'message' => 'Database file not found']);
     exit;
