@@ -98,7 +98,7 @@ function displayFolderStructure($path, $rootDirectory)
         } else {
             // --- CRITICAL FIX FOR ENCODING ---
             $allowedExtensions = ["py", "html", "pdf", "txt", "java", "cpp", "c", "sh", "css", "png", "jpeg", "jpg", "webp", "php", 'ppt', 'pptx', 'docx', 'doc', 'sql', "js"];
-            $extension = pathinfo($entry, PATHINFO_EXTENSION);
+            $extension = strtolower(pathinfo($entry, PATHINFO_EXTENSION));
             
             // 1. Break path into segments
             // Relative path starts with / usually (e.g. /SEMESTER_1/File.pdf)
