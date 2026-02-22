@@ -113,16 +113,18 @@ function displayFolderStructure($path, $rootDirectory)
             // FILE LOGIC
             $allowedExtensions = ["py", "html", "pdf", "txt", "java", "cpp", "c", "sh", "css", "png", "jpeg", "jpg", "webp", "php", 'ppt', 'pptx', 'docx', 'doc', 'sql', 'js'];
             $extension = pathinfo($entry, PATHINFO_EXTENSION);
-            $relativePathToComponents = str_replace("/assets", "", dirname($relativePath));
-            $encodedRelativePath = implode("/", array_map('rawurlencode', explode("/", $relativePathToComponents)));
-            $encodedEntry = rawurlencode($entry);
+            $cleanPath = ltrim($relativePath, '/');
+            $pathSegments = explode('/', $cleanPath);
+            $encodedSegments = array_map('rawurlencode', $pathSegments);
+            $encodedPath = implode('/', $encodedSegments);
+            $baseLink = "/BCA/" . $encodedPath;
             $icon = getFileIcon($entry);
 
             echo "<div class='custom-file'>";
             if (in_array($extension, $allowedExtensions)) {
-                echo "<a class='custom-file-link' href='view?file=/BCA$encodedRelativePath/$encodedEntry' >$icon" . htmlspecialchars($entry) . "</a>";
+                echo "<a class='custom-file-link' href='view?file=$baseLink' >$icon" . htmlspecialchars($entry) . "</a>";
             } else {
-                echo "<a class='custom-file-link' href='/BCA/$encodedRelativePath/$encodedEntry' download>$icon" . htmlspecialchars($entry) . "</a>";
+                echo "<a class='custom-file-link' href='$baseLink' download>$icon" . htmlspecialchars($entry) . "</a>";
             }
             echo "</div>";
         }
