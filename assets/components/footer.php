@@ -143,7 +143,7 @@
                     <li><a href="../../pages/mca">MCA</a></li>
                     <li><a href="../../pages/ibm">IBM</a></li>
                     <li><a href="../../pages/bba">BBA</a></li>
-                    <li><a href="../../pages/Mba">MBA</a></li>
+                    <li><a href="../../pages/mba">MBA</a></li>
                 </ul>
             </div>
 
