@@ -1,42 +1,79 @@
 <?php
-include '../vendor/autoload.php'; 
 
-// Load Environment Variables
-$dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
-$dotenv->load();
+// load composer
+$autoload = dirname(__DIR__) . '/vendor/autoload.php';
+if (file_exists($autoload)) {
+    require $autoload;
+}
 
-// 1. Environment-based Error Handling
-if (($_ENV['MODE'] ?? 'development') === "production") {
-    ini_set('display_errors', 0);  
+if (class_exists('Dotenv\Dotenv')) {
+    $dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
+    $dotenv->safeLoad();
+}
+
+// check for environment mode 
+$mode = $_ENV['MODE'] ?? 'development';
+
+if ($mode === "production") {
+    ini_set('display_errors', 0);
     error_reporting(0);
-    mysqli_report(MYSQLI_REPORT_OFF); // Don't throw exceptions in production
+    mysqli_report(MYSQLI_REPORT_OFF);
 } else {
-    ini_set('display_errors', 1);  
+    ini_set('display_errors', 1);
     error_reporting(E_ALL);
-    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT); // Help Sabbu debug!
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 }
 
 ini_set('log_errors', 1);
 
-// 2. Database credentials
-$servername = $_ENV['DB_HOST'] ?: 'localhost';
-$username   = $_ENV['DB_USER'] ?: 'root';
-$password   = $_ENV['DB_PASS'] ?: '';
-$dbname     = $_ENV['DB_NAME'] ?: 'plexaur';
+// db config
+$db_host = $_ENV['DB_HOST'] ?? 'central_db';
+$db_user = $_ENV['DB_USER'] ?? 'plexaur';
+$db_pass = $_ENV['DB_PASS'] ?? 'plexaurpass';
+$db_name = $_ENV['DB_NAME'] ?? 'plexaur';
+$db_port = $_ENV['DB_PORT'] ?? 3306;	
 
-// 3. Create connection
+if (strpos($db_host, ':') !== false) {
+    [$db_host, $db_port] = explode(':', $db_host);
+}
+
+if ($db_host === 'localhost') {
+    $db_host = '127.0.0.1';
+}
+
 try {
-    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    $conn = new mysqli(
+        $db_host,
+        $db_user,
+        $db_pass,
+        $db_name,
+        (int)$db_port
+    );
+
+    $conn->set_charset("utf8mb4");
+
 } catch (mysqli_sql_exception $e) {
-    error_log("Database connection failed: " . $e->getMessage());
+
+    error_log("DB Connection failed: " . $e->getMessage());
+
+    if ($mode !== "production") {
+        exit("Database connection failed: " . $e->getMessage());
+    }
+
     http_response_code(500);
-    exit('Internal Server Error'); 
+    exit("Internal Server Error");
 }
 
-// Final Check (For older PHP versions compatibility)
 if ($conn->connect_error) {
-    error_log("Database connection failed: " . $conn->connect_error);
+
+    error_log("DB Connection failed: " . $conn->connect_error);
+
+    if ($mode !== "production") {
+        exit("Database connection failed: " . $conn->connect_error);
+    }
+
     http_response_code(500);
-    exit('Internal Server Error'); 
+    exit("Internal Server Error");
 }
-?>
+

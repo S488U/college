@@ -10,3 +10,4 @@ load_env.php
 /.htaccess
 *.mp4
 /dumbcli
+*.sql

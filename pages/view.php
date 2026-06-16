@@ -12,7 +12,7 @@ if (isset($_GET['file'])) {
     $fileUrl = $_GET['file']; // This is DECODED by PHP (e.g. "C# & .Net")
     
     // Security check
-    $pattern = "/^\/(BCA|MCA|IBM)\/.*/";
+    $pattern = "/^\/(BCA|MCA|IBM|BA History)\/.*/";
     if (!preg_match($pattern, $fileUrl)) {
         header("Location: ./error.php");
         exit;

@@ -70,8 +70,8 @@ function displayFolderStructure($path, $rootDirectory)
         } else {
             // FILE LOGIC
             $extension = normalizeExtension($entry);
-            $baseLink = buildEncodedBaseLink('BCA', $relativePath);
-            $viewerHref = buildViewerHref('BCA', $relativePath);
+            $baseLink = buildEncodedBaseLink('BA History', $relativePath);
+            $viewerHref = buildViewerHref('BA History', $relativePath);
             $icon = getFileIcon($entry);
 
             echo "<div class='custom-file'>";

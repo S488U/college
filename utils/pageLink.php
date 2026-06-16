@@ -25,4 +25,8 @@ $courses = [
         "name" => "MBA",
         "redirectLink" => "./pages/mba.php",
     ],
+    "bah" => [
+        "name" => "BA History",
+        "redirectLink" => "./pages/ba-history.php",
+    ],
 ];

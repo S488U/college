@@ -10,59 +10,6 @@ if (!isset($_SESSION['openFolders'])) {
 
 require_once __DIR__ . '/../utils/fileLink.php';
 
-// ICON HELPER FUNCTION
-function getFileIcon($filename) {
-    $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
-
-    // Icons list (without prefix)
-    $icons = [
-        'pdf'  => 'fa-file-pdf text-danger',
-        'zip'  => 'fa-file-zipper text-warning',
-        'rar'  => 'fa-file-zipper text-warning',
-        'py'   => 'fa-python text-info',
-        'php'  => 'fa-php text-primary',
-        'html' => 'fa-html5 text-danger',
-        'css'  => 'fa-css3-alt text-primary',
-        'js'   => 'fa-square-js text-warning',
-        'c'    => 'fa-c text-primary',
-        'cpp'  => 'fa-c text-primary',
-        'java' => 'fa-java text-danger',
-        'txt'  => 'fa-file-lines text-secondary',
-        'jpg'  => 'fa-image text-info',
-        'png'  => 'fa-image text-info',
-        'jpeg' => 'fa-image text-info',
-        'ppt'  => 'fa-file-powerpoint text-warning',
-        'pptx' => 'fa-file-powerpoint text-warning',
-        'sql'  => 'fa-database text-warning',
-        'doc'  => 'fa-file-word text-primary',
-        'docx' => 'fa-file-word text-primary',
-        'sh'   => 'fa-terminal text-success',
-        'exe'  => 'fa-windows text-primary',
-		'mp4' => 'fa-video text-gray',
-    ];
-
-    // File types that use fa-brands
-    $brandIcons = [
-        'py', 'php', 'html', 'css', 'js', 'c', 'cpp', 'java', 'exe', 'js'
-    ];
-
-    // Final icon class
-    $iconClass = isset($icons[$ext]) ? $icons[$ext] : 'fa-file text-gray';
-
-    // Pick prefix
-	$prefix = (isset($icons[$ext]) && in_array($ext, $brandIcons))
-    	? 'fa-brands'
-        : 'fa-solid';
-
-    // Special override for C/C++
-    if ($ext === 'c' || $ext === 'cpp') {
-        $prefix = 'fa-solid';
-        $iconClass = 'fa-file-code text-primary';
-    }
-
-    return '<i class="' . $prefix . ' ' . $iconClass . ' me-2"></i>';
-}
-
 function displayFolderStructure($path, $rootDirectory)
 {
     $dir = opendir($path);
@@ -107,6 +54,15 @@ function displayFolderStructure($path, $rootDirectory)
             
             // Content Div
             echo '<div class="custom-content" style="display: ' . ($isOpen ? 'block' : 'none') . ';">'; 
+            if ($entry === 'Question Papers') {
+                $courseName = basename($rootDirectory);
+                echo '<div class="upload-paper-wrapper mb-2 p-2 rounded" style="background: rgba(56, 189, 248, 0.05); border: 1px dashed rgba(56, 189, 248, 0.3);">
+                        <button class="btn btn-sm btn-outline-info w-100 d-flex align-items-center justify-content-center gap-2 py-2" onclick="triggerPaperUpload(event, \'' . htmlspecialchars($courseName) . '\', \'' . htmlspecialchars($relativePath) . '\', this)" style="border-radius: 6px; font-weight: 600; font-size: 0.85rem;">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            <span>Upload Question Paper</span>
+                        </button>
+                      </div>';
+            }
             displayFolderStructure($fullPath, $rootDirectory);
 
             echo '</div>';
@@ -276,5 +232,82 @@ $rootDirectory = __DIR__;
         var formData = new FormData();
         formData.append('toggleFolder', folderPath);
         fetch('', { method: 'POST', body: formData });
+    }
+
+    function triggerPaperUpload(event, course, relativePath, btn) {
+        event.stopPropagation();
+        
+        const fileInput = document.createElement('input');
+        fileInput.type = 'file';
+        fileInput.accept = '.pdf,.doc,.docx,.png,.jpg,.jpeg,.webp';
+        
+        fileInput.onchange = function() {
+            if (this.files.length === 0) return;
+            const file = this.files[0];
+            
+            if (file.size > 20 * 1024 * 1024) {
+                alert('File size exceeds the 20MB limit.');
+                return;
+            }
+            
+            const originalContent = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin me-2"></i>Uploading...';
+            
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('course', course);
+            formData.append('path', relativePath);
+            
+            fetch('../utils/upload_paper.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('HTTP status ' + res.status);
+                }
+                return res.json();
+            })
+            .then(data => {
+                btn.disabled = false;
+                btn.innerHTML = originalContent;
+                
+                if (data.success) {
+                    const contentDiv = btn.closest('.custom-content');
+                    if (contentDiv) {
+                        const newFileDiv = document.createElement('div');
+                        newFileDiv.className = 'custom-file';
+                        
+                        let fileLinkHtml = '';
+                        if (data.isViewable) {
+                            fileLinkHtml = `<a class="custom-file-link" href="${data.viewerHref}">${data.iconHtml}${escapeHTML(data.filename)}</a>`;
+                        } else {
+                            fileLinkHtml = `<a class="custom-file-link" href="${data.baseLink}" download>${data.iconHtml}${escapeHTML(data.filename)}</a>`;
+                        }
+                        newFileDiv.innerHTML = fileLinkHtml;
+                        contentDiv.appendChild(newFileDiv);
+                    }
+                    
+                    alert('File uploaded successfully!');
+                } else {
+                    alert('Upload failed: ' + (data.error || 'Unknown error'));
+                }
+            })
+            .catch(err => {
+                btn.disabled = false;
+                btn.innerHTML = originalContent;
+                console.error(err);
+                alert('An error occurred during upload: ' + err.message);
+            });
+        };
+        
+        fileInput.click();
+    }
+
+    function escapeHTML(str) {
+        return str.replace(/[&<>"']/g, function(m) {
+            return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[m];
+        });
     }
 </script>

@@ -1,0 +1,11 @@
+networks:
+  default:
+    name: cloud-ops_cloud_net
+    external: true
+
+services:
+  college_site:
+    build: .
+    container_name: college_site
+    restart: unless-stopped
+    env_file: .env
