@@ -1,6 +1,6 @@
 networks:
   default:
-    name: cloud-ops_cloud_net
+    name: cloud_net
     external: true
 
 services:
