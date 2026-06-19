@@ -300,8 +300,12 @@
                         </div>
                         <div class="tech-item">
                             <i class="fa-solid fa-database tech-icon"></i>
-                            <span class="tech-label">MySQL</span>
-                        </div>
+                            <span class="tech-label">MariaDB</span>
+			</div>
+			<div class="tech-item">
+			    <i class="fa-brands fa-docker tech-icon"></i>
+			    <span class="tech-label">Docker</span>
+			</div>
                     </div>
                 </section>
 
